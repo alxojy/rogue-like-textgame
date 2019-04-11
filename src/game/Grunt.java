@@ -21,12 +21,6 @@ public class Grunt extends Enemy {
 
 	@Override
 	public Action playTurn(Actions actions, GameMap map, Display display) {
-		for (ActionFactory factory : actionFactories) {
-			Action action = factory.getAction(this, map);
-			if(action != null)
-				return action;
-		}
-		
 		return super.playTurn(actions,  map,  display);
 	}
 

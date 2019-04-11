@@ -1,6 +1,6 @@
 package game;
 
-import edu.monash.fit2099.engine.Actor;
+import edu.monash.fit2099.engine.*;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -22,4 +22,14 @@ public abstract class Enemy extends Actor {
         actionFactories.add(behaviour);
     }
 
+    @Override
+    public Action playTurn(Actions actions, GameMap map, Display display) {
+        for (ActionFactory factory : actionFactories) {
+            Action action = factory.getAction(this, map);
+            if(action != null)
+                return action;
+        }
+
+        return super.playTurn(actions,  map,  display);
+    }
 }
