@@ -15,13 +15,12 @@ public class Application {
 	public static void main(String[] args) {
 		World world = new World(new Display());
 
-		FancyGroundFactory groundFactory = new FancyGroundFactory(new Floor(), new Wall());
-		GameMap gameMap;
+		FancyGroundFactory groundFactory = new FancyGroundFactory(new Floor(), new Wall(), new LockedDoor());
 
 		List<String> map = Arrays.asList(
 				".......................",
 				"....#####....######....",
-				"....#...#....#....#....",
+				"..+.#...#....#....#....",
 				"....#........#....#....",
 				"....#####....##.###....",
 				".......................",
@@ -30,19 +29,32 @@ public class Application {
 				".......................",
 				".......................",
 				".......................");
-		gameMap = new GameMap(groundFactory, map);
-		world.addMap(gameMap);
-		
-		Actor player = new Player("Player", '@', 1, 100);
-		world.addPlayer(player, gameMap, 2, 2);
-		
-		Grunt grunt = new Grunt("Mongo", player);
-		gameMap.addActor(grunt, 0, 0);
-		Grunt grunt2 = new Grunt("Norbert", player);
-		gameMap.addActor(grunt2,  10, 10);
+        GameMap startMap = new GameMap(groundFactory, map);
+		world.addMap(startMap);
 
-		Q q = new Q();
-		gameMap.addActor(q, 5, 5);
+        Actor player = new Player("Player", '@', 1, 100);
+        world.addPlayer(player, startMap, 2, 2);
+
+        Grunt grunt = new Grunt("Mongo", player);
+        startMap.addActor(grunt, 0, 0);
+        Grunt grunt2 = new Grunt("Norbert", player);
+        startMap.addActor(grunt2,  10, 10);
+
+        Q q = new Q();
+        startMap.addActor(q, 5, 5);
+
+        List<String> drMaybeLockedRoom = Arrays.asList(
+                ".........###.",
+                "...###.......",
+                ".............",
+                "........###..",
+                "...#.........",
+                "..........#..");
+        GameMap drMaybeMap = new GameMap(groundFactory, drMaybeLockedRoom);
+        world.addMap(drMaybeMap);
+
+        DrMaybe drMaybe = new DrMaybe("Dr Maybe");
+
 		world.run();
 	}
 }

@@ -21,4 +21,5 @@ public class TalkAction extends Action {
     public String hotKey() {
         return "";
     }
+    
 }

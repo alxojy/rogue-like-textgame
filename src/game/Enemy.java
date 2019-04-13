@@ -7,6 +7,8 @@ import java.util.List;
 
 public abstract class Enemy extends Actor {
 
+    protected List<Item> inventory = new ArrayList<Item>();
+
     Enemy(String name, char displayChar, int priority, int hitPoints) {
         super(name, displayChar, priority, hitPoints);
     }
@@ -26,10 +28,25 @@ public abstract class Enemy extends Actor {
     public Action playTurn(Actions actions, GameMap map, Display display) {
         for (ActionFactory factory : actionFactories) {
             Action action = factory.getAction(this, map);
-            if(action != null)
+            if(action != null) {
                 return action;
+            }
         }
-
         return super.playTurn(actions,  map,  display);
     }
+
+    @Override
+    public List<Item> getInventory() {
+        if (!super.isConscious()) {
+            inventory.add(createKey());
+        }
+        return inventory;
+    }
+
+    private Item createKey() {
+        Item key = new Item("key", 'K');
+        key.addSkill(GameSkills.UNLOCKDOOR);
+        return key;
+    }
+
 }
