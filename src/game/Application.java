@@ -53,7 +53,8 @@ public class Application {
         GameMap drMaybeMap = new GameMap(groundFactory, drMaybeLockedRoom);
         world.addMap(drMaybeMap);
 
-        DrMaybe drMaybe = new DrMaybe("Dr Maybe");
+        DrMaybe drMaybe = new DrMaybe();
+        drMaybeMap.addActor(drMaybe, 5, 5);
 
 		world.run();
 	}
