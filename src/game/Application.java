@@ -19,16 +19,16 @@ public class Application {
 
 		List<String> map = Arrays.asList(
 				".......................",
-				"....#####....######....",
-				"..+.#...#....#....#....",
-				"....#........#....#....",
-				"....#####....##.###....",
+				"....######.............",
+				"....#....#.........^...",
+				"....#....+.............",
+				"....######.............",
 				".......................",
 				".......................",
-				".......................",
-				".......................",
-				".......................",
-				".......................");
+				".............######....",
+				".............+....#....",
+				".............#....#....",
+				".............######....");
         GameMap startMap = new GameMap(groundFactory, map);
 		world.addMap(startMap);
 
@@ -40,21 +40,8 @@ public class Application {
         Grunt grunt2 = new Grunt("Norbert", player);
         startMap.addActor(grunt2,  10, 10);
 
-        Q q = new Q();
-        startMap.addActor(q, 5, 5);
-
-        List<String> drMaybeLockedRoom = Arrays.asList(
-                ".........###.",
-                "...###.......",
-                ".............",
-                "........###..",
-                "...#.........",
-                "..........#..");
-        GameMap drMaybeMap = new GameMap(groundFactory, drMaybeLockedRoom);
-        world.addMap(drMaybeMap);
-
         DrMaybe drMaybe = new DrMaybe();
-        drMaybeMap.addActor(drMaybe, 5, 5);
+        startMap.addActor(drMaybe, 6, 3);
 
 		world.run();
 	}

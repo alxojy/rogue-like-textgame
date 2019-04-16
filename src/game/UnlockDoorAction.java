@@ -10,12 +10,7 @@ import java.util.Random;
 
 public class UnlockDoorAction extends Action {
 
-    private String direction;
-    private Location doorLocation;
-
-    public UnlockDoorAction(String direction, Location doorLocation) {
-        this.direction = direction;
-        this.doorLocation = doorLocation;
+    public UnlockDoorAction() {
     }
 
     @Override

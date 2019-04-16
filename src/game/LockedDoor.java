@@ -21,7 +21,7 @@ public class LockedDoor extends Ground {
     public Actions allowableActions(Actor actor, Location location, String direction){
         Actions actions = new Actions();
         if (canActorEnter(actor)) {
-            actions.add(new UnlockDoorAction(direction, location));
+            actions.add(new UnlockDoorAction());
         }
         actions.add(new SkipTurnAction());
         return actions;

@@ -3,11 +3,12 @@ package game;
 import edu.monash.fit2099.engine.*;
 
 import java.util.ArrayList;
+import java.util.ConcurrentModificationException;
 import java.util.List;
 
 public abstract class Enemy extends Actor {
 
-    protected List<Item> inventory = new ArrayList<Item>();
+    protected List<Item> inventory = new ArrayList<>();
 
     Enemy(String name, char displayChar, int priority, int hitPoints) {
         super(name, displayChar, priority, hitPoints);
@@ -39,7 +40,7 @@ public abstract class Enemy extends Actor {
     public List<Item> getInventory() {
         if (!super.isConscious()) {
             inventory.add(createKey());
-        }
+            }
         return inventory;
     }
 
