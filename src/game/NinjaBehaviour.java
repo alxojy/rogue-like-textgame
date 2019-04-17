@@ -2,11 +2,14 @@ package game;
 
 import edu.monash.fit2099.engine.*;
 
+import java.util.Random;
+
 public class NinjaBehaviour implements ActionFactory {
 
     private Actor target;
+    private Random rand = new Random();
 
-    public NinjaBehaviour(Actor subject) {
+    NinjaBehaviour(Actor subject) {
         this.target = subject;
     }
 
@@ -19,13 +22,14 @@ public class NinjaBehaviour implements ActionFactory {
         for (Exit exit : here.getExits()) {
             Location destination = exit.getDestination();
             if (destination.canActorEnter(actor)) {
-                if (currentDistance <= 5) {
-                    new StunAttackAction(actor, target);
-                    return new MoveActorAction(destination, exit.getName());
+                if (currentDistance <= 5 && rand.nextBoolean()) {
+                    return new StunAttackAction(actor, target);
+                }
+                else if (currentDistance > 5 || !rand.nextBoolean()) {
+                    return new SkipTurnAction();
                 }
             }
         }
-
         return null;
     }
 
