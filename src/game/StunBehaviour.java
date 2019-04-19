@@ -4,13 +4,13 @@ import edu.monash.fit2099.engine.*;
 
 import java.util.Random;
 
-public class StunAttackAction extends AttackAction {
+public class StunBehaviour extends AttackAction implements ActionFactory {
 
     private Actor actor;
     private Actor subject;
     private Random rand = new Random();
 
-    StunAttackAction(Actor actor, Actor subject) {
+    StunBehaviour(Actor actor, Actor subject) {
         super(actor, subject);
         this.actor = actor;
         this.subject = subject;
@@ -18,7 +18,7 @@ public class StunAttackAction extends AttackAction {
 
     @Override
     public String execute(Actor actor, GameMap map) {
-        WeaponItem stunPowderBag = new WeaponItem("stun powder bag", 's', 10, "stuns");
+        WeaponItem stunPowderBag = new WeaponItem("stun powder bag", 's', 5, "stuns");
 
         if (subject instanceof GamePlayer) {
             if (((GamePlayer) subject).getPlayerStunned()) {
@@ -59,4 +59,36 @@ public class StunAttackAction extends AttackAction {
         return "";
     }
 
+    @Override
+    public Action getAction(Actor actor, GameMap map) {
+        if (actor instanceof Ninja) {
+            Ninja ninja = (Ninja) actor;
+            Location here = map.locationOf(ninja);
+            Location there = map.locationOf(subject);
+
+            int currentDistance = distance(here, there);
+            for (Exit exit : here.getExits()) {
+                Location destination = exit.getDestination();
+                if (destination.canActorEnter(ninja)) {
+                    if (currentDistance <= 5 && !ninja.getStunAttackExecuted()) {
+                        return this;
+                    }
+                    int newDistance = distance(destination, there);
+                    if (newDistance > currentDistance && ninja.getStunAttackExecuted()) {
+                        ninja.setStunAttackExecuted(false);
+                        return new MoveActorAction(destination, exit.getName());
+                    }
+                    else if (currentDistance > 5) {
+                        return new SkipTurnAction();
+                    }
+                }
+            }
+        }
+        return null;
+    }
+
+    // Manhattan distance.
+    private int distance(Location a, Location b) {
+        return Math.abs(a.x() - b.x()) + Math.abs(a.y() - b.y());
+    }
 }

@@ -4,21 +4,22 @@ import edu.monash.fit2099.engine.*;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
 public class Goon extends Enemy {
 
+    private Random rand;
+
     public Goon(String name, Actor player) {
-        super(name, 'G', 5, 50, new FollowBehaviour(player));
+        super(name, 'G', 5, 50);
+        super.addBehaviour(new FollowBehaviour(player));
+        super.addBehaviour(new ShoutInsultBehaviour(player));
     }
-
-    @Override
-    public Action playTurn(Actions actions, GameMap map, Display display) {
-        return super.playTurn(actions,  map,  display);
-    }
-
+ /*
     @Override
     //must implement 10% chance tmr
     protected IntrinsicWeapon getIntrinsicWeapon() {
         return new IntrinsicWeapon(2, "shouts insults at");
     }
+    */
 }

@@ -39,6 +39,8 @@ public class Application {
         //startMap.addActor(grunt, 0, 0);
         //Grunt grunt2 = new Grunt("Norbert", player);
         //startMap.addActor(grunt2,  10, 10);
+		//Goon goon = new Goon("Mongo", player);
+		//startMap.addActor(goon, 0, 0);
         Ninja ninja1 = new Ninja("Ninjz", player);
         startMap.addActor(ninja1, 2, 4);
 
