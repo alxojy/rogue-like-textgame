@@ -21,7 +21,7 @@ public class BuildRocketAction extends Action {
 
     @Override
     public String menuDescription(Actor actor) {
-        return subject + " created a rocket";
+        return subject + " creates a rocket";
     }
 
     @Override

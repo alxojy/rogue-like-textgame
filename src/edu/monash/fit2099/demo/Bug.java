@@ -22,8 +22,8 @@ public class Bug extends Actor {
 			if(action != null)
 				return action;
 		}
-		
-		return actions.get(rand.nextInt(actions.size()));
+		return super.playTurn(actions, map, display);
+		//return actions.get(rand.nextInt(actions.size()));
 	}
 
 	@Override

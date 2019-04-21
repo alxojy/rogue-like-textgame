@@ -10,11 +10,17 @@ import java.util.Random;
 
 public class UnlockDoorAction extends Action {
 
-    public UnlockDoorAction() {
+    private String direction;
+    private Location doorLocation;
+
+    public UnlockDoorAction(String direction, Location doorLocation) {
+        this.direction = direction;
+        this.doorLocation = doorLocation;
     }
 
     @Override
     public String execute(Actor actor, GameMap map) {
+        map.add(new Floor(), doorLocation);
         return "The door is unlocked";
 
     }

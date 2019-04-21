@@ -5,18 +5,13 @@ import edu.monash.fit2099.engine.*;
 import java.util.ArrayList;
 import java.util.ConcurrentModificationException;
 import java.util.List;
+import java.util.Random;
 
 public abstract class Enemy extends Actor {
 
-    protected List<Item> inventory = new ArrayList<>();
-
     Enemy(String name, char displayChar, int priority, int hitPoints) {
         super(name, displayChar, priority, hitPoints);
-    }
-
-    Enemy(String name, char displayChar, int priority, int hitPoints, ActionFactory behaviour) {
-        super(name, displayChar, priority, hitPoints);
-        addBehaviour(behaviour);
+        addItemToInventory(createKey());
     }
 
     private List<ActionFactory> actionFactories = new ArrayList<>();
@@ -32,20 +27,15 @@ public abstract class Enemy extends Actor {
             if(action != null) {
                 return action;
             }
+            else {
+                return new SkipTurnAction();
+            }
         }
         return super.playTurn(actions,  map,  display);
     }
 
-    @Override
-    public List<Item> getInventory() {
-        if (!super.isConscious()) {
-            inventory.add(createKey());
-            }
-        return inventory;
-    }
-
     private Item createKey() {
-        Item key = new Item("key", 'K');
+        Item key = Item.newInventoryItem("key", 'K');
         key.addSkill(GameSkills.UNLOCKDOOR);
         return key;
     }

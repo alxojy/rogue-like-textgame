@@ -22,6 +22,7 @@ public class GamePlayer extends Player {
             setPlayerStunned(false);
         }
         return super.playTurn(actions, map, display);
+
     }
 
     private void incrementCounter() {

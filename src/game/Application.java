@@ -3,12 +3,7 @@ package game;
 import java.util.Arrays;
 import java.util.List;
 
-import edu.monash.fit2099.engine.Actor;
-import edu.monash.fit2099.engine.Display;
-import edu.monash.fit2099.engine.FancyGroundFactory;
-import edu.monash.fit2099.engine.GameMap;
-import edu.monash.fit2099.engine.Player;
-import edu.monash.fit2099.engine.World;
+import edu.monash.fit2099.engine.*;
 
 public class Application {
 
@@ -33,10 +28,10 @@ public class Application {
 		world.addMap(startMap);
 
         Actor player = new GamePlayer("Player", '@', 1, 100);
-        world.addPlayer(player, startMap, 10, 2);
+        world.addPlayer(player, startMap, 8, 2);
 
-        //Grunt grunt = new Grunt("Mongo", player);
-        //startMap.addActor(grunt, 0, 0);
+        Grunt grunt = new Grunt("Mongo", player);
+        startMap.addActor(grunt, 0, 0);
         //Grunt grunt2 = new Grunt("Norbert", player);
         //startMap.addActor(grunt2,  10, 10);
 		//Goon goon = new Goon("Mongo", player);

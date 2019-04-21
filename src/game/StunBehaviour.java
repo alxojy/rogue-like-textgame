@@ -25,7 +25,7 @@ public class StunBehaviour extends AttackAction implements ActionFactory {
                 return actor + " misses " + subject + ".";
             } else {
                 if (rand.nextBoolean()) {
-                    return actor + " misses " + subject + ".";
+                    return actor + " misses " + subject;
                 }
 
                 int damage = stunPowderBag.damage();
@@ -61,30 +61,25 @@ public class StunBehaviour extends AttackAction implements ActionFactory {
 
     @Override
     public Action getAction(Actor actor, GameMap map) {
-        if (actor instanceof Ninja) {
-            Ninja ninja = (Ninja) actor;
-            Location here = map.locationOf(ninja);
-            Location there = map.locationOf(subject);
 
-            int currentDistance = distance(here, there);
-            for (Exit exit : here.getExits()) {
-                Location destination = exit.getDestination();
-                if (destination.canActorEnter(ninja)) {
-                    if (currentDistance <= 5 && !ninja.getStunAttackExecuted()) {
-                        return this;
-                    }
-                    int newDistance = distance(destination, there);
-                    if (newDistance > currentDistance && ninja.getStunAttackExecuted()) {
-                        ninja.setStunAttackExecuted(false);
-                        return new MoveActorAction(destination, exit.getName());
-                    }
-                    else if (currentDistance > 5) {
-                        return new SkipTurnAction();
-                    }
+        Location here = map.locationOf(actor);
+        Location there = map.locationOf(subject);
+
+        int currentDistance = distance(here, there);
+        for (Exit exit : here.getExits()) {
+            Location destination = exit.getDestination();
+            if (destination.canActorEnter(actor)) {
+                int newDistance = distance(destination, there);
+                if (currentDistance <= 5 && newDistance > currentDistance) {
+                    System.out.println(execute(actor, map));
+                    return new MoveActorAction(destination, exit.getName());
+                }
+                else if (currentDistance > 5) {
+                    return new SkipTurnAction();
                 }
             }
         }
-        return null;
+    return null;
     }
 
     // Manhattan distance.
