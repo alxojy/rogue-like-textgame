@@ -4,7 +4,7 @@ import edu.monash.fit2099.engine.*;
 
 public class GamePlayer extends Player {
 
-    private int counter = 0;
+    private MaxCounter counter = new MaxCounter(3);
     private boolean stunnedPlayer = false;
 
     public GamePlayer(String name, char displayChar, int priority, int hitPoints) {
@@ -13,25 +13,26 @@ public class GamePlayer extends Player {
 
     @Override
     public Action playTurn(Actions actions, GameMap map, Display display) {
-        if (getPlayerStunned() && counter < 2) {
-            incrementCounter();
+        if (getPlayerStunned() && counter.canIncrement()) {
+            counter.increment();
             return super.playTurn(new Actions(new SkipTurnAction()), map, display);
         }
-        else if (counter == 2) {
-            resetCounter();
+        else if (!counter.canIncrement()) {
             setPlayerStunned(false);
+            counter.increment();
         }
         return super.playTurn(actions, map, display);
 
     }
 
-    private void incrementCounter() {
+
+   /** private void incrementCounter() {
         counter += 1;
     }
 
     private void resetCounter() {
         counter = 0;
-    }
+    }*/
 
     public void setPlayerStunned(boolean stunStatus) {
         stunnedPlayer = stunStatus;
