@@ -26,7 +26,7 @@ public class RocketPad extends Ground {
                 actions.add(new BuildRocketAction(actor));
             }
         }*/
-        if (actor instanceof Player) {
+        if (actor instanceof GamePlayer) {
             actions.add(new BuildRocketAction(actor));
         }
         return actions;
