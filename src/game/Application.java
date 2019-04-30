@@ -40,8 +40,7 @@ public class Application {
         startMap.addActor(ninja1, 2, 4);
 
         DrMaybe drMaybe = new DrMaybe();
-6
-	startMap.addActor(drMaybe, 6, 3);
+        startMap.addActor(drMaybe, 6, 3);
 
 		world.run();
 	}
