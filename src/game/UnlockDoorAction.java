@@ -22,7 +22,6 @@ public class UnlockDoorAction extends Action {
     public String execute(Actor actor, GameMap map) {
         map.add(new Floor(), doorLocation);
         return "The door is unlocked";
-
     }
 
     @Override
