@@ -31,6 +31,10 @@ public class Q extends Actor {
 
     @Override
     public Actions getAllowableActions(Actor otherActor, String direction, GameMap map) {
+        Actions actions = new Actions();
+        actions.add(new TalkAction());
+        actions.add(new GivePlansAction(otherActor));
+
         return new Actions(new TalkAction());
     }
 }
