@@ -38,9 +38,7 @@ public class Q extends Actor {
             }
         }
         actions.add(new TalkAction(this, otherActor));
-
-
-            return actions;
+        return actions;
     }
 }
 

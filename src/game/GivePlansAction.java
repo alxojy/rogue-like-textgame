@@ -21,12 +21,12 @@ public class GivePlansAction extends Action {
                 actor.removeItemFromInventory(item);
             }
         }
-        return "Rocket Body is added to the Player's Inventory\nRocket Plan is removed from Player's inventory";
+        return "Rocket body is added to the Player's inventory\nRocket plan is removed from Player's inventory";
     }
 
     @Override
     public String menuDescription(Actor actor) {
-        return subject + " substitutes Rocket Plan for Rocket Body";
+        return subject + " substitutes rocket plan for rocket body";
     }
 
     @Override
@@ -35,8 +35,9 @@ public class GivePlansAction extends Action {
     }
 
     private void addRocketBody(Actor actor) {
-        Item rocketBody = new Item("Rocket Body", 'B');
+        Item rocketBody = new Item("rocket body", 'B');
         rocketBody.addSkill(GameSkills.BUILDROCKETTOP);
         actor.addItemToInventory(rocketBody);
     }
+
     }
