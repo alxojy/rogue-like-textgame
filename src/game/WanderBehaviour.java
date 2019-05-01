@@ -15,14 +15,14 @@ public class WanderBehaviour implements ActionFactory {
         Location here = map.locationOf(actor);
         Location destination = null;
         String direction = "";
-        List<Exit> posMoves = here.getExits();
+        List<Exit> exits = here.getExits();
         boolean flag = false;
 
         while (!flag) {
 
-            int ranNum = rand.nextInt(posMoves.size());
-            destination = posMoves.get(ranNum).getDestination();
-            direction = posMoves.get(ranNum).getName();
+            int ranNum = rand.nextInt(exits.size());
+            destination = exits.get(ranNum).getDestination();
+            direction = exits.get(ranNum).getName();
 
             if (destination.canActorEnter(actor)) {
                 flag = true;

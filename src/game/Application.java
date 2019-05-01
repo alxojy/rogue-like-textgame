@@ -32,26 +32,21 @@ public class Application {
 
         Grunt grunt = new Grunt("Mongo", player);
         startMap.addActor(grunt, 0, 0);
-        //Grunt grunt2 = new Grunt("Norbert", player);
-        //startMap.addActor(grunt2,  10, 10);
-		//Goon goon = new Goon("Mongo", player);
+		//Goon goon = new Goon("Goon", player);
 		//startMap.addActor(goon, 0, 0);
-        Ninja ninja1 = new Ninja("Ninjz", player);
+        Ninja ninja1 = new Ninja("Ninjah", player);
         startMap.addActor(ninja1, 2, 4);
 
         DrMaybe drMaybe = new DrMaybe();
         startMap.addActor(drMaybe, 6, 3);
 
-		Item rocketPlan = new Item("Rocket Plan", 'P');
+		Item rocketPlan = new Item("rocket plan", 'P');
 		rocketPlan.addSkill(GameSkills.GETROCKETBODY);
 		startMap.addItem(rocketPlan, 2, 8);
 		//startMap.addItem(rocketPlan, 15, 8);
 
 		Q q = new Q();
 		startMap.addActor(q,3,8);
-
-
-
 
 		world.run();
 	}
