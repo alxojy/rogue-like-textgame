@@ -10,7 +10,7 @@ public class WanderBehaviour implements ActionFactory {
     This class implements the wander behaviour of Q whereby it is wandering around the map
      */
     private Random rand = new Random();
-    
+
     public Action getAction(Actor actor, GameMap map) {
         Location here = map.locationOf(actor);
         Location destination = null;
@@ -20,26 +20,18 @@ public class WanderBehaviour implements ActionFactory {
 
         while (!flag) {
 
-            int ranNum = rand.nextInt(4);
+            int ranNum = rand.nextInt(posMoves.size());
             destination = posMoves.get(ranNum).getDestination();
             direction = posMoves.get(ranNum).getName();
-            System.out.println(destination.x());
-            System.out.println(destination.y());
-            if( destination.canActorEnter(actor)){
-                try{
-                    map.moveActor(actor,destination);
-                    flag = true;
-                }
-                catch (IndexOutOfBoundsException e){
-                    flag = false;
-                }
 
+            if (destination.canActorEnter(actor)) {
+                flag = true;
             }
-        }
-            return new MoveActorAction(destination, direction);
-        }
-    }
 
+        }
+        return new MoveActorAction(destination, direction);
+    }
+}
 
 
 
