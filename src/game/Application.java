@@ -42,7 +42,7 @@ public class Application {
         DrMaybe drMaybe = new DrMaybe();
         startMap.addActor(drMaybe, 6, 3);
 
-		Item rocketPlan = new Item("Rocket Plan", 'P');
+		Item rocketPlan = new Item("rocket plan", 'P');
 		rocketPlan.addSkill(GameSkills.GETROCKETBODY);
 		startMap.addItem(rocketPlan, 2, 8);
 		//startMap.addItem(rocketPlan, 15, 8);
