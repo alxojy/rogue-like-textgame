@@ -34,7 +34,6 @@ public class Q extends Actor {
         Actions actions = new Actions();
         actions.add(new TalkAction());
         actions.add(new GivePlansAction(otherActor));
-
-        return new Actions(new TalkAction());
+        return actions;
     }
 }
