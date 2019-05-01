@@ -8,17 +8,22 @@ import edu.monash.fit2099.engine.Item;
 
 public class GivePlansAction extends Action {
     private Actor subject;
-    GivePlansAction(Actor actor) {
+    private Actor Q;
+    GivePlansAction(Actor actor,Actor Q) {
         subject = actor;
+        this.Q = Q;
+
     }
 
     @Override
-    public String execute(Actor actor, GameMap map) {
+    public String execute(Actor player, GameMap map) {
 
-        for (Item item : actor.getInventory()){
+        for (Item item : player.getInventory()){
             if ((item.hasSkill(GameSkills.GETROCKETBODY))) {
-                addRocketBody(actor);
-                actor.removeItemFromInventory(item);
+                addRocketBody(player);
+                player.removeItemFromInventory(item);
+                map.removeActor(Q);
+                System.out.println("Q disappeared with a cherry wave.");
             }
         }
         return "Rocket Body is added to the Player's Inventory\nRocket Plan is removed from Player's inventory";

@@ -34,7 +34,7 @@ public class Q extends Actor {
         Actions actions = new Actions();
         for (Item item : otherActor.getInventory()) {
             if ((item.hasSkill(GameSkills.GETROCKETBODY))) {
-                actions.add(new GivePlansAction(otherActor));
+                actions.add(new GivePlansAction(otherActor, this));
             }
         }
         actions.add(new TalkAction(this, otherActor));
