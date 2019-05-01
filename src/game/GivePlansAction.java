@@ -14,6 +14,7 @@ public class GivePlansAction extends Action {
 
     @Override
     public String execute(Actor actor, GameMap map) {
+
         //if actor.getInventory()
         addRocketBody(actor);
         return "rocket is added ";

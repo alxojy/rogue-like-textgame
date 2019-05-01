@@ -42,6 +42,9 @@ public class Application {
         DrMaybe drMaybe = new DrMaybe();
         startMap.addActor(drMaybe, 6, 3);
 
+		Item rocketPlan = new Item("Rocket Plan", 'P');
+		startMap.addItem(rocketPlan, 15, 8);
+
 		world.run();
 	}
 }
