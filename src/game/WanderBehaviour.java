@@ -11,25 +11,27 @@ public class WanderBehaviour implements ActionFactory {
      */
     private Random rand = new Random();
 
-    @Override
     public Action getAction(Actor actor, GameMap map) {
         Location here = map.locationOf(actor);
-        List<Exit> possibleMoves = here.getExits();
-        String direction;
-        int randomNumber = rand.nextInt(possibleMoves.size());
+        Location destination = null;
+        String direction = "";
+        List<Exit> posMoves = here.getExits();
+        boolean flag = false;
 
-        Location destination = possibleMoves.get(randomNumber).getDestination();
-        direction = possibleMoves.get(randomNumber).getName();
+        while (!flag) {
 
-        if (destination.canActorEnter(actor)) {
-            return new MoveActorAction(destination, direction);
+            int ranNum = rand.nextInt(posMoves.size());
+            destination = posMoves.get(ranNum).getDestination();
+            direction = posMoves.get(ranNum).getName();
+
+            if (destination.canActorEnter(actor)) {
+                flag = true;
+            }
+
         }
-
-        return null;
+        return new MoveActorAction(destination, direction);
     }
-
-    }
-
+}
 
 
 

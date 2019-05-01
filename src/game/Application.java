@@ -46,7 +46,7 @@ public class Application {
 		//startMap.addItem(rocketPlan, 15, 8);
 
 		Q q = new Q();
-		startMap.addActor(q,15,0);
+		startMap.addActor(q,3,8);
 
 		world.run();
 	}

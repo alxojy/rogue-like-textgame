@@ -37,6 +37,6 @@ public class GivePlansAction extends Action {
     private void addRocketBody(Actor actor) {
         Item rocketBody = new Item("Rocket Body", 'B');
         rocketBody.addSkill(GameSkills.BUILDROCKETTOP);
-        actor.getInventory().add(rocketBody);
+        actor.addItemToInventory(rocketBody);
     }
     }
