@@ -32,9 +32,15 @@ public class Q extends Actor {
     @Override
     public Actions getAllowableActions(Actor otherActor, String direction, GameMap map) {
         Actions actions = new Actions();
-        actions.add(new TalkAction());
-        actions.add(new GivePlansAction(otherActor));
+        for (Item item : otherActor.getInventory()) {
+            if ((item.hasSkill(GameSkills.GETROCKETBODY))) {
+                actions.add(new GivePlansAction(otherActor));
+            }
+        }
+        actions.add(new TalkAction(this, otherActor));
 
-        return new Actions(new TalkAction());
+
+            return actions;
     }
 }
+

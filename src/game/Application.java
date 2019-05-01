@@ -43,7 +43,15 @@ public class Application {
         startMap.addActor(drMaybe, 6, 3);
 
 		Item rocketPlan = new Item("Rocket Plan", 'P');
-		startMap.addItem(rocketPlan, 15, 8);
+		rocketPlan.addSkill(GameSkills.GETROCKETBODY);
+		startMap.addItem(rocketPlan, 2, 8);
+		//startMap.addItem(rocketPlan, 15, 8);
+
+		Q q = new Q();
+		startMap.addActor(q,15,0);
+
+
+
 
 		world.run();
 	}

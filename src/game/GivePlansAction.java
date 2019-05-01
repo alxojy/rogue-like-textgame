@@ -15,14 +15,18 @@ public class GivePlansAction extends Action {
     @Override
     public String execute(Actor actor, GameMap map) {
 
-        //if actor.getInventory()
-        addRocketBody(actor);
-        return "rocket is added ";
+        for (Item item : actor.getInventory()){
+            if ((item.hasSkill(GameSkills.GETROCKETBODY))) {
+                addRocketBody(actor);
+                actor.removeItemFromInventory(item);
+            }
+        }
+        return "Rocket Body is added to the Player's Inventory\nRocket Plan is removed from Player's inventory";
     }
 
     @Override
     public String menuDescription(Actor actor) {
-        return subject + " creates a rocket";
+        return subject + " substitutes Rocket Plan for Rocket Body";
     }
 
     @Override
