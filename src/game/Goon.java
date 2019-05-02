@@ -8,18 +8,15 @@ import java.util.Random;
 
 public class Goon extends Enemy {
 
-    private Random rand;
-
     public Goon(String name, Actor player) {
         super(name, 'G', 5, 50);
-        super.addBehaviour(new FollowBehaviour(player));
-        super.addBehaviour(new ShoutInsultBehaviour(player));
+        addBehaviour(new ShoutInsultBehaviour(player));
+        addBehaviour(new FollowBehaviour(player));
     }
- /*
+
     @Override
-    //must implement 10% chance tmr
     protected IntrinsicWeapon getIntrinsicWeapon() {
-        return new IntrinsicWeapon(2, "shouts insults at");
+        return new IntrinsicWeapon(1, "punches");
     }
-    */
+
 }
