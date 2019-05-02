@@ -22,22 +22,28 @@ public abstract class Enemy extends Actor {
 
     @Override
     public Action playTurn(Actions actions, GameMap map, Display display) {
+        Action actionToReturn = new SkipTurnAction();
         for (ActionFactory factory : actionFactories) {
             Action action = factory.getAction(this, map);
             if(action != null) {
                 return action;
             }
-            else {
-                return new SkipTurnAction();
+        }
+        for (Action action: actions) {
+            if (!(action instanceof DropItemAction)) {
+                return action;
             }
         }
-        return super.playTurn(actions,  map,  display);
+        return actionToReturn;
     }
 
+    /**
+     * This method instantiates a new Item object that represents a key in the game
+     * @return an Item key, that has skill GameSkills.UNLOCKDOOR
+     */
     private Item createKey() {
         Item key = Item.newInventoryItem("key", 'K');
         key.addSkill(GameSkills.UNLOCKDOOR);
         return key;
     }
-
 }

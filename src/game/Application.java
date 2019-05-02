@@ -15,14 +15,14 @@ public class Application {
 		List<String> map = Arrays.asList(
 				".......................",
 				"....######.............",
-				"....#....#.............",
+				"....#....#.........^...",
 				"....#....+.............",
 				"....######.............",
 				".......................",
 				".......................",
 				".............######....",
 				".............+....#....",
-				"^............#....#....",
+				".............#....#....",
 				".............######....");
         GameMap startMap = new GameMap(groundFactory, map);
 		world.addMap(startMap);
@@ -31,18 +31,14 @@ public class Application {
         world.addPlayer(player, startMap, 8, 2);
 
         Grunt grunt = new Grunt("Mongo", player);
-        startMap.addActor(grunt, 2, 7);
-		//startMap.addActor(grunt, 0, 0);
-
-		//Goon goon = new Goon("Goon", player);
-		//startMap.addActor(goon, 0, 0);
+        startMap.addActor(grunt, 0, 0);
+		Goon goon = new Goon("Goon", player);
+		startMap.addActor(goon, 1, 7);
         Ninja ninja1 = new Ninja("Ninjah", player);
         startMap.addActor(ninja1, 2, 4);
 
         DrMaybe drMaybe = new DrMaybe();
-        //startMap.addActor(drMaybe, 6, 3);
-		startMap.addActor(drMaybe, 2, 9);
-
+        startMap.addActor(drMaybe, 6, 3);
 
 		Item rocketPlan = new Item("rocket plan", 'P');
 		rocketPlan.addSkill(GameSkills.GETROCKETBODY);
