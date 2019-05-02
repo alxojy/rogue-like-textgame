@@ -43,7 +43,7 @@ public class GivePlansAction extends Action {
     }
 
     private Item createRocketBody() {
-        Item rocketBody = new Item("rocket body", 'B');
+        Item rocketBody = Item.newInventoryItem("rocket body", 'B');
         rocketBody.addSkill(GameSkills.BUILDROCKETTOP);
         return rocketBody;
     }
