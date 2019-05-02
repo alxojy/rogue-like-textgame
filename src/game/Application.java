@@ -40,13 +40,12 @@ public class Application {
         DrMaybe drMaybe = new DrMaybe();
         startMap.addActor(drMaybe, 6, 3);
 
+		Q q = new Q();
+		startMap.addActor(q,3,8);
+
 		Item rocketPlan = new Item("rocket plans", 'P');
 		rocketPlan.addSkill(GameSkills.GETROCKETBODY);
 		startMap.addItem(rocketPlan, 15, 8);
-		//startMap.addItem(rocketPlan, 15, 8);
-
-		Q q = new Q();
-		startMap.addActor(q,3,8);
 
 		world.run();
 	}

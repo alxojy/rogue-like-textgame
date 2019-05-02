@@ -9,7 +9,7 @@ public class DrMaybe extends Actor {
     private Random rand = new Random();
 
     DrMaybe() {
-        super("Dr Maybe", 'M', 10, 25);
+        super("Dr Maybe", 'M', 10, 2);
         addItemToInventory(createRocketEngine());
     }
 

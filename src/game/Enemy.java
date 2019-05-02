@@ -9,19 +9,21 @@ import java.util.Random;
 
 public abstract class Enemy extends Actor {
 
+    private GameMap map;
+    private List<ActionFactory> actionFactories = new ArrayList<>();
+
     Enemy(String name, char displayChar, int priority, int hitPoints) {
         super(name, displayChar, priority, hitPoints);
         addItemToInventory(createKey());
     }
 
-    private List<ActionFactory> actionFactories = new ArrayList<>();
-
-    public void addBehaviour(ActionFactory behaviour) {
+    protected void addBehaviour(ActionFactory behaviour) {
         actionFactories.add(behaviour);
     }
 
     @Override
     public Action playTurn(Actions actions, GameMap map, Display display) {
+        this.map = map;
         Action actionToReturn = new SkipTurnAction();
         for (ActionFactory factory : actionFactories) {
             Action action = factory.getAction(this, map);
@@ -48,5 +50,9 @@ public abstract class Enemy extends Actor {
         Item key = Item.newInventoryItem("key", 'K');
         key.addSkill(GameSkills.UNLOCKDOOR);
         return key;
+    }
+
+    public void removeActor(Actor actor){
+        map.removeActor(actor);
     }
 }

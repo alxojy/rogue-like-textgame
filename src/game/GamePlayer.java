@@ -6,7 +6,7 @@ public class GamePlayer extends Player {
 
     private MaxCounter counter = new MaxCounter(3);
     private boolean stunnedPlayer = false;
-    private GameMap map ;
+    private GameMap map;
 
     public GamePlayer(String name, char displayChar, int priority, int hitPoints) {
         super(name, displayChar, priority, hitPoints);

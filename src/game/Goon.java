@@ -9,7 +9,7 @@ import java.util.Random;
 public class Goon extends Enemy {
 
     public Goon(String name, Actor player) {
-        super(name, 'G', 5, 50);
+        super(name, 'G', 1, 1);
         addBehaviour(new ShoutInsultBehaviour(player));
         addBehaviour(new FollowBehaviour(player));
     }

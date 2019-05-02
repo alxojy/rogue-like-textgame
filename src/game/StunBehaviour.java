@@ -84,6 +84,13 @@ public class StunBehaviour extends AttackAction implements ActionFactory {
 
     // Manhattan distance.
     private int distance(Location a, Location b) {
-        return Math.abs(a.x() - b.x()) + Math.abs(a.y() - b.y());
+        int retVal;
+        if (a != null && b != null) {
+            retVal = Math.abs(a.x() - b.x()) + Math.abs(a.y() - b.y());
+        }
+        else {
+            retVal = 0;
+        }
+        return retVal;
     }
 }

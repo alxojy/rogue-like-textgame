@@ -21,9 +21,10 @@ public class UnlockDoorAction extends Action {
         for (Item item: actor.getInventory()) {
             if (item.hasSkill(GameSkills.UNLOCKDOOR)) {
                 actor.removeItemFromInventory(item);
+                return "The door is unlocked";
             }
         }
-        return "The door is unlocked";
+        return "";
     }
 
     @Override
