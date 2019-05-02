@@ -1,18 +1,27 @@
 package game;
 
+/**
+ * Class representing MaxCounter object, inherits from Counter
+ * has an additional attribute called max , to keep track of the maximum
+ * value of the counter
+ */
 public class MaxCounter extends Counter {
 
     private int max;
 
+    /**
+     * Constructor.
+     * @param max the maximum value of the counter
+     */
     public MaxCounter(int max)  {
         this.max = max;
     }
 
-    public int getMax() {
-        return max;
-    }
-
-
+    /**
+     * Checks if counter can be incremented
+     * Counter cannot be increment further if the current value + 1 = max
+     * @return True or False
+     */
     public boolean canIncrement(){
         boolean flag = true;
         if (this.getValue()+1 == max ){
@@ -20,6 +29,12 @@ public class MaxCounter extends Counter {
         }
         return flag;
     }
+
+    /**
+     * Increments and resets the counter
+     * If the value of counter after incrementing = value of max :
+     * reset the counter
+     */
 
     @Override
     public void increment() {
