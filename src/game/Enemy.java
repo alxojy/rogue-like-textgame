@@ -34,7 +34,6 @@ public abstract class Enemy extends Actor {
         while (flag) {
             Action action = super.playTurn(actions, map, display);
             if (!(action instanceof DropItemAction)) {
-                flag = false;
                 return action;
             }
         }

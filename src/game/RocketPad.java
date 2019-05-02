@@ -2,15 +2,17 @@ package game;
 
 import edu.monash.fit2099.engine.*;
 
-public class RocketPad extends Ground {
+import java.util.List;
 
+public class RocketPad extends Ground {
     public RocketPad() {
         super('^');
     }
 
     @Override
-    public Actions allowableActions(Actor actor, Location location, String direction){
+    public Actions allowableActions(Actor actor, Location location, String direction) {
         Actions actions = new Actions();
+
         /*
         boolean firstCond = false, secondCond = false;
         for (Item currentItem: actor.getInventory()){
@@ -27,8 +29,34 @@ public class RocketPad extends Ground {
             }
         }*/
         if (actor instanceof GamePlayer) {
-            actions.add(new BuildRocketAction(actor));
+            if (checkItems(location)) {
+                actions.add(new BuildRocketAction(actor));
+            }
         }
         return actions;
+    }
+
+    public boolean checkItems(Location location){
+        boolean retVal = false;
+        Item rocketBody = null, rocketEngine= null ;
+        List<Item> itemList = location.getItems();
+        boolean firstCond = false, secondCond = false;
+
+        for (Item currentItem : itemList) {
+            if (currentItem.hasSkill(GameSkills.BUILDROCKETBASE)) {
+                firstCond = true;
+                rocketBody = currentItem;
+            }
+            else if (currentItem.hasSkill(GameSkills.BUILDROCKETTOP)) {
+                secondCond = true;
+                rocketEngine = currentItem;
+            }
+        }
+        if (firstCond && secondCond) {
+            retVal = true;
+            location.removeItem(rocketBody);
+            location.removeItem(rocketEngine);
+        }
+        return retVal;
     }
 }

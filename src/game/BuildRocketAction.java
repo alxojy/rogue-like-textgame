@@ -18,34 +18,8 @@ public class BuildRocketAction extends Action {
 
     @Override
     public String execute(Actor actor, GameMap map) {
-
-        ArrayList<Item>  item = new ArrayList<>();
-
-        boolean firstCond = false, secondCond = false;
-        for (Item currentItem : actor.getInventory()) {
-            if (currentItem.hasSkill(GameSkills.BUILDROCKETBASE)) {
-                firstCond = true;
-
-                item.add(currentItem);
-
-            } else if (currentItem.hasSkill(GameSkills.BUILDROCKETTOP)) {
-                secondCond = true;
-
-                item.add(currentItem);
-            }
-        }
-        if (firstCond && secondCond) {
-            if (actor instanceof Player) {
-                actor.addItemToInventory(createRocket());
-                for (Item item1 : item){
-                    System.out.println(item1);
-                }
-
-                return "rocket has been created";
-            }
-        }
-
-        return "no skills";
+        actor.addItemToInventory(createRocket());
+        return "rocket has been created";
     }
 
     @Override
@@ -59,7 +33,7 @@ public class BuildRocketAction extends Action {
     }
 
     private Item createRocket() {
-        Item rocket = new Item("rocket", 'R');
+        Item rocket = Item.newInventoryItem("rocket", 'R');
         return rocket;
     }
 }
