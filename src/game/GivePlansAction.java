@@ -4,6 +4,8 @@ import edu.monash.fit2099.engine.Action;
 import edu.monash.fit2099.engine.Actor;
 import edu.monash.fit2099.engine.GameMap;
 import edu.monash.fit2099.engine.Item;
+import edu.monash.fit2099.engine.Actions;
+
 
 
 public class GivePlansAction extends Action {
@@ -20,7 +22,8 @@ public class GivePlansAction extends Action {
 
         for (Item item : player.getInventory()){
             if ((item.hasSkill(GameSkills.GETROCKETBODY))) {
-                addRocketBody(player);
+                createRocketBody();
+                player.addItemToInventory(createRocketBody());
                 player.removeItemFromInventory(item);
                 map.removeActor(Q);
                 System.out.println("Q disappeared with a cherry wave.");
@@ -31,7 +34,7 @@ public class GivePlansAction extends Action {
 
     @Override
     public String menuDescription(Actor actor) {
-        return subject + " substitutes rocket plan for rocket body";
+        return subject + " gives plan to Q";
     }
 
     @Override
@@ -39,10 +42,10 @@ public class GivePlansAction extends Action {
         return "";
     }
 
-    private void addRocketBody(Actor actor) {
+    private Item createRocketBody() {
         Item rocketBody = new Item("rocket body", 'B');
         rocketBody.addSkill(GameSkills.BUILDROCKETTOP);
-        actor.addItemToInventory(rocketBody);
+        return rocketBody;
     }
 
     }
