@@ -29,8 +29,12 @@ public abstract class Enemy extends Actor {
                 return action;
             }
         }
-        for (Action action: actions) {
+
+        boolean flag = true;
+        while (flag) {
+            Action action = super.playTurn(actions, map, display);
             if (!(action instanceof DropItemAction)) {
+                flag = false;
                 return action;
             }
         }

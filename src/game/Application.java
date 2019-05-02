@@ -30,7 +30,7 @@ public class Application {
         Actor player = new GamePlayer("Player", '@', 1, 100);
         world.addPlayer(player, startMap, 8, 2);
 
-        Grunt grunt = new Grunt("Mongo", player);
+        Grunt grunt = new Grunt("Grunt", player);
         startMap.addActor(grunt, 0, 0);
 		Goon goon = new Goon("Goon", player);
 		startMap.addActor(goon, 1, 7);
