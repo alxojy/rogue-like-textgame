@@ -4,22 +4,29 @@ import edu.monash.fit2099.engine.Action;
 import edu.monash.fit2099.engine.Actor;
 import edu.monash.fit2099.engine.GameMap;
 import edu.monash.fit2099.engine.Item;
-import edu.monash.fit2099.engine.Player;
+import edu.monash.fit2099.engine.Location;
 
-import java.util.ArrayList;
 
 public class BuildRocketAction extends Action {
 
     private Actor subject;
+    private Location location ;
+    private Item rocketBody = null, rocketEngine= null ;
 
-    BuildRocketAction(Actor actor) {
+
+
+    BuildRocketAction(Actor actor,Location location, Item rocketBody, Item rocketEngine) {
+        this.location = location;
+        this.rocketBody = rocketBody;
+        this.rocketEngine = rocketEngine;
         subject = actor;
     }
 
     @Override
     public String execute(Actor actor, GameMap map) {
-
         actor.addItemToInventory(createRocket());
+        location.removeItem(rocketBody);
+        location.removeItem(rocketEngine);
         return "You have completed the game!\nRocket has been created";
     }
 
