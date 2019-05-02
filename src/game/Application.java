@@ -23,7 +23,8 @@ public class Application {
 				".............######....",
 				".............+....#....",
 				".............#....#....",
-				".............######....");
+				".............######....",
+				".......................");
         GameMap startMap = new GameMap(groundFactory, map);
 		world.addMap(startMap);
 
