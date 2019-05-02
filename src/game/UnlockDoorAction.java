@@ -1,10 +1,7 @@
 package game;
 
 import edu.monash.fit2099.demo.Floor;
-import edu.monash.fit2099.engine.Action;
-import edu.monash.fit2099.engine.Actor;
-import edu.monash.fit2099.engine.GameMap;
-import edu.monash.fit2099.engine.Location;
+import edu.monash.fit2099.engine.*;
 
 import java.util.Random;
 
@@ -21,6 +18,11 @@ public class UnlockDoorAction extends Action {
     @Override
     public String execute(Actor actor, GameMap map) {
         map.add(new Floor(), doorLocation);
+        for (Item item: actor.getInventory()) {
+            if (item.hasSkill(GameSkills.UNLOCKDOOR)) {
+                actor.removeItemFromInventory(item);
+            }
+        }
         return "The door is unlocked";
     }
 
