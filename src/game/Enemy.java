@@ -31,7 +31,7 @@ public abstract class Enemy extends Actor {
         }
         for (Action action: actions) {
             if (!(action instanceof DropItemAction)) {
-                return action;
+                actionToReturn = action;
             }
         }
         return actionToReturn;
