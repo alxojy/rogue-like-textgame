@@ -11,7 +11,7 @@ public class BuildRocketAction extends Action {
 
     private Actor subject;
     private Location location ;
-    private Item rocketBody = null, rocketEngine= null ;
+    private Item rocketBody , rocketEngine ;
 
 
 
