@@ -5,6 +5,8 @@ import edu.monash.fit2099.engine.*;
 import java.util.List;
 
 public class RocketPad extends Ground {
+    Item rocketBody = null, rocketEngine= null ;
+
     public RocketPad() {
         super('^');
     }
@@ -30,7 +32,7 @@ public class RocketPad extends Ground {
         }*/
         if (actor instanceof GamePlayer) {
             if (checkItems(location)) {
-                actions.add(new BuildRocketAction(actor));
+                actions.add(new BuildRocketAction(actor,location, rocketBody, rocketEngine));
                 ((GamePlayer) actor).removePlayerFromMap((GamePlayer)actor);
 
             }
@@ -40,7 +42,6 @@ public class RocketPad extends Ground {
 
     public boolean checkItems(Location location){
         boolean retVal = false;
-        Item rocketBody = null, rocketEngine= null ;
         List<Item> itemList = location.getItems();
         boolean firstCond = false, secondCond = false;
 
