@@ -18,8 +18,9 @@ public class BuildRocketAction extends Action {
 
     @Override
     public String execute(Actor actor, GameMap map) {
+
         actor.addItemToInventory(createRocket());
-        return "rocket has been created";
+        return "You have completed the game!\nRocket has been created";
     }
 
     @Override

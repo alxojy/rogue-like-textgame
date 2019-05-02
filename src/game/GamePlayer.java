@@ -6,6 +6,7 @@ public class GamePlayer extends Player {
 
     private MaxCounter counter = new MaxCounter(3);
     private boolean stunnedPlayer = false;
+    private GameMap map ;
 
     public GamePlayer(String name, char displayChar, int priority, int hitPoints) {
         super(name, displayChar, priority, hitPoints);
@@ -13,6 +14,7 @@ public class GamePlayer extends Player {
 
     @Override
     public Action playTurn(Actions actions, GameMap map, Display display) {
+        this.map = map;
         if (getPlayerStunned() && counter.canIncrement()) {
             counter.increment();
             return super.playTurn(new Actions(new SkipTurnAction()), map, display);
@@ -25,20 +27,15 @@ public class GamePlayer extends Player {
 
     }
 
-
-   /** private void incrementCounter() {
-        counter += 1;
-    }
-
-    private void resetCounter() {
-        counter = 0;
-    }*/
-
     public void setPlayerStunned(boolean stunStatus) {
         stunnedPlayer = stunStatus;
     }
 
     public boolean getPlayerStunned() {
         return stunnedPlayer;
+    }
+
+    public void removePlayerFromMap(GamePlayer player){
+        map.removeActor(player);
     }
 }
