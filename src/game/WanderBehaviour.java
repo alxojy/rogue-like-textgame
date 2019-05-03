@@ -9,9 +9,6 @@ import java.util.Random;
  * The Wander Behaviour class creates a new action which allows
  * the actor to wander around the map.
  *
- * @author yezea
- * @since 2019/04/30
- *
  */
 public class WanderBehaviour implements ActionFactory {
     /*
@@ -19,6 +16,14 @@ public class WanderBehaviour implements ActionFactory {
      */
     private Random rand = new Random();
 
+    /**
+     * Randomly chooses one destination from a list of possible destinations.
+     * Returns new MoveActorAction that will move the Actor to the randomly chosen Location.
+     *
+     * @param actor the actor to move
+     * @param map the map that actor is acting on
+     * @return new MoveActorAction that will move the Actor
+     */
     public Action getAction(Actor actor, GameMap map) {
         Location here = map.locationOf(actor);
         Location destination = null;
