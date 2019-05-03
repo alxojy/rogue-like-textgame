@@ -6,13 +6,13 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * This class represents an enemy, Grunt
+ * This class represents an enemy, Grunt who is also an actor
  */
 public class Grunt extends Enemy {
 
 	/**
 	 * Grunts have 50 hitPoints and are always represented with a 'g'
-	 * Calls addBehaviour in the constructor to add FollowBehaviour to follow the player
+	 * Constructor calls addBehaviour to add FollowBehaviour to follow the player
 	 *
 	 * @param name name of the Grunt object
 	 * @param player player in the game

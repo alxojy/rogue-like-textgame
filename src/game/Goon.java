@@ -7,13 +7,13 @@ import java.util.List;
 import java.util.Random;
 
 /**
- * This class represents an enemy, Goon
+ * This class represents an enemy, Goon who is also an actor
  */
 public class Goon extends Enemy {
 
     /**
      * Goon has 50 hitPoints and are always represented with a 'G'
-     * Calls addBehaviour in the constructor to add ShoutInsultBehaviour and FollowBehaviour
+     * Constructor calls addBehaviour to add ShoutInsultBehaviour and FollowBehaviour
      * The ShoutInsultBehaviour shouts insults at the player and the FollowBehaviour follows the player
      *
      * @param name name of the Goon object

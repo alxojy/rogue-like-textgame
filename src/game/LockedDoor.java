@@ -23,6 +23,8 @@ public class LockedDoor extends Ground {
      * If the actor contains a key item in their inventory, they are allowed to unlock the door, which calls for the
      * UnlockDoorAction class
      *
+     * Overrides Ground.getAllowableActions()
+     *
      * @param actor the Actor acting
      * @param location the current Location
      * @param direction the direction of the Ground from the Actor

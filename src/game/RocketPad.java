@@ -21,7 +21,7 @@ public class RocketPad extends Ground {
      * Returns an action list that can be execute when actor is adjacent to rocketPad
      * BuildRocketAction will only be added to the action list if checItem(location) returns TRUE
      *
-     * overrides Ground.getAllowableActions()
+     * Overrides Ground.getAllowableActions()
      *
      * @param actor the Actor acting
      * @param location the current Location of Rocket Pad
@@ -36,8 +36,6 @@ public class RocketPad extends Ground {
         if (actor instanceof GamePlayer) {
             if (checkItems(location)) {
                 actions.add(new BuildRocketAction(actor,location, rocketBody, rocketEngine));
-                //((GamePlayer) actor).removePlayerFromMap((GamePlayer)actor);
-
             }
         }
         return actions;
@@ -45,6 +43,7 @@ public class RocketPad extends Ground {
 
     /**
      * Checks if both rocketBody item and rocketEngine item is on the rocketPad
+     *
      * @param location location of the rocketPad
      * @return True if and only if both items are present on the rocketPad
      */

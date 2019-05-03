@@ -7,7 +7,7 @@ import edu.monash.fit2099.engine.Item;
 import edu.monash.fit2099.engine.Location;
 
 /**
- * An action that builds a rocket
+ * This class represents an action that builds a rocket
  */
 
 public class BuildRocketAction extends Action {
@@ -19,6 +19,7 @@ public class BuildRocketAction extends Action {
 
     /**
      * Constructor
+     *
      * @param actor the actor that is executing this action
      * @param location the location of the rocket pad
      * @param rocketBody the rocketBody item that is on the given rocketPad
@@ -32,9 +33,10 @@ public class BuildRocketAction extends Action {
     }
 
     /**
-     * overrides Action.execute() and performs the following tasks
+     * Overrides Action.execute() and performs the following tasks
      * 1. adds rocket into player's inventory
      * 2. remove rocketBody and rocketEngine from the rocketPad
+     *
      * @param actor The actor performing the action.
      * @param map The map the actor is on.
      * @return A string describing what is executed
@@ -52,7 +54,7 @@ public class BuildRocketAction extends Action {
     /**
      * Returns a description of this movement suitable to display in the menu.
      *
-     * @param actor The actor performing the action.
+     * @param actor The actor performing the build rocket action.
      * @return a String
      */
     @Override

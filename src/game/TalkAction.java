@@ -9,11 +9,6 @@ public class TalkAction extends Action {
     private Actor actor;
     private Actor subject;
 
-    /**
-     *
-     * @param actor
-     * @param subject
-     */
     TalkAction (Actor actor,Actor subject) {
         this.actor = actor;
         this.subject = subject;
@@ -44,15 +39,14 @@ public class TalkAction extends Action {
     }
 
     /**
-     * Returns a string describing the action suitable for displaying in the menu.
+     * Returns a String describing the action suitable for displaying in the menu, which is talks
      *
      * @param actor The actor performing the action.
-     * @return  a string describing the action
+     * @return  a String describing the talk action
      */
-    //need to somehow update method to have different lines for talk
     @Override
     public String menuDescription(Actor actor) {
-        return actor +" talks to Q";
+        return actor + " talks to Q";
     }
 
     /**

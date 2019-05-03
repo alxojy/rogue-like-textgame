@@ -6,14 +6,12 @@ import java.util.List;
 import java.util.Random;
 
 /**
- * The Wander Behaviour class creates a new action which allows
+ * The WanderBehaviour class creates a new action which allows
  * the actor to wander around the map.
  *
  */
 public class WanderBehaviour implements ActionFactory {
-    /*
-    This class implements the wander behaviour of Q whereby it is wandering around the map
-     */
+
     private Random rand = new Random();
 
     /**

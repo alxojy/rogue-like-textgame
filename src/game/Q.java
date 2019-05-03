@@ -12,7 +12,7 @@ public class Q extends Actor {
     private List<ActionFactory> actionFactories = new ArrayList<>();
 
     /**
-     * Constructor to create a Q object that implements wanderBehaviour
+     * Constructor to create a Q object that implements WanderBehaviour
      */
     public Q() {
         super("Q", 'Q', 5, 0);
@@ -20,7 +20,7 @@ public class Q extends Actor {
     }
 
     /**
-     * Adds new behaviour to the list of action so Q can implement the actions .
+     * Adds new behaviour to the list of action so Q can implement the actions
      * @param behaviour the behaviour to be added into the list
      */
     private void addBehaviour(ActionFactory behaviour) {
@@ -28,9 +28,8 @@ public class Q extends Actor {
     }
 
     /**
-     *  Select and return an action to perform on the current turn.
-     *  overidden method of Actor's PlayTurn
-     *
+     * Select and return an action to perform on the current turn.
+     * Overidden method of Actor's PlayTurn
      *
      * @param actions collection of possible Actions for this Actor
      * @param map     the map containing the Actor

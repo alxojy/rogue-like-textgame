@@ -6,7 +6,7 @@ import edu.monash.fit2099.engine.GameMap;
 import edu.monash.fit2099.engine.Item;
 
 /**
- * Allows Player to give plans to Q
+ * This class represents an Action that allows Player to give plans to Q
  */
 
 public class GivePlansAction extends Action {
@@ -25,14 +25,14 @@ public class GivePlansAction extends Action {
     }
 
     /**
-     * overrides Action.execute()
+     * Overrides Action.execute()
      * Executes givePlansAction by checking if player have rocketPlan item in
      * the inventory. If yes , Player substitutes rocketPlan for rocketBody,
      * Q then disappears from the map
      *
      * @param player GamePlayer
      * @param map The map the GamePlayer is on.
-     * @return  a string describing what has been executed
+     * @return  a String describing what has been executed
      */
     @Override
     public String execute(Actor player, GameMap map) {
@@ -52,7 +52,7 @@ public class GivePlansAction extends Action {
      * Returns a string describing the action suitable for displaying in the menu.
      *
      * @param actor The actor performing the action.
-     * @return  a string describing the action
+     * @return  a string describing the give plans action
      */
     @Override
     public String menuDescription(Actor actor) {
