@@ -6,6 +6,9 @@ import edu.monash.fit2099.engine.GameMap;
 import edu.monash.fit2099.engine.Item;
 import edu.monash.fit2099.engine.Location;
 
+/**
+ * An action that builds a rocket
+ */
 
 public class BuildRocketAction extends Action {
 
@@ -14,7 +17,13 @@ public class BuildRocketAction extends Action {
     private Item rocketBody , rocketEngine ;
 
 
-
+    /**
+     * Constructor
+     * @param actor the actor that is executing this action
+     * @param location the location of the rocket pad
+     * @param rocketBody the rocketBody item that is on the given rocketPad
+     * @param rocketEngine the rocketEngime item that is on the given rocketPad
+     */
     BuildRocketAction(Actor actor,Location location, Item rocketBody, Item rocketEngine) {
         this.location = location;
         this.rocketBody = rocketBody;
@@ -22,6 +31,14 @@ public class BuildRocketAction extends Action {
         subject = actor;
     }
 
+    /**
+     * overrides Action.execute() and performs the following tasks
+     * 1. adds rocket into player's inventory
+     * 2. remove rocketBody and rocketEngine from the rocketPad
+     * @param actor The actor performing the action.
+     * @param map The map the actor is on.
+     * @return A string describing what is executed
+     */
     @Override
     public String execute(Actor actor, GameMap map) {
         actor.addItemToInventory(createRocket());
@@ -32,17 +49,30 @@ public class BuildRocketAction extends Action {
         }
         return "You have completed the game!\nRocket has been created";
     }
-
+    /**
+     * Returns a description of this movement suitable to display in the menu.
+     *
+     * @param actor The actor performing the action.
+     * @return a String
+     */
     @Override
     public String menuDescription(Actor actor) {
         return subject + " creates a rocket";
     }
 
+    /**
+     * Returns the empty string, as no hotkey is permanently assigned to BuildRocketAction.
+     * @return the empty string
+     */
     @Override
     public String hotKey() {
         return "";
     }
 
+    /**
+     * creates a rocket item
+     * @return the rocket item
+     */
     private Item createRocket() {
         return Item.newInventoryItem("rocket", 'R');
     }

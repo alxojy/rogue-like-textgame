@@ -4,17 +4,36 @@ import edu.monash.fit2099.engine.Action;
 import edu.monash.fit2099.engine.Actor;
 import edu.monash.fit2099.engine.GameMap;
 import edu.monash.fit2099.engine.Item;
-import edu.monash.fit2099.engine.Actions;
+
+/**
+ * Allows Player to give plans to Q
+ */
 
 public class GivePlansAction extends Action {
-    private Actor subject;
+    private Actor player;
     private Actor Q;
+
+    /**
+     * Constructor
+     * @param actor the GamePlayer
+     * @param Q Q actor
+     */
     GivePlansAction(Actor actor,Actor Q) {
-        subject = actor;
+        player = actor;
         this.Q = Q;
 
     }
 
+    /**
+     * overrides Action.execute()
+     * Executes givePlansAction by checking if player have rocketPlan item in
+     * the inventory. If yes , Player substitutes rocketPlan for rocketBody,
+     * Q then disappears from the map
+     *
+     * @param player GamePlayer
+     * @param map The map the GamePlayer is on.
+     * @return  a string describing what has been executed
+     */
     @Override
     public String execute(Actor player, GameMap map) {
 
@@ -29,17 +48,30 @@ public class GivePlansAction extends Action {
         }
         return "Rocket body is added to the Player's inventory\nRocket plan is removed from Player's inventory";
     }
-
+    /**
+     * Returns a string describing the action suitable for displaying in the menu.
+     *
+     * @param actor The actor performing the action.
+     * @return  a string describing the action
+     */
     @Override
     public String menuDescription(Actor actor) {
-        return subject + " gives plan to Q";
+        return player + " gives plan to Q";
     }
-
+    /**
+     * Returns the empty string, as no hotkey is permanently assigned to GivePlanAction.
+     * @return the empty string
+     */
     @Override
     public String hotKey() {
         return "";
     }
 
+    /**
+     * Creates the rocketBody which has the GameSkills.BUILDROCKETTOP.
+     * if player successfully swaps item with Q , the rocketBody item will be added into the GamePlayer's inventory
+     * @return the rocketBody item
+     */
     private Item createRocketBody() {
         Item rocketBody = Item.newInventoryItem("rocket body", 'B');
         rocketBody.addSkill(GameSkills.BUILDROCKETTOP);
