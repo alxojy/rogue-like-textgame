@@ -17,14 +17,14 @@ public class Counter {
     }
 
     /**
-     * decrease the counter value by 1
+     * Decrease the counter value by 1
      */
     public void decrement() {
         value--;
     }
 
     /**
-     * increase the counter value by 1
+     * Increase the counter value by 1
      */
     public void increment() {
         value++;

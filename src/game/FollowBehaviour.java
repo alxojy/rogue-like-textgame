@@ -10,7 +10,7 @@ public class FollowBehaviour implements ActionFactory {
 	public FollowBehaviour(Actor subject) {
 		this.target = subject;
 	}
-
+	
 	@Override
 	public Action getAction(Actor actor, GameMap map) {
 		Location here = map.locationOf(actor);

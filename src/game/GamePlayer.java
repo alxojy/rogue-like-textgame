@@ -5,8 +5,8 @@ import edu.monash.fit2099.engine.*;
 /**
  *
  * The GamePlayer extends from Player.
- * GamePlayer has additional MaxCounter attribute and stunnerPlayer boolean variable.
- * These additional instance variables enables GamePlayer to be stunned by Ninja.
+ * GamePlayer has additional MaxCounter attribute and stunnedPlayer boolean variable.
+ * These additional instance variables enables GamePlayer to be stunned by Ninja
  *
  */
 public class GamePlayer extends Player {

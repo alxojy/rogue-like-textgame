@@ -27,6 +27,9 @@ public class BuildRocketAction extends Action {
         actor.addItemToInventory(createRocket());
         location.removeItem(rocketBody);
         location.removeItem(rocketEngine);
+        if (actor instanceof GamePlayer){
+            ((GamePlayer) actor).removePlayerFromMap((GamePlayer) actor);
+        }
         return "You have completed the game!\nRocket has been created";
     }
 
@@ -41,7 +44,6 @@ public class BuildRocketAction extends Action {
     }
 
     private Item createRocket() {
-        Item rocket = Item.newInventoryItem("rocket", 'R');
-        return rocket;
+        return Item.newInventoryItem("rocket", 'R');
     }
 }

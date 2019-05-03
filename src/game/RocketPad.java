@@ -19,7 +19,7 @@ public class RocketPad extends Ground {
         if (actor instanceof GamePlayer) {
             if (checkItems(location)) {
                 actions.add(new BuildRocketAction(actor,location, rocketBody, rocketEngine));
-                ((GamePlayer) actor).removePlayerFromMap((GamePlayer)actor);
+                //((GamePlayer) actor).removePlayerFromMap((GamePlayer)actor);
 
             }
         }
