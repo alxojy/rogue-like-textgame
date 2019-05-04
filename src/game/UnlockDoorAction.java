@@ -5,6 +5,9 @@ import edu.monash.fit2099.engine.*;
 
 import java.util.Random;
 
+/**
+ *This class is responsible for the actor performing the action to unlock a door
+ */
 public class UnlockDoorAction extends Action {
 
     private String direction;

@@ -55,7 +55,7 @@ public abstract class Enemy extends Actor {
 
         boolean flag = true;
         while (flag) {
-            if (!(action instanceof DropItemAction) && !(action instanceof TalkAction)) {
+            if (!(action instanceof DropItemAction)) {
                 flag = false;
             }
             else {

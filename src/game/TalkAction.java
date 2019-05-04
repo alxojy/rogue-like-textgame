@@ -24,18 +24,18 @@ public class TalkAction extends Action {
      */
     @Override
     public String execute(Actor actor, GameMap map) {
-        String description = actor + "is talking to " + subject;
+        String description = this.actor + " is talking to " + subject;
         String retVal = "" ;
         for (Item item : actor.getInventory()){
             if ((item.hasSkill(GameSkills.GETROCKETBODY))) {
-                retVal = "Q : Hand them over, I don’t have all day!";
+                retVal = "Q: Hand them over, I don’t have all day!";
             }
         }
         if (retVal == ""){
-            retVal = "Q : I can give you something that will help, but I’m going to need the plans.";
+            retVal = "Q: I can give you something that will help, but I’m going to need the plans.";
         }
 
-        return description + retVal;
+        return description + "\n" + retVal;
     }
 
     /**
