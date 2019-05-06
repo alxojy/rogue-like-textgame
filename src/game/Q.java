@@ -29,7 +29,7 @@ public class Q extends Actor {
 
     /**
      * Select and return an action to perform on the current turn.
-     * Overidden method of Actor's PlayTurn
+     * Overrides Actor.playTurn() method to allow Q implement the wanderBehaviour
      *
      * @param actions collection of possible Actions for this Actor
      * @param map     the map containing the Actor

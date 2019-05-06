@@ -13,7 +13,6 @@ import java.util.Random;
 public class WanderBehaviour implements ActionFactory {
 
     private Random rand = new Random();
-
     /**
      * Randomly chooses one destination from a list of possible destinations.
      * Returns new MoveActorAction that will move the Actor to the randomly chosen Location.
