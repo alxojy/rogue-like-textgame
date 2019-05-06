@@ -43,7 +43,7 @@ public class BuildRocketAction extends Action {
      */
     @Override
     public String execute(Actor actor, GameMap map) {
-        actor.addItemToInventory(createRocket());
+        map.addItem(createRocket(),location.x(),location.y());
         location.removeItem(rocketBody);
         location.removeItem(rocketEngine);
         if (actor instanceof GamePlayer){
@@ -76,6 +76,6 @@ public class BuildRocketAction extends Action {
      * @return the rocket item
      */
     private Item createRocket() {
-        return Item.newInventoryItem("rocket", 'R');
+        return Item.newFurniture("rocket", '^');
     }
 }
