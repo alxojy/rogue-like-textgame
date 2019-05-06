@@ -46,10 +46,8 @@ public class BuildRocketAction extends Action {
         map.addItem(createRocket(),location.x(),location.y());
         location.removeItem(rocketBody);
         location.removeItem(rocketEngine);
-        if (actor instanceof GamePlayer){
-            ((GamePlayer) actor).removePlayerFromMap((GamePlayer) actor);
-        }
-        return "You have completed the game!\nRocket has been created";
+    
+        return "Rocket has been created";
     }
     /**
      * Returns a description of this movement suitable to display in the menu.

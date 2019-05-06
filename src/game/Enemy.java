@@ -33,7 +33,7 @@ public abstract class Enemy extends Actor {
     /**
      * The playTurn method iterates through the List of behaviours and returns the first Action behaviour that is not null.
      * If there are no behaviours or the behaviours are null, it iterates through actions. The Action in actions cannot be
-     * instances of DropItemAction, TalkAction
+     * instances of DropItemAction
      *
      *
      * @param actions collection of possible Actions for this Actor
