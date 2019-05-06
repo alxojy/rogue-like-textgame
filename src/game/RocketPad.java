@@ -14,7 +14,7 @@ public class RocketPad extends Ground {
      * Constructor
      */
     public RocketPad() {
-        super('^');
+        super('X');
     }
 
     /**

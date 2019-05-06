@@ -37,7 +37,6 @@ public class WanderBehaviour implements ActionFactory {
             if (destination.canActorEnter(actor)) {
                 flag = true;
             }
-
         }
         return new MoveActorAction(destination, direction);
     }

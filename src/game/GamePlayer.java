@@ -74,11 +74,4 @@ public class GamePlayer extends Player {
         return stunnedPlayer;
     }
 
-    /**
-     * To remove player from the GameMap, This indicates the end of the game
-     * @param player the GamePlayer to be removed from the map
-     */
-    public void removePlayerFromMap(GamePlayer player){
-        map.removeActor(player);
-    }
 }
