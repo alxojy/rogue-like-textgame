@@ -36,7 +36,7 @@ public class ShoutInsultBehaviour extends Action implements ActionFactory {
         int ranNum = rand.nextInt(insults.length);
         String insult = insults[ranNum];
         return actor + " insulted " + target + System.lineSeparator()+
-                insult;
+                actor + ": " + insult;
     }
 
     /**

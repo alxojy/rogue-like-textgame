@@ -34,8 +34,8 @@ public class BuildRocketAction extends Action {
 
     /**
      * Overrides Action.execute() and performs the following tasks
-     * 1. adds rocket into player's inventory
-     * 2. remove rocketBody and rocketEngine from the rocketPad
+     * 1. replaces the rocket pad with a rocket
+     * 2. removes rocketBody and rocketEngine from the rocket pad
      *
      * @param actor The actor performing the action.
      * @param map The map the actor is on.
