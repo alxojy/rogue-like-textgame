@@ -61,7 +61,7 @@ public class GamePlayer extends Player {
      * To change the status of stunnedPlayer
      * @param stunStatus the new status to update to
      */
-    public void setPlayerStunned(boolean stunStatus) {
+    protected void setPlayerStunned(boolean stunStatus) {
         stunnedPlayer = stunStatus;
     }
 
@@ -69,7 +69,7 @@ public class GamePlayer extends Player {
      * Returns the status of stunnedPlayer
      * @return the current status of stunnedPlayer
      */
-    public boolean getPlayerStunned() {
+    protected boolean getPlayerStunned() {
         return stunnedPlayer;
     }
 
