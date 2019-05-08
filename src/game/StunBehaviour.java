@@ -11,7 +11,6 @@ public class StunBehaviour extends AttackAction implements ActionFactory {
 
     private Actor subject;
     private Random rand = new Random();
-
     /**
      * Constructor initialises the actor carrying out the stun attack and the actor that is the target
      *
@@ -34,23 +33,23 @@ public class StunBehaviour extends AttackAction implements ActionFactory {
      *
      * @param actor The actor performing the action.
      * @param map The map the actor is on
-     * @return
+     * @return an Action
      */
     @Override
     public String execute(Actor actor, GameMap map) {
-        WeaponItem stunPowderBag = new WeaponItem("stun powder bag", 's', 5, "stuns");
 
-        if (subject instanceof GamePlayer) {
+        if (subject instanceof GamePlayer && canWeaponStun(actor.getWeapon())) {
             if (((GamePlayer) subject).getPlayerStunned()) {
-                return actor + " misses " + subject + ".";
-            } else {
+                return actor + " misses " + subject;
+            }
+            else {
                 if (rand.nextBoolean()) {
                     return actor + " misses " + subject;
                 }
 
-                int damage = stunPowderBag.damage();
+                int damage = actor.getWeapon().damage();
                 ((GamePlayer) subject).setPlayerStunned(true);
-                String result = actor + " " + stunPowderBag.verb() + " " + subject + " for " + damage + " damage";
+                String result = actor + " " + actor.getWeapon().verb() + " " + subject + " for " + damage + " damage";
 
                 subject.hurt(damage);
                 if (!subject.isConscious()) {
@@ -64,6 +63,7 @@ public class StunBehaviour extends AttackAction implements ActionFactory {
                     result += System.lineSeparator() + subject + " is knocked out.";
                 }
                 return result;
+
             }
         }
         return super.execute(actor, map);
@@ -99,7 +99,6 @@ public class StunBehaviour extends AttackAction implements ActionFactory {
      */
     @Override
     public Action getAction(Actor actor, GameMap map) {
-
         Location here = map.locationOf(actor);
         Location there = map.locationOf(subject);
 
@@ -109,15 +108,23 @@ public class StunBehaviour extends AttackAction implements ActionFactory {
             if (destination.canActorEnter(actor)) {
                 int newDistance = distance(destination, there);
                 if (currentDistance <= 5 && newDistance > currentDistance) {
+                    Range xs, ys;
+
+                    xs = new Range(Math.min(here.x(), there.x()), Math.abs(here.x() - there.x()) + 1);
+                    ys = new Range(Math.min(here.y(), there.y()), Math.abs(here.y() - there.y()) + 1);
+
+                    for (int x : xs) {
+                        for (int y : ys) {
+                            if (map.at(x, y).getGround().blocksThrownObjects())
+                                return new SkipTurnAction();
+                        }
+                    }
                     System.out.println(execute(actor, map));
                     return new MoveActorAction(destination, exit.getName());
                 }
-                else if (currentDistance > 5) {
-                    return new SkipTurnAction();
-                }
             }
         }
-    return null;
+    return new SkipTurnAction();
     }
 
     /**
@@ -129,13 +136,21 @@ public class StunBehaviour extends AttackAction implements ActionFactory {
      * if either a or b or both are null, return 0
      */
     private int distance(Location a, Location b) {
-        int retVal;
-        if (a != null && b != null) {
-            retVal = Math.abs(a.x() - b.x()) + Math.abs(a.y() - b.y());
+        int distance;
+        try {
+            distance = Math.abs(a.x() - b.x()) + Math.abs(a.y() - b.y());
+            return distance;
         }
-        else {
-            retVal = 0;
+        catch (NullPointerException npe) {
+            distance = 0;
         }
-        return retVal;
+        return distance;
+    }
+
+    private boolean canWeaponStun(Weapon weapon) {
+        if (weapon instanceof WeaponItem) {
+            return ((WeaponItem) weapon).getDisplayChar() == 's';
+        }
+        return false;
     }
 }

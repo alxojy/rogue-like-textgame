@@ -18,7 +18,7 @@ public class ShoutInsultBehaviour extends Action implements ActionFactory {
     private static String[] insults = {"That's a bad move...", "This is an abomination!",
             "Did you press the wrong button again?"};
 
-    public ShoutInsultBehaviour(Actor subject) {
+    ShoutInsultBehaviour(Actor subject) {
         this.target = subject;
     }
 
@@ -36,7 +36,7 @@ public class ShoutInsultBehaviour extends Action implements ActionFactory {
         int ranNum = rand.nextInt(insults.length);
         String insult = insults[ranNum];
         return actor + " insulted " + target + System.lineSeparator()+
-                insult;
+                actor + ": " + insult;
     }
 
     /**

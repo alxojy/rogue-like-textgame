@@ -23,7 +23,7 @@ public class GamePlayer extends Player {
      * @param priority How early in the turn the GamePlayer can act
      * @param hitPoints GamePlayer's starting number of hitpoints
      */
-    public GamePlayer(String name, char displayChar, int priority, int hitPoints) {
+    GamePlayer(String name, char displayChar, int priority, int hitPoints) {
         super(name, displayChar, priority, hitPoints);
     }
 
@@ -55,14 +55,13 @@ public class GamePlayer extends Player {
             counter.increment();
         }
         return super.playTurn(actions, map, display);
-
     }
 
     /**
      * To change the status of stunnedPlayer
      * @param stunStatus the new status to update to
      */
-    public void setPlayerStunned(boolean stunStatus) {
+    protected void setPlayerStunned(boolean stunStatus) {
         stunnedPlayer = stunStatus;
     }
 
@@ -70,7 +69,7 @@ public class GamePlayer extends Player {
      * Returns the status of stunnedPlayer
      * @return the current status of stunnedPlayer
      */
-    public boolean getPlayerStunned() {
+    protected boolean getPlayerStunned() {
         return stunnedPlayer;
     }
 

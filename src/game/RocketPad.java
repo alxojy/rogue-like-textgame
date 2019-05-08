@@ -8,7 +8,7 @@ import java.util.List;
  * Class representing a RocketPad terrain
  */
 public class RocketPad extends Ground {
-    Item rocketBody = null, rocketEngine= null ;
+    private Item rocketBody, rocketEngine;
 
     /**
      * Constructor
@@ -32,7 +32,6 @@ public class RocketPad extends Ground {
     public Actions allowableActions(Actor actor, Location location, String direction) {
         Actions actions = new Actions();
 
-
         if (actor instanceof GamePlayer) {
             if (checkItems(location)) {
                 actions.add(new BuildRocketAction(actor,location, rocketBody, rocketEngine));
@@ -47,7 +46,7 @@ public class RocketPad extends Ground {
      * @param location location of the rocketPad
      * @return True if and only if both items are present on the rocketPad
      */
-    public boolean checkItems(Location location){
+    private boolean checkItems(Location location){
         boolean retVal = false;
         List<Item> itemList = location.getItems();
         boolean firstCond = false, secondCond = false;

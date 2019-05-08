@@ -13,9 +13,20 @@ import java.util.Random;
 public abstract class Enemy extends Actor {
 
     private GameMap map;
+    /**
+     * A List used to store behaviours of the enemy
+     */
     private List<ActionFactory> actionFactories = new ArrayList<>();
     private Random rand = new Random();
 
+    /**
+     * Constructor.
+     * Adds an Item key into an enemy's inventory when instantiated.
+     * @param name name of the enemy
+     * @param displayChar display character of the enemy
+     * @param priority priority of the enemy
+     * @param hitPoints the enemy's hitPoints
+     */
     Enemy(String name, char displayChar, int priority, int hitPoints) {
         super(name, displayChar, priority, hitPoints);
         addItemToInventory(createKey());
@@ -55,7 +66,7 @@ public abstract class Enemy extends Actor {
 
         boolean flag = true;
         while (flag) {
-            if (!(action instanceof DropItemAction)) {
+            if (!(action instanceof DropItemAction) && !(action instanceof PickUpItemAction)) {
                 flag = false;
             }
             else {

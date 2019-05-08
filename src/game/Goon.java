@@ -19,8 +19,8 @@ public class Goon extends Enemy {
      * @param name name of the Goon object
      * @param player player in the game
      */
-    public Goon(String name, Actor player) {
-        super(name, 'G', 1, 1);
+    Goon(String name, Actor player) {
+        super(name, 'G', 7, 1);
         addBehaviour(new ShoutInsultBehaviour(player));
         addBehaviour(new FollowBehaviour(player));
     }

@@ -1,9 +1,10 @@
 package game;
 
 /**
- * A base class for MaxCounter
- * This class does all the operations of a Counter object, this includes
- * resetting , increment & decrement and also return the current value of the counter
+ * This class represents a counter and does the following operations;
+ * resetting its value to zero, incrementing its value by 1, decrementing its value by 1
+ * and also returning the current value of the counter
+ * @author Team Kimchi
  */
 public class Counter {
 
@@ -32,7 +33,8 @@ public class Counter {
 
     /**
      * Returns the current counter value
-     * @return current counter value
+     *
+     * @return int representing the current counter value
      */
     public int getValue() {
         return value;
