@@ -14,7 +14,7 @@ public class Q extends Actor {
     /**
      * Constructor to create a Q object that implements WanderBehaviour
      */
-    public Q() {
+    Q() {
         super("Q", 'Q', 5, 0);
         addBehaviour(new WanderBehaviour());
     }

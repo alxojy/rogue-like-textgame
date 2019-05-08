@@ -19,7 +19,7 @@ public class UnlockDoorAction extends Action {
      * @param direction direction of the door relative to the actor
      * @param doorLocation location of the locked door
      */
-    public UnlockDoorAction(String direction, Location doorLocation) {
+    UnlockDoorAction(String direction, Location doorLocation) {
         this.direction = direction;
         this.doorLocation = doorLocation;
     }

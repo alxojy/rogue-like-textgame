@@ -23,7 +23,7 @@ public class GamePlayer extends Player {
      * @param priority How early in the turn the GamePlayer can act
      * @param hitPoints GamePlayer's starting number of hitpoints
      */
-    public GamePlayer(String name, char displayChar, int priority, int hitPoints) {
+    GamePlayer(String name, char displayChar, int priority, int hitPoints) {
         super(name, displayChar, priority, hitPoints);
     }
 
@@ -55,7 +55,6 @@ public class GamePlayer extends Player {
             counter.increment();
         }
         return super.playTurn(actions, map, display);
-
     }
 
     /**

@@ -13,7 +13,7 @@ public class MaxCounter extends Counter {
      * Constructor.
      * @param max the maximum value of the counter
      */
-    public MaxCounter(int max)  {
+    MaxCounter(int max)  {
         this.max = max;
     }
 
