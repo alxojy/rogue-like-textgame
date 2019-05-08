@@ -38,14 +38,15 @@ public class StunBehaviour extends AttackAction implements ActionFactory {
     @Override
     public String execute(Actor actor, GameMap map) {
 
-        if (subject instanceof GamePlayer) {
+        if (subject instanceof GamePlayer && canWeaponStun(actor.getWeapon())) {
             if (((GamePlayer) subject).getPlayerStunned()) {
-                return actor + " misses " + subject + ".";
-            } else {
+                return actor + " misses " + subject;
+            }
+            else {
                 if (rand.nextBoolean()) {
                     return actor + " misses " + subject;
                 }
-                
+
                 int damage = actor.getWeapon().damage();
                 ((GamePlayer) subject).setPlayerStunned(true);
                 String result = actor + " " + actor.getWeapon().verb() + " " + subject + " for " + damage + " damage";
@@ -62,6 +63,7 @@ public class StunBehaviour extends AttackAction implements ActionFactory {
                     result += System.lineSeparator() + subject + " is knocked out.";
                 }
                 return result;
+
             }
         }
         return super.execute(actor, map);
@@ -120,12 +122,9 @@ public class StunBehaviour extends AttackAction implements ActionFactory {
                     System.out.println(execute(actor, map));
                     return new MoveActorAction(destination, exit.getName());
                 }
-                else if (currentDistance > 5) {
-                    return new SkipTurnAction();
-                }
             }
         }
-    return null;
+    return new SkipTurnAction();
     }
 
     /**
@@ -137,13 +136,21 @@ public class StunBehaviour extends AttackAction implements ActionFactory {
      * if either a or b or both are null, return 0
      */
     private int distance(Location a, Location b) {
-        int retVal;
-        if (a != null && b != null) {
-            retVal = Math.abs(a.x() - b.x()) + Math.abs(a.y() - b.y());
+        int distance;
+        try {
+            distance = Math.abs(a.x() - b.x()) + Math.abs(a.y() - b.y());
+            return distance;
         }
-        else {
-            retVal = 0;
+        catch (NullPointerException npe) {
+            distance = 0;
         }
-        return retVal;
+        return distance;
+    }
+
+    private boolean canWeaponStun(Weapon weapon) {
+        if (weapon instanceof WeaponItem) {
+            return ((WeaponItem) weapon).getDisplayChar() == 's';
+        }
+        return false;
     }
 }

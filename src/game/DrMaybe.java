@@ -6,18 +6,24 @@ import java.util.Random;
 
 /**
  * This class represents an actor who is a researcher called Doctor Maybe
+ * @author Team Kimchi
  */
 public class DrMaybe extends Actor {
 
     private Random rand = new Random();
 
+    /**
+     * Constructor.
+     * Calls its superclass's constructor to initialise the @param name "Dr Maybe", @param displayChar 'M', priority and hitPoints.
+     * When a DrMaybe object is instantiated, a rocket engine item is added to its inventory.
+     */
     DrMaybe() {
         super("Dr Maybe", 'M', 10, 2);
         addItemToInventory(createRocketEngine());
     }
 
     /**
-     *The playTurn method gets a random Action to perform from actions. The Action cannot be an
+     *The overridden playTurn method gets a random Action to perform from actions. The Action cannot be an
      * instance of DropItemAction
      *
      * @param actions collection of possible Actions for this Actor
@@ -42,7 +48,7 @@ public class DrMaybe extends Actor {
     }
 
     /**
-     * Creates a rocket engine item by instantiating a new Item object that represents a rocket engine in the game
+     * Creates a rocket engine item by instantiating a new Item object that represents a rocket engine in the game.
      * The rocket engine has a skill GameSkills.BUILDROCKETBASE
      *
      * @return an Item that represents a rocket engine
@@ -54,7 +60,7 @@ public class DrMaybe extends Actor {
     }
 
     /**
-     * Creates an intrinsic weapon which throws a conical flask
+     * Creates an intrinsic weapon which throws a conical flask.
      *
      * @return a newly instantiated IntrinsicWeapon
      */

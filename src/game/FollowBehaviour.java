@@ -57,13 +57,14 @@ public class FollowBehaviour implements ActionFactory {
      * if either a or b or both are null, return 0
      */
 	private int distance(Location a, Location b) {
-		int retVal;
-		if (a != null && b != null) {
-			retVal = Math.abs(a.x() - b.x()) + Math.abs(a.y() - b.y());
+		int distance;
+		try {
+			distance = Math.abs(a.x() - b.x()) + Math.abs(a.y() - b.y());
+			return distance;
 		}
-		else {
-			retVal = 0;
+		catch (NullPointerException npe) {
+			distance = 0;
 		}
-		return retVal;
+		return distance;
 	}
 }
