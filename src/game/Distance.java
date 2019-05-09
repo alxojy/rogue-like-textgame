@@ -3,6 +3,7 @@ package game;
 import edu.monash.fit2099.engine.Location;
 
 public class Distance {
+    private static int distance;
 
     /**
      * Calculates the Manhattan distance between the actor and the target
@@ -13,7 +14,6 @@ public class Distance {
      * if either a or b or both are null, return 0
      */
     public static int distance(Location a, Location b) {
-        int distance;
         try {
             distance = Math.abs(a.x() - b.x()) + Math.abs(a.y() - b.y());
             return distance;
@@ -22,5 +22,9 @@ public class Distance {
             distance = 0;
         }
         return distance;
+    }
+
+    public static boolean isAdjacent(Location a, Location b) {
+        return Distance.distance(a, b) == 1;
     }
 }

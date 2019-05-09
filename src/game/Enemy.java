@@ -14,7 +14,6 @@ import java.util.Random;
 public class Enemy extends Actor {
 
     private GameMap map;
-    static final int ADJACENT_DISTANCE = 1;
     /**
      * A List used to store behaviours of the enemy
      */
@@ -31,7 +30,7 @@ public class Enemy extends Actor {
      * @param priority priority of the enemy
      * @param hitPoints the enemy's hitPoints
      */
-     protected Enemy(String name, char displayChar, int priority, int hitPoints, Actor player) {
+    protected Enemy(String name, char displayChar, int priority, int hitPoints, Actor player) {
         super(name, displayChar, priority, hitPoints);
         subject = player;
         addItemToInventory(createKey());
@@ -69,7 +68,7 @@ public class Enemy extends Actor {
         Location enemyLocation = map.locationOf(this);
         Location subjectLocation = map.locationOf(subject);
 
-        if (Distance.distance(enemyLocation, subjectLocation) == ADJACENT_DISTANCE) {
+        if (Distance.isAdjacent(enemyLocation, subjectLocation)) {
             return new AttackAction(this, subject);
         }
         else {

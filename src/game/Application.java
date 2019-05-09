@@ -5,6 +5,14 @@ import java.util.List;
 
 import edu.monash.fit2099.engine.*;
 
+/**
+ * Represents a Driver in the game.
+ * Instantiates a world and the game map.
+ * Instantiates the actors in the game; Player, Q, enemies.
+ * Enemies; Goon, Grunt, Ninja.
+ * Miniboss; DrMaybe.
+ * Instantiates an Item called rocket plan.
+ */
 public class Application {
 
 	public static void main(String[] args) {
