@@ -34,7 +34,10 @@ public class DrMaybe extends Actor {
      */
     @Override
     public Action playTurn(Actions actions, GameMap map, Display display) {
-        return new AttackAction(this, player);
+        if (new Distance().distance(map.locationOf(player), map.locationOf(this)) == 1) {
+            return new AttackAction(this, player);
+        }
+        return new SkipTurnAction();
     }
 
     /**
