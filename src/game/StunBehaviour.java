@@ -53,7 +53,7 @@ public class StunBehaviour extends AttackAction implements ActionFactory {
 
             subject.hurt(damage);
             if (!subject.isConscious()) {
-                super.execute(actor, map);
+                super.execute(subject, map);
             }
             return result;
         }

@@ -11,7 +11,7 @@ import java.util.Random;
  * This abstract class is used as a template for Enemy subclasses
  * @author Team Kimchi
  */
-public abstract class Enemy extends Actor {
+public class Enemy extends Actor {
 
     private GameMap map;
     static final int ADJACENT_DISTANCE = 1;
@@ -31,7 +31,7 @@ public abstract class Enemy extends Actor {
      * @param priority priority of the enemy
      * @param hitPoints the enemy's hitPoints
      */
-    Enemy(String name, char displayChar, int priority, int hitPoints, Actor player) {
+     protected Enemy(String name, char displayChar, int priority, int hitPoints, Actor player) {
         super(name, displayChar, priority, hitPoints);
         subject = player;
         addItemToInventory(createKey());
