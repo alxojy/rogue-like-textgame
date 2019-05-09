@@ -3,6 +3,7 @@ import edu.monash.fit2099.engine.*;
 
 /**
  * This class represents a locked door
+ * @author Team Kimchi
  */
 public class LockedDoor extends Ground {
 

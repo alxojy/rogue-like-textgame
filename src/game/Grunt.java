@@ -7,6 +7,7 @@ import java.util.List;
 
 /**
  * This class represents an enemy, Grunt who is also an actor
+ * @author Team Kimchi
  */
 public class Grunt extends Enemy {
 
@@ -18,7 +19,7 @@ public class Grunt extends Enemy {
 	 * @param player player in the game
 	 */
 	Grunt(String name, Actor player) {
-		super(name, 'g', 6, 2);
+		super(name, 'g', 3, 50);
 		addBehaviour(new FollowBehaviour(player));
 	}
 
@@ -29,7 +30,7 @@ public class Grunt extends Enemy {
 	 */
 	@Override
 	protected IntrinsicWeapon getIntrinsicWeapon() {
-		return new IntrinsicWeapon(1, "slaps");
+		return new IntrinsicWeapon(2, "slaps");
 	}
 
 }

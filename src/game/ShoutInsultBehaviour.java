@@ -6,6 +6,7 @@ import java.util.Random;
 
 /**
  * This class represents the shout insult behaviour and an Action for the actor to shout insult to its target
+ * @author Team Kimchi
  */
 public class ShoutInsultBehaviour extends Action implements ActionFactory {
 

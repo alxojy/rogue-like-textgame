@@ -6,6 +6,7 @@ import java.util.List;
 
 /**
  * Class representing a RocketPad terrain
+ * @author Team Kimchi
  */
 public class RocketPad extends Ground {
     private Item rocketBody, rocketEngine;

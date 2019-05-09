@@ -7,6 +7,7 @@ import java.util.List;
 
 /**
  * The class that represents Q object which is also an Actor
+ * @author Team Kimchi
  */
 public class Q extends Actor {
     private List<ActionFactory> actionFactories = new ArrayList<>();
@@ -15,7 +16,7 @@ public class Q extends Actor {
      * Constructor to create a Q object that implements WanderBehaviour
      */
     Q() {
-        super("Q", 'Q', 5, 0);
+        super("Q", 'Q', 5, 50);
         addBehaviour(new WanderBehaviour());
     }
 

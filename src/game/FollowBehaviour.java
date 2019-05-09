@@ -3,8 +3,9 @@ package game;
 import edu.monash.fit2099.engine.*;
 
 /**
- * The FollowBehaviour class creates a new action which allows the actor
+ * The FollowBehaviour class creates a new Action which allows the actor
  * to follow another actor (which is the target) around the map
+ * @author Team Kimchi
  */
 public class FollowBehaviour implements ActionFactory {
 

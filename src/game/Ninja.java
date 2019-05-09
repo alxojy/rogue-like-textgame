@@ -4,6 +4,7 @@ import edu.monash.fit2099.engine.*;
 
 /**
  * This class represents an enemy, Ninja who is also an actor
+ * @author Team Kimchi
  */
 public class Ninja extends Enemy {
 
@@ -15,7 +16,7 @@ public class Ninja extends Enemy {
      * @param player player in the game
      */
     public Ninja(String name, Actor player) {
-        super(name, 'n', 5, 10);
+        super(name, 'n', 4, 50);
         addBehaviour(new StunBehaviour(this, player));
         addItemToInventory(new WeaponItem("stun powder bag", 's', 5, "stuns"));
     }

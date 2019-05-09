@@ -4,6 +4,7 @@ package game;
  * Class representing MaxCounter object, inherits from Counter
  * has an additional attribute called max , to keep track of the maximum
  * value of the counter
+ * @author Team Kimchi
  */
 public class MaxCounter extends Counter {
 

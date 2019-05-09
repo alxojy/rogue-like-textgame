@@ -18,7 +18,7 @@ public class DrMaybe extends Actor {
      * When a DrMaybe object is instantiated, a rocket engine item is added to its inventory.
      */
     DrMaybe() {
-        super("Dr Maybe", 'm', 10, 2);
+        super("Dr Maybe", 'm', 6, 25);
         addItemToInventory(createRocketEngine());
     }
 
@@ -37,7 +37,7 @@ public class DrMaybe extends Actor {
         boolean flag = true;
 
         while (flag) {
-            if (!(action instanceof DropItemAction) && !(action instanceof PickUpItemAction)) {
+            if (!(action instanceof DropItemAction) && !(action instanceof PickUpItemAction) && !(action instanceof MoveActorAction)) {
                 flag = false;
             }
             else {
@@ -66,6 +66,6 @@ public class DrMaybe extends Actor {
      */
     @Override
     public IntrinsicWeapon getIntrinsicWeapon() {
-        return new IntrinsicWeapon(2, "throws a conical flask at");
+        return new IntrinsicWeapon(1, "throws a conical flask at");
     }
 }

@@ -4,6 +4,7 @@ import edu.monash.fit2099.engine.*;
 
 /**
  * Action to allow Q to talk
+ * @author Team Kimchi
  */
 public class TalkAction extends Action {
     private Actor actor;
@@ -31,7 +32,7 @@ public class TalkAction extends Action {
                 retVal = "Q: Hand them over, I don’t have all day!";
             }
         }
-        if (retVal == ""){
+        if (retVal.equals("")){
             retVal = "Q: I can give you something that will help, but I’m going to need the plans.";
         }
 

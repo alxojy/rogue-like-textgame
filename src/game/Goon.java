@@ -8,6 +8,7 @@ import java.util.Random;
 
 /**
  * This class represents an enemy, Goon who is also an actor
+ * @author Team Kimchi
  */
 public class Goon extends Enemy {
 
@@ -20,7 +21,7 @@ public class Goon extends Enemy {
      * @param player player in the game
      */
     Goon(String name, Actor player) {
-        super(name, 'G', 7, 1);
+        super(name, 'G', 2, 50);
         addBehaviour(new ShoutInsultBehaviour(player));
         addBehaviour(new FollowBehaviour(player));
     }
@@ -32,7 +33,7 @@ public class Goon extends Enemy {
      */
     @Override
     protected IntrinsicWeapon getIntrinsicWeapon() {
-        return new IntrinsicWeapon(1, "punches");
+        return new IntrinsicWeapon(4, "punches");
     }
 
 }

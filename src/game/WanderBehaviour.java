@@ -8,6 +8,7 @@ import java.util.Random;
 /**
  * The WanderBehaviour class creates a new action which allows
  * the actor to wander around the map.
+ * @author Team Kimchi
  *
  */
 public class WanderBehaviour implements ActionFactory {

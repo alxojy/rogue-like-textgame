@@ -7,6 +7,7 @@ import java.util.Random;
 
 /**
  *This class is responsible for the actor performing the action to unlock a door
+ * @author Team Kimchi
  */
 public class UnlockDoorAction extends Action {
 

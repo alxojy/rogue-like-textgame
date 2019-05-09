@@ -9,6 +9,7 @@ import java.util.Random;
 
 /**
  * This abstract class is used as a template for Enemy subclasses
+ * @author Team Kimchi
  */
 public abstract class Enemy extends Actor {
 
@@ -22,6 +23,7 @@ public abstract class Enemy extends Actor {
     /**
      * Constructor.
      * Adds an Item key into an enemy's inventory when instantiated.
+     *
      * @param name name of the enemy
      * @param displayChar display character of the enemy
      * @param priority priority of the enemy
@@ -33,7 +35,7 @@ public abstract class Enemy extends Actor {
     }
 
     /**
-     * Adds the behaviour of an Enemy's subclasses' objects into a List of behaviours
+     * Adds the behaviour of an enemy into a List of behaviours
      *
      * @param behaviour the behaviour to be added
      */
@@ -44,8 +46,7 @@ public abstract class Enemy extends Actor {
     /**
      * The playTurn method iterates through the List of behaviours and returns the first Action behaviour that is not null.
      * If there are no behaviours or the behaviours are null, it iterates through actions. The Action in actions cannot be
-     * instances of DropItemAction
-     *
+     * instances of DropItemAction and PickUpItemAction
      *
      * @param actions collection of possible Actions for this Actor
      * @param map     the map containing the Actor
@@ -62,10 +63,12 @@ public abstract class Enemy extends Actor {
             }
         }
 
+        // get a random Action in actions
         Action action = actions.get(rand.nextInt(actions.size()));
 
         boolean flag = true;
         while (flag) {
+            // checking to ensure that the Action is not an instance of DropItemAction and PickUpItemAction
             if (!(action instanceof DropItemAction) && !(action instanceof PickUpItemAction)) {
                 flag = false;
             }

@@ -6,6 +6,7 @@ import java.util.Random;
 
 /**
  * This class represents the stun attack behaviour and an AttackAction for the actor to stun its target
+ * @author Team Kimchi
  */
 public class StunBehaviour extends AttackAction implements ActionFactory {
 

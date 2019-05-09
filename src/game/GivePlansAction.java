@@ -6,7 +6,8 @@ import edu.monash.fit2099.engine.GameMap;
 import edu.monash.fit2099.engine.Item;
 
 /**
- * This class represents an Action that allows Player to give plans to Q
+ * This class represents an Action that allows GamePlayer to give plans to Q
+ * @author Team Kimchi
  */
 
 public class GivePlansAction extends Action {
