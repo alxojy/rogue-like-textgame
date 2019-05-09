@@ -34,7 +34,7 @@ public class Application {
         GameMap startMap = new GameMap(groundFactory, map);
 		world.addMap(startMap);
 
-        Actor player = new GamePlayer("Player", '@', 1, 100);
+        GamePlayer player = new GamePlayer("Player", '@', 1, 100);
         world.addPlayer(player, startMap, 2, 16);
 
         Grunt mrGrunt = new Grunt("Mr Grunt", player);
