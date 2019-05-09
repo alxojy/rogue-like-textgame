@@ -15,7 +15,7 @@ public class Ninja extends Enemy {
      * @param name name of the Ninja object
      * @param player player in the game
      */
-    public Ninja(String name, Actor player) {
+    public Ninja(String name, GamePlayer player) {
         super(name, 'n', 4, 50, player);
         addBehaviour(new StunBehaviour((GamePlayer) player));
     }

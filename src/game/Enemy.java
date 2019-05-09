@@ -18,7 +18,7 @@ public class Enemy extends Actor {
      * A List used to store behaviours of the enemy
      */
     private List<ActionFactory> actionFactories = new ArrayList<>();
-    private Actor subject;
+    private GamePlayer subject;
 
     /**
      * Constructor.
@@ -29,7 +29,7 @@ public class Enemy extends Actor {
      * @param priority priority of the enemy
      * @param hitPoints the enemy's hitPoints
      */
-    protected Enemy(String name, char displayChar, int priority, int hitPoints, Actor player) {
+    protected Enemy(String name, char displayChar, int priority, int hitPoints, GamePlayer player) {
         super(name, displayChar, priority, hitPoints);
         subject = player;
         addItemToInventory(createKey());

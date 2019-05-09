@@ -18,7 +18,7 @@ public class DrMaybe extends Actor {
      * When a DrMaybe object is instantiated, a rocket engine item is added to its inventory.
      */
     DrMaybe(String name, Actor player) {
-        super(name, 'm', 6, (int) (Grunt.GRUNT_HITPOINTS*0.5));
+        super(name, 'm', 6, Grunt.GRUNT_HITPOINTS/2);
         this.player = player;
         addItemToInventory(createRocketEngine());
     }
@@ -61,6 +61,6 @@ public class DrMaybe extends Actor {
      */
     @Override
     public IntrinsicWeapon getIntrinsicWeapon() {
-        return new IntrinsicWeapon((int) (Grunt.GRUNT_DAMAGE*0.5), "throws a conical flask at");
+        return new IntrinsicWeapon(Grunt.GRUNT_DAMAGE/2, "throws a conical flask at");
     }
 }
