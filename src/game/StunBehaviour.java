@@ -8,18 +8,16 @@ import java.util.Random;
  * This class represents the stun attack behaviour and an AttackAction for the actor to stun its target
  * @author Team Kimchi
  */
-public class StunBehaviour extends AttackAction implements ActionFactory {
+public class StunBehaviour extends Action implements ActionFactory {
 
     private GamePlayer subject;
     private Random rand = new Random();
     /**
      * Constructor initialises the actor carrying out the stun attack and the actor that is the target
      *
-     * @param actor actor carrying out the attack
      * @param subject actor that is the target
      */
-    StunBehaviour(Actor actor, GamePlayer subject) {
-        super(actor, subject);
+    StunBehaviour(GamePlayer subject) {
         this.subject = subject;
     }
 
@@ -46,16 +44,8 @@ public class StunBehaviour extends AttackAction implements ActionFactory {
             if (rand.nextBoolean()) {
                 return actor + " misses " + subject;
             }
-
-            int damage = actor.getWeapon().damage();
             subject.setPlayerStunned(true);
-            String result = actor + " " + actor.getWeapon().verb() + " " + subject + " for " + damage + " damage";
-
-            subject.hurt(damage);
-            if (!subject.isConscious()) {
-                super.execute(actor, map);
-            }
-            return result;
+            return actor + " stuns " + subject;
         }
     }
 

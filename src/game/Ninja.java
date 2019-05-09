@@ -17,7 +17,6 @@ public class Ninja extends Enemy {
      */
     public Ninja(String name, Actor player) {
         super(name, 'n', 4, 50, player);
-        addBehaviour(new StunBehaviour(this, (GamePlayer) player));
-        addItemToInventory(new WeaponItem("stun powder bag", 's', 5, "stuns"));
+        addBehaviour(new StunBehaviour((GamePlayer) player));
     }
 }
