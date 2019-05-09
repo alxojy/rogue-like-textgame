@@ -5,7 +5,7 @@ import edu.monash.fit2099.engine.*;
 import java.util.Random;
 
 /**
- * This class represents the stun attack behaviour and an AttackAction for the actor to stun its target
+ * This class represents the stun attack behaviour for the actor to stun its target
  * @author Team Kimchi
  */
 public class StunBehaviour extends Action implements ActionFactory {
@@ -45,7 +45,7 @@ public class StunBehaviour extends Action implements ActionFactory {
                 return actor + " misses " + subject;
             }
             subject.setPlayerStunned(true);
-            return actor + " stuns " + subject;
+            return actor + " stuns " + subject + " with a bag on stun powder";
         }
     }
 

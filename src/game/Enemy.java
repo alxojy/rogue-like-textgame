@@ -18,7 +18,6 @@ public class Enemy extends Actor {
      * A List used to store behaviours of the enemy
      */
     private List<ActionFactory> actionFactories = new ArrayList<>();
-    private Random rand = new Random();
     private Actor subject;
 
     /**
