@@ -67,7 +67,7 @@ public abstract class Enemy extends Actor {
 
         Location enemyLocation = map.locationOf(this);
         Location subjectLocation = map.locationOf(subject);
-        if (new Distance().distance(enemyLocation, subjectLocation) == 1) {
+        if (Distance.distance(enemyLocation, subjectLocation) == 1) {
             return new AttackAction(this, subject);
         }
         else {

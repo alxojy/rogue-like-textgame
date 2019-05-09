@@ -38,36 +38,32 @@ public class StunBehaviour extends AttackAction implements ActionFactory {
      */
     @Override
     public String execute(Actor actor, GameMap map) {
+        if (subject.getPlayerStunned()) {
+            return actor + " misses " + subject;
+        }
 
-        if (canWeaponStun(actor.getWeapon())) {
-            if (subject.getPlayerStunned()) {
+        else {
+            if (rand.nextBoolean()) {
                 return actor + " misses " + subject;
             }
-            else {
-                if (rand.nextBoolean()) {
-                    return actor + " misses " + subject;
+
+            int damage = actor.getWeapon().damage();
+            subject.setPlayerStunned(true);
+            String result = actor + " " + actor.getWeapon().verb() + " " + subject + " for " + damage + " damage";
+
+            subject.hurt(damage);
+            if (!subject.isConscious()) {
+
+                Item sleepingActor = new Item("Sleeping " + subject, '%');
+                map.locationOf(subject).addItem(sleepingActor);
+                for (Item item : subject.getInventory()) {
+                    new DropItemAction(item).execute(subject, map);
                 }
-
-                int damage = actor.getWeapon().damage();
-                subject.setPlayerStunned(true);
-                String result = actor + " " + actor.getWeapon().verb() + " " + subject + " for " + damage + " damage";
-
-                subject.hurt(damage);
-                if (!subject.isConscious()) {
-
-                    Item sleepingActor = new Item("Sleeping " + subject, '%');
-                    map.locationOf(subject).addItem(sleepingActor);
-                    for (Item item : subject.getInventory()) {
-                        new DropItemAction(item).execute(subject, map);
-                    }
-                    map.removeActor(subject);
-                    result += System.lineSeparator() + subject + " is knocked out.";
-                }
-                return result;
-
+                map.removeActor(subject);
+                result += System.lineSeparator() + subject + " is knocked out.";
             }
+            return result;
         }
-        return super.execute(actor, map);
     }
 
     /**
@@ -103,11 +99,11 @@ public class StunBehaviour extends AttackAction implements ActionFactory {
         Location here = map.locationOf(actor);
         Location there = map.locationOf(subject);
 
-        int currentDistance = new Distance().distance(here, there);
+        int currentDistance = Distance.distance(here, there);
         for (Exit exit : here.getExits()) {
             Location destination = exit.getDestination();
             if (destination.canActorEnter(actor)) {
-                int newDistance = new Distance().distance(destination, there);
+                int newDistance = Distance.distance(destination, there);
                 if (currentDistance <= 5 && newDistance > currentDistance) {
                     Range xs, ys;
 
@@ -116,8 +112,9 @@ public class StunBehaviour extends AttackAction implements ActionFactory {
 
                     for (int x : xs) {
                         for (int y : ys) {
-                            if (map.at(x, y).getGround().blocksThrownObjects())
+                            if (map.at(x, y).getGround().blocksThrownObjects()) {
                                 return new SkipTurnAction();
+                            }
                         }
                     }
                     System.out.println(execute(actor, map));
@@ -125,13 +122,7 @@ public class StunBehaviour extends AttackAction implements ActionFactory {
                 }
             }
         }
-    return new SkipTurnAction();
+        return new SkipTurnAction();
     }
 
-    private boolean canWeaponStun(Weapon weapon) {
-        if (weapon instanceof WeaponItem) {
-            return ((WeaponItem) weapon).getDisplayChar() == 's';
-        }
-        return false;
-    }
 }

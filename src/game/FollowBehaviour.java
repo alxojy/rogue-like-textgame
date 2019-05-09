@@ -35,11 +35,11 @@ public class FollowBehaviour implements ActionFactory {
 		Location here = map.locationOf(actor);
 		Location there = map.locationOf(target);
 
-		int currentDistance = new Distance().distance(here, there);
+		int currentDistance = Distance.distance(here, there);
 		for (Exit exit : here.getExits()) {
 			Location destination = exit.getDestination();
 			if (destination.canActorEnter(actor)) {
-				int newDistance = new Distance().distance(destination, there);
+				int newDistance = Distance.distance(destination, there);
 				if (newDistance < currentDistance) {
 					return new MoveActorAction(destination, exit.getName());
 				}
