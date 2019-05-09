@@ -10,7 +10,6 @@ import java.util.Random;
  */
 public class DrMaybe extends Actor {
 
-    private Random rand = new Random();
     private Actor player;
 
     /**
