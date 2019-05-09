@@ -13,17 +13,16 @@ public class Application {
 		FancyGroundFactory groundFactory = new FancyGroundFactory(new Floor(), new Wall(), new LockedDoor(), new RocketPad());
 
 		List<String> map = Arrays.asList(
-				".......................",
-				"....#######............",
-				"....#.....+............",
-				"....#.....#............",
-				"....#############......",
-				".......................",
-				".......................",
-				"...........###+####....",
-				"...X.......#......#....",
-				"...........#......#....",
-				"...........########....");
+				"...#######...........",
+				"...#.....+...........",
+				"...#.....#...........",
+				"...#############.....",
+				".....................",
+				".....................",
+				"..........###+####...",
+				"...X......#......#...",
+				"..........#......#...",
+				"..........########...");
         GameMap startMap = new GameMap(groundFactory, map);
 		world.addMap(startMap);
 
@@ -31,23 +30,23 @@ public class Application {
         world.addPlayer(player, startMap, 2, 16);
 
         Grunt mrGrunt = new Grunt("Mr Grunt", player);
-        startMap.addActor(mrGrunt, 2, 0);
+        startMap.addActor(mrGrunt, 2, 9);
 		Grunt mrsGrunt = new Grunt("Mrs Grunt", player);
-		startMap.addActor(mrsGrunt, 14, 8);
+		startMap.addActor(mrsGrunt, 14, 7);
 		Goon toughGoon = new Goon("Tough Goon", player);
-		startMap.addActor(toughGoon, 19, 5);
-        Goon strongGoon = new Goon("Strong Goon", player);
-        startMap.addActor(strongGoon, 2, 4);
+		startMap.addActor(toughGoon, 19, 7);
+        //Goon strongGoon = new Goon("Strong Goon", player);
+        //startMap.addActor(strongGoon, 2, 7);
         Ninja ninjaHatori = new Ninja("Ninja Hatori", player);
         startMap.addActor(ninjaHatori, 18, 1);
         Ninja ninjaJitsu = new Ninja("Ninja Jitsu", player);
         startMap.addActor(ninjaJitsu, 6, 8);
 
-        DrMaybe drMaybe = new DrMaybe();
-        startMap.addActor(drMaybe, 6, 3);
+        DrMaybe drMaybe = new DrMaybe("Doctor Maybe", player);
+        startMap.addActor(drMaybe, 6, 2);
 
 		Q q = new Q();
-		startMap.addActor(q,13,6);
+		startMap.addActor(q,13,5);
 
 		Item rocketPlan = new Item("rocket plans", 'p');
 		rocketPlan.addSkill(GameSkills.GETROCKETBODY);

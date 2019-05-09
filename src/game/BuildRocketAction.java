@@ -26,7 +26,7 @@ public class BuildRocketAction extends Action {
      * @param rocketBody the rocket body item that is on the rocket pad
      * @param rocketEngine the rocket engine item that is on the rocket pad
      */
-    BuildRocketAction(Actor actor,Location location, Item rocketBody, Item rocketEngine) {
+    BuildRocketAction(Actor actor, Location location, Item rocketBody, Item rocketEngine) {
         this.location = location;
         this.rocketBody = rocketBody;
         this.rocketEngine = rocketEngine;

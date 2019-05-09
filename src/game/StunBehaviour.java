@@ -10,7 +10,7 @@ import java.util.Random;
  */
 public class StunBehaviour extends AttackAction implements ActionFactory {
 
-    private Actor subject;
+    private GamePlayer subject;
     private Random rand = new Random();
     /**
      * Constructor initialises the actor carrying out the stun attack and the actor that is the target
@@ -18,7 +18,7 @@ public class StunBehaviour extends AttackAction implements ActionFactory {
      * @param actor actor carrying out the attack
      * @param subject actor that is the target
      */
-    StunBehaviour(Actor actor, Actor subject) {
+    StunBehaviour(Actor actor, GamePlayer subject) {
         super(actor, subject);
         this.subject = subject;
     }
@@ -39,8 +39,8 @@ public class StunBehaviour extends AttackAction implements ActionFactory {
     @Override
     public String execute(Actor actor, GameMap map) {
 
-        if (subject instanceof GamePlayer && canWeaponStun(actor.getWeapon())) {
-            if (((GamePlayer) subject).getPlayerStunned()) {
+        if (canWeaponStun(actor.getWeapon())) {
+            if (subject.getPlayerStunned()) {
                 return actor + " misses " + subject;
             }
             else {
@@ -49,7 +49,7 @@ public class StunBehaviour extends AttackAction implements ActionFactory {
                 }
 
                 int damage = actor.getWeapon().damage();
-                ((GamePlayer) subject).setPlayerStunned(true);
+                subject.setPlayerStunned(true);
                 String result = actor + " " + actor.getWeapon().verb() + " " + subject + " for " + damage + " damage";
 
                 subject.hurt(damage);
@@ -103,11 +103,11 @@ public class StunBehaviour extends AttackAction implements ActionFactory {
         Location here = map.locationOf(actor);
         Location there = map.locationOf(subject);
 
-        int currentDistance = distance(here, there);
+        int currentDistance = new Distance().distance(here, there);
         for (Exit exit : here.getExits()) {
             Location destination = exit.getDestination();
             if (destination.canActorEnter(actor)) {
-                int newDistance = distance(destination, there);
+                int newDistance = new Distance().distance(destination, there);
                 if (currentDistance <= 5 && newDistance > currentDistance) {
                     Range xs, ys;
 
@@ -126,26 +126,6 @@ public class StunBehaviour extends AttackAction implements ActionFactory {
             }
         }
     return new SkipTurnAction();
-    }
-
-    /**
-     * Calculates the Manhattan distance between the actor and the target
-     *
-     * @param a location of actor a
-     * @param b location of actor b
-     * @return the distance between a and b if the values of a and b are not null
-     * if either a or b or both are null, return 0
-     */
-    private int distance(Location a, Location b) {
-        int distance;
-        try {
-            distance = Math.abs(a.x() - b.x()) + Math.abs(a.y() - b.y());
-            return distance;
-        }
-        catch (NullPointerException npe) {
-            distance = 0;
-        }
-        return distance;
     }
 
     private boolean canWeaponStun(Weapon weapon) {

@@ -21,7 +21,7 @@ public class Goon extends Enemy {
      * @param player player in the game
      */
     Goon(String name, Actor player) {
-        super(name, 'G', 2, 50);
+        super(name, 'G', 2, 50, player);
         addBehaviour(new ShoutInsultBehaviour(player));
         addBehaviour(new FollowBehaviour(player));
     }
@@ -33,7 +33,7 @@ public class Goon extends Enemy {
      */
     @Override
     protected IntrinsicWeapon getIntrinsicWeapon() {
-        return new IntrinsicWeapon(4, "punches");
+        return new IntrinsicWeapon(Grunt.GRUNT_DAMAGE*2, "punches");
     }
 
 }

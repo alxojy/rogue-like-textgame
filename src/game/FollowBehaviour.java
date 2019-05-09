@@ -35,11 +35,11 @@ public class FollowBehaviour implements ActionFactory {
 		Location here = map.locationOf(actor);
 		Location there = map.locationOf(target);
 
-		int currentDistance = distance(here, there);
+		int currentDistance = new Distance().distance(here, there);
 		for (Exit exit : here.getExits()) {
 			Location destination = exit.getDestination();
 			if (destination.canActorEnter(actor)) {
-				int newDistance = distance(destination, there);
+				int newDistance = new Distance().distance(destination, there);
 				if (newDistance < currentDistance) {
 					return new MoveActorAction(destination, exit.getName());
 				}
@@ -49,23 +49,4 @@ public class FollowBehaviour implements ActionFactory {
 		return null;
 	}
 
-    /**
-     * Calculates the Manhattan distance between the actor and the target
-     *
-     * @param a location of actor a
-     * @param b location of actor b
-     * @return the distance between a and b if the values of a and b are not null
-     * if either a or b or both are null, return 0
-     */
-	private int distance(Location a, Location b) {
-		int distance;
-		try {
-			distance = Math.abs(a.x() - b.x()) + Math.abs(a.y() - b.y());
-			return distance;
-		}
-		catch (NullPointerException npe) {
-			distance = 0;
-		}
-		return distance;
-	}
 }

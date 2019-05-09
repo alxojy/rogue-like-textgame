@@ -37,12 +37,12 @@ public class UnlockDoorAction extends Action {
     @Override
     public String execute(Actor actor, GameMap map) {
         map.add(new Floor(), doorLocation);
-        for (Item item: actor.getInventory()) {
-            if (item.hasSkill(GameSkills.UNLOCKDOOR)) {
-                actor.removeItemFromInventory(item);
-                return "The door is unlocked";
+            for (Item item : actor.getInventory()) {
+                if (item.hasSkill(GameSkills.UNLOCKDOOR)) {
+                    actor.removeItemFromInventory(item);
+                    return "The door is unlocked";
+                }
             }
-        }
         return "";
     }
 

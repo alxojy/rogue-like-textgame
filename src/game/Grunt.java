@@ -11,6 +11,7 @@ import java.util.List;
  */
 public class Grunt extends Enemy {
 
+	final static int GRUNT_DAMAGE = 2;
 	/**
 	 * Grunts have 50 hitPoints and are always represented with a 'g'
 	 * Constructor calls addBehaviour to add FollowBehaviour to follow the player
@@ -19,7 +20,7 @@ public class Grunt extends Enemy {
 	 * @param player player in the game
 	 */
 	Grunt(String name, Actor player) {
-		super(name, 'g', 3, 50);
+		super(name, 'g', 3, 50, player);
 		addBehaviour(new FollowBehaviour(player));
 	}
 
@@ -30,7 +31,7 @@ public class Grunt extends Enemy {
 	 */
 	@Override
 	protected IntrinsicWeapon getIntrinsicWeapon() {
-		return new IntrinsicWeapon(2, "slaps");
+		return new IntrinsicWeapon(GRUNT_DAMAGE, "slaps");
 	}
 
 }

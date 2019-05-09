@@ -19,6 +19,7 @@ public abstract class Enemy extends Actor {
      */
     private List<ActionFactory> actionFactories = new ArrayList<>();
     private Random rand = new Random();
+    private Actor subject;
 
     /**
      * Constructor.
@@ -29,8 +30,9 @@ public abstract class Enemy extends Actor {
      * @param priority priority of the enemy
      * @param hitPoints the enemy's hitPoints
      */
-    Enemy(String name, char displayChar, int priority, int hitPoints) {
+    Enemy(String name, char displayChar, int priority, int hitPoints, Actor player) {
         super(name, displayChar, priority, hitPoints);
+        subject = player;
         addItemToInventory(createKey());
     }
 
@@ -63,20 +65,14 @@ public abstract class Enemy extends Actor {
             }
         }
 
-        // get a random Action in actions
-        Action action = actions.get(rand.nextInt(actions.size()));
-
-        boolean flag = true;
-        while (flag) {
-            // checking to ensure that the Action is not an instance of DropItemAction and PickUpItemAction
-            if (!(action instanceof DropItemAction) && !(action instanceof PickUpItemAction)) {
-                flag = false;
-            }
-            else {
-                action = actions.get(rand.nextInt(actions.size()));
-            }
+        Location enemyLocation = map.locationOf(this);
+        Location subjectLocation = map.locationOf(subject);
+        if (new Distance().distance(enemyLocation, subjectLocation) == 1) {
+            return new AttackAction(this, subject);
         }
-        return action;
+        else {
+            return new SkipTurnAction();
+        }
     }
 
     /**

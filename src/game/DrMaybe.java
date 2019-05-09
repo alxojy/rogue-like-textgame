@@ -11,14 +11,16 @@ import java.util.Random;
 public class DrMaybe extends Actor {
 
     private Random rand = new Random();
+    private Actor player;
 
     /**
      * Constructor.
      * Calls its superclass's constructor to initialise the @param name "Dr Maybe", @param displayChar 'M', priority and hitPoints.
      * When a DrMaybe object is instantiated, a rocket engine item is added to its inventory.
      */
-    DrMaybe() {
-        super("Dr Maybe", 'm', 6, 25);
+    DrMaybe(String name, Actor player) {
+        super(name, 'm', 6, 25);
+        this.player = player;
         addItemToInventory(createRocketEngine());
     }
 
@@ -33,18 +35,7 @@ public class DrMaybe extends Actor {
      */
     @Override
     public Action playTurn(Actions actions, GameMap map, Display display) {
-        Action action = actions.get(rand.nextInt(actions.size()));
-        boolean flag = true;
-
-        while (flag) {
-            if (!(action instanceof DropItemAction) && !(action instanceof PickUpItemAction) && !(action instanceof MoveActorAction)) {
-                flag = false;
-            }
-            else {
-                action = actions.get(rand.nextInt(actions.size()));
-            }
-        }
-        return action;
+        return new AttackAction(this, player);
     }
 
     /**
@@ -66,6 +57,6 @@ public class DrMaybe extends Actor {
      */
     @Override
     public IntrinsicWeapon getIntrinsicWeapon() {
-        return new IntrinsicWeapon(1, "throws a conical flask at");
+        return new IntrinsicWeapon((int) (Grunt.GRUNT_DAMAGE*0.5), "throws a conical flask at");
     }
 }
