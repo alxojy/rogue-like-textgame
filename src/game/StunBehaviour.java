@@ -53,14 +53,7 @@ public class StunBehaviour extends AttackAction implements ActionFactory {
 
             subject.hurt(damage);
             if (!subject.isConscious()) {
-
-                Item sleepingActor = new Item("Sleeping " + subject, '%');
-                map.locationOf(subject).addItem(sleepingActor);
-                for (Item item : subject.getInventory()) {
-                    new DropItemAction(item).execute(subject, map);
-                }
-                map.removeActor(subject);
-                result += System.lineSeparator() + subject + " is knocked out.";
+                super.execute(actor, map);
             }
             return result;
         }

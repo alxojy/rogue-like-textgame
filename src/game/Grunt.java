@@ -12,6 +12,7 @@ import java.util.List;
 public class Grunt extends Enemy {
 
 	final static int GRUNT_DAMAGE = 2;
+	final static int GRUNT_HITPOINTS = 50;
 	/**
 	 * Grunts have 50 hitPoints and are always represented with a 'g'
 	 * Constructor calls addBehaviour to add FollowBehaviour to follow the player
@@ -20,7 +21,7 @@ public class Grunt extends Enemy {
 	 * @param player player in the game
 	 */
 	Grunt(String name, Actor player) {
-		super(name, 'g', 3, 50, player);
+		super(name, 'g', 3, GRUNT_HITPOINTS, player);
 		addBehaviour(new FollowBehaviour(player));
 	}
 

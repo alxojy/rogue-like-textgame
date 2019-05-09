@@ -33,10 +33,8 @@ public class RocketPad extends Ground {
     public Actions allowableActions(Actor actor, Location location, String direction) {
         Actions actions = new Actions();
 
-        if (actor instanceof GamePlayer) {
-            if (checkItems(location)) {
-                actions.add(new BuildRocketAction(actor,location, rocketBody, rocketEngine));
-            }
+        if (checkItems(location)) {
+            actions.add(new BuildRocketAction(actor,location, rocketBody, rocketEngine));
         }
         return actions;
     }

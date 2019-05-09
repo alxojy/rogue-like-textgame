@@ -18,7 +18,7 @@ public class DrMaybe extends Actor {
      * When a DrMaybe object is instantiated, a rocket engine item is added to its inventory.
      */
     DrMaybe(String name, Actor player) {
-        super(name, 'm', 6, 25);
+        super(name, 'm', 6, (int) (Grunt.GRUNT_HITPOINTS*0.5));
         this.player = player;
         addItemToInventory(createRocketEngine());
     }
@@ -34,7 +34,7 @@ public class DrMaybe extends Actor {
      */
     @Override
     public Action playTurn(Actions actions, GameMap map, Display display) {
-        if (new Distance().distance(map.locationOf(player), map.locationOf(this)) == 1) {
+        if (Distance.distance(map.locationOf(player), map.locationOf(this)) == 1) {
             return new AttackAction(this, player);
         }
         return new SkipTurnAction();
