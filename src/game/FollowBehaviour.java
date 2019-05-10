@@ -36,7 +36,7 @@ public class FollowBehaviour implements ActionFactory {
 	 * If the destination distance is more than or equal to the current distance, return null.
 	 */
 	@Override
-	public Action getAction(Actor actor, GameMap map) {
+	public Action getAction(Actor actor, GameMap map) throws NullPointerException {
 		Location here = map.locationOf(actor);
 		Location there = map.locationOf(target);
 
