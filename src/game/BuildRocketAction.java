@@ -7,7 +7,7 @@ import edu.monash.fit2099.engine.Item;
 import edu.monash.fit2099.engine.Location;
 
 /**
- * This class represents an action that builds a rocket
+ * This class represents an action that builds a rocket.
  * @author Team Kimchi
  */
 
