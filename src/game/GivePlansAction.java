@@ -30,7 +30,7 @@ public class GivePlansAction extends Action {
      * Overrides it superclass's execute method and performs the following tasks:
      * 1. Checks if the player's inventory has the rocket plans by checking if its inventory has Item with
      * GameSkills.GETROCKETBODY. If yes, the player's rocket plans are removed from their inventory and is replaced with
-     * an Item rocket body. Then Q is removed from the map after giving the player the rocket body.
+     * an Item rocket body. Q is then removed from the map after giving the player the rocket body.
      *
      * @param player GamePlayer
      * @param map The map the GamePlayer is on.

@@ -41,8 +41,9 @@ public class GamePlayer extends Player {
      *
      * If the player is stunned. This overridden method;
      * 1. Increments the counter if the player is stunned and the counter can be incremented. If the counter can be
-     * incremented, it indicates that the player has not been stunned for two turns. Then, adds a newly instantiated
+     * incremented, it indicates that the player has not been stunned for two turns. Hence,it adds a newly instantiated
      * SkipTurnAction into the newly instantiated Actions as the player is not allowed to perform any other actions.
+     *
      * 2. Once the counter reaches its maximum value, it cannot be incremented anymore and
      * the counter will reset in the MaxCounter class. It sets the boolean stunnedPlayer to false
      * to return the state that the player is no longer stunned.
@@ -70,10 +71,11 @@ public class GamePlayer extends Player {
     }
 
     /**
-     * To change the boolean indicating if the player is stunned. Changes the boolean of stunnedPlayer.
+     * To change the boolean indicating if the player is stunned. Changes the boolean attribute, stunnedPlayer.
      *
      * @param stunStatus The new status to update the stunnedPlayer boolean to.
      */
+
     protected void setPlayerStunned(boolean stunStatus) {
         stunnedPlayer = stunStatus;
     }

@@ -27,7 +27,8 @@ public class RocketPad extends Ground {
     /**
      * Returns a list of actions that can be performed when the actor is adjacent to the rocket pad.
      * If the location contains a rocket body and a rocket engine, the actor is allowed to build a rocket,
-     * which calls for the BuildRocketAction class.
+     * A newly instantiated BuildRocketAction is added into a list of action. This allows the actor to execute
+     * this action.
      *
      * @param actor the Actor adjacent to the rocket pad
      * @param location the current Location of rocket pad

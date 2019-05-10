@@ -62,6 +62,8 @@ public class Q extends Actor {
      * If otherActor's inventory contains rocketPans which has GameSkills.GETROCKETBODY, otherActor is
      * allowed to do GivePlansAction to the current Actor (Q)
      *
+     * The otherActor is always allowed to do TalkAction when it is adjacent to the currentActor
+     *
      * @param otherActor the Actor that might be performing attack
      * @param direction  String representing the direction of the other Actor
      * @param map        current GameMap
