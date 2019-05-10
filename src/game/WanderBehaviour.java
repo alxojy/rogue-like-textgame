@@ -19,7 +19,7 @@ public class WanderBehaviour implements ActionFactory {
      * Randomly chooses one destination from a list of possible destinations. List exits stores all the possible routes
      * from a location.
      *
-     * Generates a random number (from 0 - exits.size()) and use it to retrieve the direction stored at exits
+     * Generates a random number (from 0 to exits.size()) and use it to retrieve the direction stored at exits
      * index. If the next destination is a valid destination, it returns a new MoveActorAction that will move Actor
      * to the new location. Else, it will generate another number.
      *

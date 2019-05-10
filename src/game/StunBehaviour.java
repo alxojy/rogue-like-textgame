@@ -59,7 +59,11 @@ public class StunBehaviour extends Action implements ActionFactory {
     public String menuDescription(Actor actor) {
         return actor + " stuns " + subject;
     }
-
+    /**
+     * Returns the empty string, as no hotKey is permanently assigned to StunBehaviour.
+     *
+     * @return the empty string
+     */
     @Override
     public String hotKey() {
         return "";

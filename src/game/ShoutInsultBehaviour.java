@@ -74,6 +74,11 @@ public class ShoutInsultBehaviour extends Action implements ActionFactory {
         return " insults ";
     }
 
+    /**
+     * Returns the empty string, as no hotKey is permanently assigned to ShoutInsultBehaviour.
+     *
+     * @return the empty string
+     */
     @Override
     public String hotKey() {
         return "";

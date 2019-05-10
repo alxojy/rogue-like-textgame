@@ -30,7 +30,8 @@ public class UnlockDoorAction extends Action {
      *
      * @param actor The actor performing the action.
      * @param map The map the actor is on.
-     * @return A String describing that the door has been unlocked
+     * @return A String describing that the door has been unlocked if actor's inventory contains key item which has
+     *         GameSkills.UNLOCKDOOR. Else, returns an empty string
      */
     @Override
     public String execute(Actor actor, GameMap map) {
