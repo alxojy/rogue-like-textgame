@@ -63,23 +63,28 @@ public abstract class Enemy extends Actor {
      */
     @Override
     public Action playTurn(Actions actions, GameMap map, Display display) {
-        this.map = map;
-        for (ActionFactory factory : actionFactories) {
-            Action action = factory.getAction(this, map);
-            if(action != null) {
-                return action;
+        try {
+            this.map = map;
+            for (ActionFactory factory : actionFactories) {
+                Action action = factory.getAction(this, map);
+                if (action != null) {
+                    return action;
+                }
+            }
+
+            Location enemyLocation = map.locationOf(this);
+            Location subjectLocation = map.locationOf(subject);
+
+            if (Distance.isAdjacent(enemyLocation, subjectLocation)) {
+                return new AttackAction(this, subject);
+            }
+            else {
+                return new SkipTurnAction();
             }
         }
-
-        Location enemyLocation = map.locationOf(this);
-        Location subjectLocation = map.locationOf(subject);
-
-        if (Distance.isAdjacent(enemyLocation, subjectLocation)) {
-            return new AttackAction(this, subject);
+        catch (NullPointerException npe) {
         }
-        else {
-            return new SkipTurnAction();
-        }
+        return new SkipTurnAction();
     }
 
     /**

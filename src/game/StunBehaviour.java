@@ -78,7 +78,7 @@ public class StunBehaviour extends Action implements ActionFactory {
      * @return shout insult action if successful. null if not
      */
     @Override
-    public Action getAction(Actor actor, GameMap map) {
+    public Action getAction(Actor actor, GameMap map) throws NullPointerException {
         Location here = map.locationOf(actor);
         Location there = map.locationOf(subject);
 

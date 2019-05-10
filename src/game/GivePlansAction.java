@@ -6,18 +6,18 @@ import edu.monash.fit2099.engine.GameMap;
 import edu.monash.fit2099.engine.Item;
 
 /**
- * This class represents an Action that allows GamePlayer to give plans to Q
+ * This class represents an Action that gives rocket plans
  * @author Team Kimchi
  */
-
 public class GivePlansAction extends Action {
     private Actor player;
     private Actor Q;
 
     /**
-     * Constructor
-     * @param actor the GamePlayer
-     * @param Q Q actor
+     * Constructor.
+     *
+     * @param actor The actor performing the action
+     * @param Q The actor giving the rocket plans
      */
     GivePlansAction(Actor actor,Actor Q) {
         player = actor;
@@ -26,10 +26,12 @@ public class GivePlansAction extends Action {
     }
 
     /**
-     * Overrides Action.execute()
-     * Executes givePlansAction by checking if player have rocketPlan item in
-     * the inventory. If yes , Player substitutes rocketPlan for rocketBody,
-     * Q then disappears from the map
+     * Performs the action of player giving rocket plans and adding rocket body in its inventory.
+     *
+     * Overrides it superclass's execute method and performs the following tasks:
+     * 1. Checks if the player's inventory has the rocket plans by checking if its inventory has Item with
+     * GameSkills.GETROCKETBODY. If yes, the player's rocket plans are removed from their inventory and is replaced with
+     * an Item rocket body. Then Q disappears from the map after giving the player the rocket body.
      *
      * @param player GamePlayer
      * @param map The map the GamePlayer is on.

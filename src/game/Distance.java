@@ -17,16 +17,15 @@ public class Distance {
      * @return The distance between a and b if the values of a and b are not null.
      * If either a or b or both are null, return 0
      */
-    public static int distance(Location a, Location b) {
+    public static int distance(Location a, Location b) throws NullPointerException {
         int distance;
         try {
             distance = Math.abs(a.x() - b.x()) + Math.abs(a.y() - b.y());
             return distance;
         }
         catch (NullPointerException npe) {
-            distance = 0;
+            throw new NullPointerException("Location of actor does not exist");
         }
-        return distance;
     }
 
     /**
