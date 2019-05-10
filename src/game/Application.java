@@ -26,7 +26,7 @@ public class Application {
         GameMap startMap = new GameMap(groundFactory, map);
 		world.addMap(startMap);
 
-        GamePlayer player = new GamePlayer("Player", '@', 1, 100);
+        GamePlayer player = new GamePlayer("Player", '@', 1, 200);
         world.addPlayer(player, startMap, 2, 16);
 
         //instantiate enemies
