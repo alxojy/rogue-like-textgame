@@ -8,28 +8,32 @@ import java.util.List;
 import java.util.Random;
 
 /**
- * This abstract class is used as a template for Enemy subclasses
+ * This abstract class is used as a template for Enemy subclasses.
+ * It is not meant to be instantiated as it does not represent any specific enemy in the game.
  * @author Team Kimchi
  */
-public class Enemy extends Actor {
+public abstract class Enemy extends Actor {
 
     private GameMap map;
+
     /**
      * A List used to store behaviours of the enemy
      */
     private List<ActionFactory> actionFactories = new ArrayList<>();
-    private Actor subject;
+    private GamePlayer subject;
 
     /**
      * Constructor.
+     *
      * Adds an Item key into an enemy's inventory when instantiated.
      *
-     * @param name name of the enemy
-     * @param displayChar display character of the enemy
-     * @param priority priority of the enemy
-     * @param hitPoints the enemy's hitPoints
+     * @param name Name of the enemy.
+     * @param displayChar Display character of the enemy.
+     * @param priority Priority of the enemy.
+     * @param hitPoints The enemy's hit points.
+     * @param player The player in the game which is its target.
      */
-    protected Enemy(String name, char displayChar, int priority, int hitPoints, Actor player) {
+    Enemy(String name, char displayChar, int priority, int hitPoints, GamePlayer player) {
         super(name, displayChar, priority, hitPoints);
         subject = player;
         addItemToInventory(createKey());
@@ -45,14 +49,17 @@ public class Enemy extends Actor {
     }
 
     /**
-     * The playTurn method iterates through the List of behaviours and returns the first Action behaviour that is not null.
-     * If there are no behaviours or the behaviours are null, it iterates through actions. The Action in actions cannot be
-     * instances of DropItemAction and PickUpItemAction
+     * Returns a suitable Action for the enemy to perform.
+     *
+     * The playTurn method iterates through the List of behaviours and returns the first Action behaviour
+     * that is not null.
+     * If there are no behaviours or the behaviours are null, it checks it is adjacent to the player.
+     * If it is adjacent to the player, it will return an AttackAction. Else, it will do nothing.
      *
      * @param actions collection of possible Actions for this Actor
      * @param map     the map containing the Actor
      * @param display the I/O object to which messages may be written
-     * @return the Action to be performed
+     * @return A suitable Action to perform.
      */
     @Override
     public Action playTurn(Actions actions, GameMap map, Display display) {
@@ -76,7 +83,9 @@ public class Enemy extends Actor {
     }
 
     /**
-     * Creates a key item by instantiating a new Item object that represents a key in the game
+     * Creates an Item key.
+     *
+     * Instantiates a new Item object that represents a key in the game.
      * The key has a skill GameSkills.UNLOCKDOOR
      *
      * @return an Item key, that has skill GameSkills.UNLOCKDOOR

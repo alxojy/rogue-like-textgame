@@ -44,7 +44,7 @@ public class GivePlansAction extends Action {
                 player.addItemToInventory(createRocketBody());
                 player.removeItemFromInventory(item);
                 map.removeActor(Q);
-                System.out.println("Q disappeared with a cherry wave.");
+                System.out.println("Q disappeared with a cherry wave");
             }
         }
         return "Rocket body is added to the Player's inventory\nRocket plan is removed from Player's inventory";
@@ -57,7 +57,7 @@ public class GivePlansAction extends Action {
      */
     @Override
     public String menuDescription(Actor actor) {
-        return player + " gives plan to Q";
+        return actor + " gives rocket plans to " + Q;
     }
     /**
      * Returns the empty string, as no hotkey is permanently assigned to GivePlanAction.
