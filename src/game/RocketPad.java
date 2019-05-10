@@ -20,7 +20,7 @@ public class RocketPad extends Ground {
 
     /**
      * Returns an action list that can be execute when actor is adjacent to rocketPad
-     * BuildRocketAction will only be added to the action list if checItem(location) returns TRUE
+     * BuildRocketAction will only be added to the action list if checkItem(location) returns TRUE
      *
      * Overrides Ground.getAllowableActions()
      *
