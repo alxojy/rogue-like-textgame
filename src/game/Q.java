@@ -10,10 +10,16 @@ import java.util.List;
  * @author Team Kimchi
  */
 public class Q extends Actor {
+
+    /**
+     * List of behaviours that can be performed by Q.
+     */
     private List<ActionFactory> actionFactories = new ArrayList<>();
 
     /**
-     * Constructor to create a Q object that implements WanderBehaviour
+     * Constructor.
+     *
+     * Calls addBehaviour to add WanderBehaviour for Q to wander around the map.
      */
     Q() {
         super("Q", 'Q', 5, 50);
@@ -21,8 +27,9 @@ public class Q extends Actor {
     }
 
     /**
-     * Adds new behaviour to the list of action so Q can implement the actions
-     * @param behaviour the behaviour to be added into the list
+     * Adds the behaviour of Q into a List of behaviours.
+     *
+     * @param behaviour The behaviour to be added.
      */
     private void addBehaviour(ActionFactory behaviour) {
         actionFactories.add(behaviour);

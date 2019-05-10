@@ -14,6 +14,8 @@ import java.util.Random;
  */
 public abstract class Enemy extends Actor {
 
+    private GameMap map;
+
     /**
      * A List used to store behaviours of the enemy
      */
@@ -38,9 +40,9 @@ public abstract class Enemy extends Actor {
     }
 
     /**
-     * Adds the behaviour of an enemy into a List of behaviours
+     * Adds the behaviour of an enemy into a List of behaviours.
      *
-     * @param behaviour the behaviour to be added
+     * @param behaviour The behaviour to be added
      */
     protected void addBehaviour(ActionFactory behaviour) {
         actionFactories.add(behaviour);
@@ -61,6 +63,7 @@ public abstract class Enemy extends Actor {
      */
     @Override
     public Action playTurn(Actions actions, GameMap map, Display display) {
+        this.map = map;
         for (ActionFactory factory : actionFactories) {
             Action action = factory.getAction(this, map);
             if(action != null) {

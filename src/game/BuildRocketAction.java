@@ -80,7 +80,7 @@ public class BuildRocketAction extends Action {
     /**
      * Creates a rocket item. The item is a furniture as the rocket cannot be picked up.
      *
-     * @return a newly instantiated Item object that represents a rocket
+     * @return A newly instantiated Item object that represents a rocket
      */
     private Item createRocket() {
         return Item.newFurniture("rocket", '^');

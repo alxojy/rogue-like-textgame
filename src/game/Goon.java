@@ -13,12 +13,14 @@ import java.util.Random;
 public class Goon extends Enemy {
 
     /**
-     * Goon has 50 hitPoints and are always represented with a 'G'
-     * Constructor calls addBehaviour to add ShoutInsultBehaviour and FollowBehaviour
-     * The ShoutInsultBehaviour shouts insults at the player and the FollowBehaviour follows the player
+     * Constructor.
      *
-     * @param name name of the Goon object
-     * @param player player in the game
+     * Goon has 50 hitPoints and is always represented with a 'G'
+     * Constructor calls addBehaviour to add ShoutInsultBehaviour and FollowBehaviour.
+     * The ShoutInsultBehaviour shouts insults at the player and the FollowBehaviour follows the player.
+     *
+     * @param name Name of the Goon object
+     * @param player Player in the game
      */
     Goon(String name, GamePlayer player) {
         super(name, 'G', 2, 50, player);
@@ -27,7 +29,9 @@ public class Goon extends Enemy {
     }
 
     /**
-     * Creates an intrinsic weapon which punches
+     * Creates an intrinsic weapon which punches.
+     *
+     * Uses Grunt class's static variable to get twice of Grunt's damage.
      *
      * @return a newly instantiated IntrinsicWeapon
      */

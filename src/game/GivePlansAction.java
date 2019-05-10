@@ -22,7 +22,6 @@ public class GivePlansAction extends Action {
     GivePlansAction(Actor actor,Actor Q) {
         player = actor;
         this.Q = Q;
-
     }
 
     /**
@@ -31,39 +30,41 @@ public class GivePlansAction extends Action {
      * Overrides it superclass's execute method and performs the following tasks:
      * 1. Checks if the player's inventory has the rocket plans by checking if its inventory has Item with
      * GameSkills.GETROCKETBODY. If yes, the player's rocket plans are removed from their inventory and is replaced with
-     * an Item rocket body. Then Q disappears from the map after giving the player the rocket body.
+     * an Item rocket body. Then Q is removed from the map after giving the player the rocket body.
      *
      * @param player GamePlayer
      * @param map The map the GamePlayer is on.
-     * @return  a String describing what has been executed
+     * @return  A String describing what has been executed
      */
     @Override
     public String execute(Actor player, GameMap map) {
-
         for (Item item : player.getInventory()){
             if ((item.hasSkill(GameSkills.GETROCKETBODY))) {
                 createRocketBody();
                 player.addItemToInventory(createRocketBody());
                 player.removeItemFromInventory(item);
                 map.removeActor(Q);
-                System.out.println("Q disappeared with a cherry wave");
             }
         }
-        return "Rocket body is added to the Player's inventory\nRocket plan is removed from Player's inventory";
+        return "Q disappeared with a cherry wave\nRocket body is added to the Player's inventory\n" +
+                "Rocket plan is removed from Player's inventory";
     }
+
     /**
-     * Returns a string describing the action suitable for displaying in the menu.
+     * Returns a description of the give rocket plans action to display on the menu.
      *
      * @param actor The actor performing the action.
-     * @return  a string describing the give plans action
+     * @return  a String describing the give rocket plans action
      */
     @Override
     public String menuDescription(Actor actor) {
         return actor + " gives rocket plans to " + Q;
     }
+
     /**
-     * Returns the empty string, as no hotkey is permanently assigned to GivePlanAction.
-     * @return the empty string
+     * Returns the empty String, as no hotKey is permanently assigned to GivePlansAction.
+     *
+     * @return The empty String
      */
     @Override
     public String hotKey() {
@@ -71,9 +72,9 @@ public class GivePlansAction extends Action {
     }
 
     /**
-     * Creates the rocketBody which has the GameSkills.BUILDROCKETTOP.
-     * if player successfully swaps item with Q , the rocketBody item will be added into the GamePlayer's inventory
-     * @return the rocketBody item
+     * Creates the rocket body that is an Item which has the GameSkills.BUILDROCKETTOP.
+     *
+     * @return A newly instantiated Item object that represents a rocket body
      */
     private Item createRocketBody() {
         Item rocketBody = Item.newInventoryItem("rocket body", 'B');

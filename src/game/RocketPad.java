@@ -5,29 +5,35 @@ import edu.monash.fit2099.engine.*;
 import java.util.List;
 
 /**
- * Class representing a RocketPad terrain
+ * Class representing a rocket pad terrain
  * @author Team Kimchi
  */
 public class RocketPad extends Ground {
+
+    /**
+     * Represents Item objects- rocket body and rocket engine respectively
+     */
     private Item rocketBody, rocketEngine;
 
     /**
-     * Constructor
+     * Constructor.
+     *
+     * Initialises the char to display for a locked door as 'X'.
      */
     public RocketPad() {
         super('X');
     }
 
     /**
-     * Returns an action list that can be execute when actor is adjacent to rocketPad
-     * BuildRocketAction will only be added to the action list if checkItem(location) returns TRUE
+     * Returns a list of actions that can be performed when the actor is adjacent to the rocket pad.
+     * If the location contains a rocket body and a rocket engine, the actor is allowed to build a rocket,
+     * which calls for the BuildRocketAction class.
      *
-     * Overrides Ground.getAllowableActions()
-     *
-     * @param actor the Actor acting
-     * @param location the current Location of Rocket Pad
+     * @param actor the Actor adjacent to the rocket pad
+     * @param location the current Location of rocket pad
      * @param direction the direction of the Ground from the Actor
-     * @return an action list
+     * @return BuildRocketAction if the location have rocket body and rocket engine.
+     * An empty Action list if the location do not have the required items.
      */
     @Override
     public Actions allowableActions(Actor actor, Location location, String direction) {
@@ -40,29 +46,30 @@ public class RocketPad extends Ground {
     }
 
     /**
-     * Checks if both rocketBody item and rocketEngine item is on the rocketPad
+     * Checks if both rocket body and rocket engine are on the rocket pad.
      *
-     * @param location location of the rocketPad
-     * @return True if and only if both items are present on the rocketPad
+     * @param location location of the rocket pad
+     * @return true if and only if both items are present on the rocket pad.
+     * false if either or both items are not present.
      */
     private boolean checkItems(Location location){
-        boolean retVal = false;
+        boolean bothItemsFound = false;
         List<Item> itemList = location.getItems();
-        boolean firstCond = false, secondCond = false;
+        boolean rBodyFound = false, rEngineFound = false;
 
         for (Item currentItem : itemList) {
             if (currentItem.hasSkill(GameSkills.BUILDROCKETBASE)) {
-                firstCond = true;
+                rBodyFound = true;
                 rocketBody = currentItem;
             }
             else if (currentItem.hasSkill(GameSkills.BUILDROCKETTOP)) {
-                secondCond = true;
+                rEngineFound = true;
                 rocketEngine = currentItem;
             }
         }
-        if (firstCond && secondCond) {
-            retVal = true;
+        if (rBodyFound && rEngineFound) {
+            bothItemsFound = true;
         }
-        return retVal;
+        return bothItemsFound;
     }
 }

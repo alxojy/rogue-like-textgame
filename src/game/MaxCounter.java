@@ -1,40 +1,27 @@
 package game;
 
 /**
- * Class representing MaxCounter object, inherits from Counter
- * has an additional attribute called max , to keep track of the maximum
- * value of the counter
+ * Resets its own value when the counter reaches its maximum value.
  * @author Team Kimchi
  */
 public class MaxCounter extends Counter {
 
+    /**
+     * To keep track of the maximum value of the counter
+     */
     private int max;
 
     /**
      * Constructor.
-     * @param max the maximum value of the counter
+     *
+     * @param max The maximum value of the counter
      */
     MaxCounter(int max)  {
         this.max = max;
     }
 
     /**
-     * Checks if counter can be incremented
-     * Counter cannot be increment further if the current value + 1 = max
-     * @return True or False
-     */
-    public boolean canIncrement(){
-        boolean flag = true;
-        if (this.getValue()+1 == max ){
-            flag = false;
-        }
-        return flag;
-    }
-
-    /**
-     * Increments and resets the counter
-     * If the value of counter after incrementing = value of max :
-     * reset the counter
+     * Increments and resets the counter when it reaches its maximum value.
      */
 
     @Override
@@ -43,5 +30,20 @@ public class MaxCounter extends Counter {
         if (this.getValue() == max) {
             this.reset();
         }
+    }
+
+    /**
+     * Checks if counter can be incremented.
+     *
+     * Counter cannot be incremented further if the current value + 1 == max
+     *
+     * @return true if it can be incremented. false otherwise
+     */
+    public boolean canIncrement(){
+        boolean flag = true;
+        if (this.getValue()+1 == max ){
+            flag = false;
+        }
+        return flag;
     }
 }

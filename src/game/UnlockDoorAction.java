@@ -6,33 +6,31 @@ import edu.monash.fit2099.engine.*;
 import java.util.Random;
 
 /**
- *This class is responsible for the actor performing the action to unlock a door
+ * This class is responsible for the actor performing the action to unlock a door
  * @author Team Kimchi
  */
 public class UnlockDoorAction extends Action {
 
-    private String direction;
     private Location doorLocation;
 
     /**
-     * Constructor initialises the direction and location of the locked door
+     * Constructor.
      *
-     * @param direction direction of the door relative to the actor
      * @param doorLocation location of the locked door
      */
-    UnlockDoorAction(String direction, Location doorLocation) {
-        this.direction = direction;
+    UnlockDoorAction(Location doorLocation) {
         this.doorLocation = doorLocation;
     }
 
     /**
-     * If the actor's inventory has an item key with the skills GameSkills.UNLOCKDOOR, the key will be removed and
-     * the door will be unlocked. The locked door terrain will be replaced with the Floor terrain
-     * Overrides Action.execute()
+     * Performs the action of unlocking a locked door.
+     *
+     * If the actor's inventory has an Item key with the skills GameSkills.UNLOCKDOOR, the key will be removed from their
+     * inventory and the door will be unlocked. The locked door terrain will be replaced with the Floor terrain
      *
      * @param actor The actor performing the action.
      * @param map The map the actor is on.
-     * @return a String describing that the door has been unlocked
+     * @return A String describing that the door has been unlocked
      */
     @Override
     public String execute(Actor actor, GameMap map) {
@@ -47,10 +45,10 @@ public class UnlockDoorAction extends Action {
     }
 
     /**
-     * Returns a String describing the action suitable for displaying in the menu, which is unlocks a door
+     * Returns a String describing the Action suitable for displaying in the menu, which is unlocks a door
      *
      * @param actor The actor performing the action.
-     * @return  a String describing the unlock door action
+     * @return A String describing the unlock door action
      */
     @Override
     public String menuDescription(Actor actor) {

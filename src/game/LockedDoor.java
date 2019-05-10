@@ -7,41 +7,45 @@ import edu.monash.fit2099.engine.*;
  */
 public class LockedDoor extends Ground {
 
+    /**
+     * Constructor.
+     *
+     * Initialises the char to display for a locked door as '+'.
+     */
     public LockedDoor() {
         super('+');
     }
 
     /**
-     * Locked door is an impassable terrain
+     * Locked door is an impassable terrain.
      *
-     * @param actor actor adjacent to the locked door
+     * @param actor Actor adjacent to the locked door
      * @return false
      */
     @Override
     public boolean canActorEnter(Actor actor) { return false; }
 
     /**
+     * Returns a list of actions that can be performed when the actor is adjacent to the locked door.
      * If the actor contains a key item in their inventory, they are allowed to unlock the door, which calls for the
-     * UnlockDoorAction class
+     * UnlockDoorAction class.
      *
-     * Overrides Ground.getAllowableActions()
-     *
-     * @param actor the Actor acting
+     * @param actor the Actor adjacent to the locked door
      * @param location the current Location
      * @param direction the direction of the Ground from the Actor
-     * @return UnlockDoorAction if the player has the key. An empty Action list is the player does not have the key
+     * @return UnlockDoorAction if the player has the key. An empty Action list if the player does not have the key
      */
     @Override
     public Actions allowableActions(Actor actor, Location location, String direction){
         Actions actions = new Actions();
         if (containsKey(actor)) {
-            actions.add(new UnlockDoorAction(direction, location));
+            actions.add(new UnlockDoorAction(location));
         }
         return actions;
     }
 
     /**
-     * The locked door terrain blocks thrown objects
+     * The locked door terrain blocks thrown objects.
      *
      * @return true
      */
