@@ -10,27 +10,33 @@ import java.util.Random;
  */
 public class DrMaybe extends Actor {
 
-    private Actor player;
+    private GamePlayer player;
 
     /**
      * Constructor.
-     * Calls its superclass's constructor to initialise the @param name "Dr Maybe", @param displayChar 'M', priority and hitPoints.
-     * When a DrMaybe object is instantiated, a rocket engine item is added to its inventory.
+     *
+     * Uses Grunt class's static variable to get half of Grunt's hitPoints.
+     *
+     * @param name The name of the DrMaybe actor.
+     * @param player The player in the game which is its target.
      */
-    DrMaybe(String name, Actor player) {
+    DrMaybe(String name, GamePlayer player) {
         super(name, 'm', 6, Grunt.GRUNT_HITPOINTS/2);
         this.player = player;
         addItemToInventory(createRocketEngine());
     }
 
     /**
-     *The overridden playTurn method gets a random Action to perform from actions. The Action cannot be an
-     * instance of DropItemAction
+     * The overridden playTurn method returns a suitable Action for the DrMaybe object to perform.
+     *
+     * It calls the Distance class's isAdjacent method to check if the player is adjacent to it.
+     * It attacks the player if its adjacent to it. Else, it does nothing.
      *
      * @param actions collection of possible Actions for this Actor
      * @param map     the map containing the Actor
      * @param display the I/O object to which messages may be written
-     * @return the Action to be performed
+     * @return A newly instantiated AttackAction if the player is adjacent to the DrMaybe object. Else,
+     * a newly instantiated SkipTurnAction.
      */
     @Override
     public Action playTurn(Actions actions, GameMap map, Display display) {
@@ -43,10 +49,12 @@ public class DrMaybe extends Actor {
     }
 
     /**
-     * Creates a rocket engine item by instantiating a new Item object that represents a rocket engine in the game.
+     * Creates a rocket engine item.
+     *
+     * Instantiates a new Item object that represents a rocket engine in the game.
      * The rocket engine has a skill GameSkills.BUILDROCKETBASE
      *
-     * @return an Item that represents a rocket engine
+     * @return An Item that represents a rocket engine
      */
     private Item createRocketEngine() {
         Item rocketEngine = Item.newInventoryItem("rocket engine", 'e');
@@ -56,6 +64,8 @@ public class DrMaybe extends Actor {
 
     /**
      * Creates an intrinsic weapon which throws a conical flask.
+     *
+     * Uses Grunt class's static variable to get half of Grunt's damage.
      *
      * @return a newly instantiated IntrinsicWeapon
      */

@@ -15,19 +15,20 @@ public class BuildRocketAction extends Action {
 
     private Actor subject;
     private Location location;
+
     /**
-     * Represents 
+     * Represents Item objects- rocket body and rocket engine respectively
      */
     private Item rocketBody, rocketEngine;
 
 
     /**
-     * Constructor
+     * Constructor.
      *
-     * @param actor the actor that is executing this action
-     * @param location the location of the rocket pad
-     * @param rocketBody the rocket body item that is on the rocket pad
-     * @param rocketEngine the rocket engine item that is on the rocket pad
+     * @param actor The actor that is executing this action
+     * @param location The location of the rocket pad
+     * @param rocketBody The rocket body item that is on the rocket pad
+     * @param rocketEngine The rocket engine item that is on the rocket pad
      */
     BuildRocketAction(Actor actor, Location location, Item rocketBody, Item rocketEngine) {
         this.location = location;
@@ -38,9 +39,10 @@ public class BuildRocketAction extends Action {
 
     /**
      * Performs the action of building a rocket.
+     *
      * Overrides its superclass's execute method and performs the following tasks:
-     * 1. replaces the rocket pad with a rocket
-     * 2. removes rocket body and rocket engine from the rocket pad
+     * 1. Replaces the rocket pad with a rocket
+     * 2. Removes rocket body and rocket engine from the rocket pad
      *
      * @param actor The actor performing the action.
      * @param map The map the actor is on.
@@ -68,7 +70,7 @@ public class BuildRocketAction extends Action {
     /**
      * Returns the empty String, as no hotKey is permanently assigned to BuildRocketAction.
      *
-     * @return the empty String
+     * @return The empty String
      */
     @Override
     public String hotKey() {
@@ -76,7 +78,7 @@ public class BuildRocketAction extends Action {
     }
 
     /**
-     * Creates a rocket item
+     * Creates a rocket item. The item is a furniture as the rocket cannot be picked up.
      *
      * @return a newly instantiated Item object that represents a rocket
      */

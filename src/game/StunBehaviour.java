@@ -45,7 +45,7 @@ public class StunBehaviour extends Action implements ActionFactory {
                 return actor + " misses " + subject;
             }
             subject.setPlayerStunned(true);
-            return actor + " stuns " + subject + " with a bag on stun powder";
+            return actor + " stuns " + subject + " with a bag of stun powder";
         }
     }
 

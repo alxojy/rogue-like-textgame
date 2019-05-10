@@ -3,8 +3,8 @@ package game;
 import edu.monash.fit2099.engine.*;
 
 /**
+ * Represents a player in the game.
  *
- * The GamePlayer extends from Player.
  * GamePlayer has additional MaxCounter attribute and stunnedPlayer boolean variable.
  * These additional instance variables enables GamePlayer to be stunned by Ninja
  * @author Team Kimchi
@@ -12,6 +12,10 @@ import edu.monash.fit2099.engine.*;
  */
 public class GamePlayer extends Player {
 
+    /**
+     * MaxCounter attribute used to store the maximum value that resets itself when the maximum value is reached.
+     * Since the player should be stunned for 2 turns, its maximum value is 3.
+     */
     private MaxCounter counter = new MaxCounter(3);
     private boolean stunnedPlayer = false;
     private GameMap map;
@@ -19,17 +23,17 @@ public class GamePlayer extends Player {
     /**
      * Constructor.
      *
-     * @param name Name to call the GamePlayer in the UI
-     * @param displayChar Character to display the GamePlayer in UI
-     * @param priority How early in the turn the GamePlayer can act
-     * @param hitPoints GamePlayer's starting number of hitpoints
+     * @param name Name of the player.
+     * @param displayChar char to display the player.
+     * @param priority Priority of the player.
+     * @param hitPoints Player's starting number of hitPoints.
      */
     GamePlayer(String name, char displayChar, int priority, int hitPoints) {
         super(name, displayChar, priority, hitPoints);
     }
 
     /**
-     * Overrides the method from Player
+     * Returns an Action performed by the player.
      *
      * Additional feature
      * This overridden method

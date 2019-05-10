@@ -5,14 +5,6 @@ import java.util.List;
 
 import edu.monash.fit2099.engine.*;
 
-/**
- * Represents a Driver in the game.
- * Instantiates a world and the game map.
- * Instantiates the actors in the game; Player, Q, enemies.
- * Enemies; Goon, Grunt, Ninja.
- * Miniboss; DrMaybe.
- * Instantiates an Item called rocket plan.
- */
 public class Application {
 
 	public static void main(String[] args) {
@@ -37,16 +29,17 @@ public class Application {
         GamePlayer player = new GamePlayer("Player", '@', 1, 100);
         world.addPlayer(player, startMap, 2, 16);
 
+        //instantiate enemies
         Grunt mrGrunt = new Grunt("Mr Grunt", player);
         startMap.addActor(mrGrunt, 2, 9);
 		Grunt mrsGrunt = new Grunt("Mrs Grunt", player);
 		startMap.addActor(mrsGrunt, 14, 7);
 		Goon toughGoon = new Goon("Tough Goon", player);
 		startMap.addActor(toughGoon, 19, 7);
-        //Goon strongGoon = new Goon("Strong Goon", player);
-        //startMap.addActor(strongGoon, 2, 7);
+        Goon strongGoon = new Goon("Strong Goon", player);
+        startMap.addActor(strongGoon, 2, 7);
         Ninja ninjaHatori = new Ninja("Ninja Hatori", player);
-        startMap.addActor(ninjaHatori, 18, 1);
+        startMap.addActor(ninjaHatori, 18, 3);
         Ninja ninjaJitsu = new Ninja("Ninja Jitsu", player);
         startMap.addActor(ninjaJitsu, 6, 8);
 
