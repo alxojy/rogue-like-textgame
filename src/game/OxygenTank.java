@@ -8,6 +8,7 @@ public class OxygenTank extends Item {
 
     OxygenTank() {
         super("oxygen tank", 'o');
+        this.hasSkill(GameSkills.OXYGENTANK);
     }
 
 }

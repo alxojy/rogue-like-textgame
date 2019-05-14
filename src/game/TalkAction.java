@@ -52,7 +52,7 @@ public class TalkAction extends Action {
      */
     @Override
     public String menuDescription(Actor actor) {
-        return actor + " talks to " + subject;
+        return actor + " talks to Q";
     }
 
     /**

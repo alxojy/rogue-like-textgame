@@ -10,13 +10,14 @@ public class Application {
 	public static void main(String[] args) {
 		World world = new World(new Display());
 
-		FancyGroundFactory groundFactory = new FancyGroundFactory(new Floor(), new Wall(), new LockedDoor(), new RocketPad());
+		FancyGroundFactory groundFactory = new FancyGroundFactory(new Floor(), new Wall(), new LockedDoor(), new RocketPad(),
+				new OxygenDispenser());
 
 		//Earth
 		List<String> earthMap = Arrays.asList(
 				"...#######...........",
 				"...#.....+...........",
-				"...#.....#...........",
+				"...#.....#........O..",
 				"...#############.....",
 				".....................",
 				".....................",
@@ -31,16 +32,16 @@ public class Application {
 		world.addPlayer(player, earth, 2, 16);
 
 		//instantiate enemies
-		Grunt mrGrunt = new Grunt("Mr Grunt", player);
-		earth.addActor(mrGrunt, 2, 9);
+		//Grunt mrGrunt = new Grunt("Mr Grunt", player);
+		//earth.addActor(mrGrunt, 2, 9);
 		Grunt mrsGrunt = new Grunt("Mrs Grunt", player);
 		earth.addActor(mrsGrunt, 14, 7);
-		Goon toughGoon = new Goon("Tough Goon", player);
-		earth.addActor(toughGoon, 19, 7);
+		//Goon toughGoon = new Goon("Tough Goon", player);
+		//earth.addActor(toughGoon, 19, 7);
 		Goon strongGoon = new Goon("Strong Goon", player);
 		earth.addActor(strongGoon, 2, 7);
-		Ninja ninjaHatori = new Ninja("Ninja Hatori", player);
-		earth.addActor(ninjaHatori, 18, 3);
+		//Ninja ninjaHatori = new Ninja("Ninja Hatori", player);
+		//earth.addActor(ninjaHatori, 18, 3);
 		Ninja ninjaJitsu = new Ninja("Ninja Jitsu", player);
 		earth.addActor(ninjaJitsu, 6, 8);
 

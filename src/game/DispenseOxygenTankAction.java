@@ -4,8 +4,8 @@ import edu.monash.fit2099.engine.*;
 
 public class DispenseOxygenTankAction extends Action {
 
-    Actor subject;
-    Location location;
+    private Actor subject;
+    private Location location;
 
     DispenseOxygenTankAction(Actor actor, Location location) {
         this.subject = actor;
@@ -14,8 +14,13 @@ public class DispenseOxygenTankAction extends Action {
 
     @Override
     public String execute(Actor actor, GameMap map) {
-        map.addItem(new OxygenTank(actor),location.x(),location.y());
-        return "Rocket has been created";
+        if (OxygenDispenser.canPressButton()) {
+            map.addItem(new OxygenTank(), location.x(), location.y());
+            return "Oxygen tank has been dispensed";
+        }
+        else {
+            return "Waiting for Oxygen tank to be dispensed";
+        }
     }
 
     @Override
