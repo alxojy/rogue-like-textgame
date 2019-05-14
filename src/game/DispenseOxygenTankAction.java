@@ -20,4 +20,9 @@ public class DispenseOxygenTankAction extends Action {
 
     @Override
     public String menuDescription(Actor actor) { return subject + " presses the button to dispense an oxygen tank";}
+
+    @Override
+    public String hotKey() {
+        return "";
+    }
 }
