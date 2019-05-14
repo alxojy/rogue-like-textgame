@@ -11,6 +11,7 @@ import java.util.Random;
  * @author Team Kimchi
  */
 public class Goon extends Enemy {
+    public final static int GOON_DAMAGE = Grunt.GRUNT_DAMAGE*2;
 
     /**
      * Constructor.
@@ -37,7 +38,7 @@ public class Goon extends Enemy {
      */
     @Override
     protected IntrinsicWeapon getIntrinsicWeapon() {
-        return new IntrinsicWeapon(Grunt.GRUNT_DAMAGE*2, "punches");
+        return new IntrinsicWeapon(GOON_DAMAGE, "punches");
     }
 
 }
