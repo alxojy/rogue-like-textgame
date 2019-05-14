@@ -19,5 +19,5 @@ public class DispenseOxygenTankAction extends Action {
     }
 
     @Override
-    public String menuDescription() { return subject + " presses the button to dispense an oxygen tank";}
+    public String menuDescription(Actor actor) { return subject + " presses the button to dispense an oxygen tank";}
 }
