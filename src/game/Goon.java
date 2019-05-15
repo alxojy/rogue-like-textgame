@@ -40,5 +40,4 @@ public class Goon extends Enemy {
     protected IntrinsicWeapon getIntrinsicWeapon() {
         return new IntrinsicWeapon(GOON_DAMAGE, "punches");
     }
-
 }

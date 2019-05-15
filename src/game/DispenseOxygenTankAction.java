@@ -14,13 +14,9 @@ public class DispenseOxygenTankAction extends Action {
 
     @Override
     public String execute(Actor actor, GameMap map) {
-        if (OxygenDispenser.canPressButton()) {
-            map.addItem(new OxygenTank(), location.x(), location.y());
-            return "Oxygen tank has been dispensed";
-        }
-        else {
-            return "Waiting for Oxygen tank to be dispensed";
-        }
+        location.map().addItem(new OxygenTank(), location.x(), location.y());
+        System.out.println("Oxygen tank has been dispensed");
+        return "Waiting for Oxygen tank to be dispensed";
     }
 
     @Override
