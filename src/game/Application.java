@@ -1,6 +1,5 @@
 package game;
 
-import java.io.IOException;
 import java.util.Arrays;
 import java.util.List;
 
@@ -49,8 +48,8 @@ public class Application {
 		DrMaybe drMaybe = new DrMaybe("Doctor Maybe", player);
 		earth.addActor(drMaybe, 6, 2);
 
-		YugoMexx yugoMexx = new YugoMexx("Yugo Maxx", player);
-		earth.addActor(yugoMexx, 16, 1);
+		YugoMaxx yugoMaxx = new YugoMaxx("Yugo Maxx", player);
+		earth.addActor(yugoMaxx, 16, 1);
 
 		Q q = new Q();
 		earth.addActor(q,13,5);

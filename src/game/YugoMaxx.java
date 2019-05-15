@@ -9,14 +9,14 @@ import java.util.List;
  * This class represents an actor who is a miniboss called Yugo Maxx
  * @author Team Kimchi
  */
-public class YugoMexx extends Actor {
+public class YugoMaxx extends Actor {
 
     private GamePlayer player;
     private boolean exoskeleton = true;
 
     private List<ActionFactory> actionFactories = new ArrayList<>();
 
-    YugoMexx(String name, GamePlayer player) {
+    YugoMaxx(String name, GamePlayer player) {
         super(name, 'y', 6, Grunt.GRUNT_HITPOINTS/2);
         this.player = player;
         addBehaviour(new WanderBehaviour());

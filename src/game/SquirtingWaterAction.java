@@ -9,12 +9,12 @@ import java.util.Random;
 
 public class SquirtingWaterAction extends Action {
 
-    YugoMexx yugoMexx;
+    YugoMaxx yugoMaxx;
     Item waterPistol;
     Random random = new Random();
 
-    SquirtingWaterAction(YugoMexx subject, Item waterPistol) {
-        yugoMexx = subject;
+    SquirtingWaterAction(YugoMaxx subject, Item waterPistol) {
+        yugoMaxx = subject;
         this.waterPistol = waterPistol;
     }
 
@@ -23,12 +23,12 @@ public class SquirtingWaterAction extends Action {
         String returnStatement
                 ;
         if (random.nextDouble() <= 0.70) {
-            yugoMexx.removeExoskeleton();
-            returnStatement = actor + " successfully squirted water " + yugoMexx + "\n" +
-                    yugoMexx + "'s exoskeleton has been removed.";
+            yugoMaxx.removeExoskeleton();
+            returnStatement = actor + " successfully squirted water " + yugoMaxx + "\n" +
+                    yugoMaxx + "'s exoskeleton has been removed.";
         }
         else {
-            returnStatement = actor + " missed " + yugoMexx;
+            returnStatement = actor + " missed " + yugoMaxx;
         }
 
         waterPistol.removeSkill(GameSkills.ISFULL);
@@ -38,7 +38,7 @@ public class SquirtingWaterAction extends Action {
 
     @Override
     public String menuDescription(Actor actor) {
-        return actor + " squirts water at " + yugoMexx;
+        return actor + " squirts water at " + yugoMaxx;
     }
 
     @Override
