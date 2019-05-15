@@ -12,20 +12,16 @@ import java.util.List;
 public class YugoMexx extends Actor {
 
     private GamePlayer player;
+    private boolean exoskeleton = true;
 
     private List<ActionFactory> actionFactories = new ArrayList<>();
 
     YugoMexx(String name, GamePlayer player) {
-        super(name, 'm', 6, Grunt.GRUNT_HITPOINTS/2);
+        super(name, 'y', 6, Grunt.GRUNT_HITPOINTS/2);
         this.player = player;
         addBehaviour(new WanderBehaviour());
     }
 
-    /**
-     * Adds the behaviour of Q into a List of behaviours.
-     *
-     * @param behaviour The behaviour to be added.
-     */
     private void addBehaviour(ActionFactory behaviour) {
         actionFactories.add(behaviour);
     }
@@ -45,7 +41,25 @@ public class YugoMexx extends Actor {
     }
 
     @Override
+    public Actions getAllowableActions(Actor otherActor, String direction, GameMap map) {
+        Actions actions = new Actions();
+        for (Item currentItem: otherActor.getInventory()) {
+            if (currentItem.hasSkill(GameSkills.ISFULL) && exoskeleton) {
+                actions.add(new SquirtingWaterAction(this, currentItem));
+            }
+        }
+
+        actions.add(new AttackYugoAction(player, this));
+        return actions;
+    }
+
+
+    @Override
     protected IntrinsicWeapon getIntrinsicWeapon() {
         return new IntrinsicWeapon(Goon.GOON_DAMAGE, "punches");
     }
+
+    public void removeExoskeleton() {exoskeleton = false;}
+
+    public boolean hasExoskeleton() {return exoskeleton;}
 }

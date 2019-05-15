@@ -49,6 +49,9 @@ public class Application {
 		DrMaybe drMaybe = new DrMaybe("Doctor Maybe", player);
 		earth.addActor(drMaybe, 6, 2);
 
+		YugoMexx yugoMexx = new YugoMexx("Yugo Maxx", player);
+		earth.addActor(yugoMexx, 16, 1);
+
 		Q q = new Q();
 		earth.addActor(q,13,5);
 
