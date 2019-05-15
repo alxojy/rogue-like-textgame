@@ -12,14 +12,14 @@ public class Application {
 		World world = new World(new Display());
 
 		FancyGroundFactory groundFactory = new FancyGroundFactory(new Floor(), new Wall(), new LockedDoor(), new RocketPad(),
-				new OxygenDispenser());
+				new OxygenDispenser(),new Water());
 
 		//Earth
 		List<String> earthMap = Arrays.asList(
 				"...#######...........",
 				"...#.....+...........",
 				"...#.....#........O..",
-				"...#############.....",
+				"...###########~~~....",
 				".....................",
 				".....................",
 				"..........###+####...",
@@ -52,6 +52,10 @@ public class Application {
 		Q q = new Q();
 		earth.addActor(q,13,5);
 
+		Item waterPistol = new Item("Water Pistol",'¬');
+		waterPistol.addSkill(GameSkills.ISEMPTY);
+		earth.addItem(waterPistol,16,2);
+
 		Item rocketPlan = new Item("rocket plans", 'p');
 		rocketPlan.addSkill(GameSkills.GETROCKETBODY);
 		earth.addItem(rocketPlan, 15, 8);
@@ -73,6 +77,8 @@ public class Application {
 
 		Item rocket = Item.newFurniture("rocket", '^');
 		moon.addItem(rocket, 3,3);
+
+
 
 		world.run();
 	}

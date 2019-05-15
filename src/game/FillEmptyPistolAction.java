@@ -3,11 +3,23 @@ package game;
 import edu.monash.fit2099.engine.Action;
 import edu.monash.fit2099.engine.Actor;
 import edu.monash.fit2099.engine.GameMap;
+import edu.monash.fit2099.engine.Item;
+
 
 public class FillEmptyPistolAction extends Action {
 
+    FillEmptyPistolAction(){ }
+
     @Override
     public String execute(Actor actor, GameMap map) {
+        for (Item item : actor.getInventory()) {
+            if (item.hasSkill(GameSkills.ISEMPTY)) {
+                item.removeSkill(GameSkills.ISEMPTY);
+                item.addSkill(GameSkills.ISFULL);
+
+                return "The water pistol is refilled";
+            }
+        }
         return "";
     }
 
@@ -26,4 +38,6 @@ public class FillEmptyPistolAction extends Action {
     public String hotKey() {
         return "";
     }
+
+
 }
