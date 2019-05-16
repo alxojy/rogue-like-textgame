@@ -13,19 +13,7 @@ public class Application {
 		FancyGroundFactory groundFactory = new FancyGroundFactory(new Floor(), new Wall(), new LockedDoor(), new RocketPad(),
 				new OxygenDispenser(),new Water());
 
-		//Earth
-		List<String> earthMap = Arrays.asList(
-				"...#######...........",
-				"...#.....+...........",
-				"...#.....#........O..",
-				"...###########~~~....",
-				".....................",
-				".....................",
-				"..........###+####...",
-				"...X......#......#...",
-				"..........#......#...",
-				"..........########...");
-		GameMap earth = new GameMap(groundFactory, earthMap);
+		GameMap earth = new EarthMap().getEarth();
 		world.addMap(earth);
 
 		GamePlayer player = new GamePlayer("Player", '@', 1, 200);
@@ -62,23 +50,14 @@ public class Application {
 		rocketPlan.addSkill(GameSkills.GETROCKETBODY);
 		earth.addItem(rocketPlan, 15, 8);
 
-		//Moon
-		List<String> moonMap = Arrays.asList(
-				".............",
-				".............",
-				".......####..",
-				".............",
-				".............",
-				".............",
-				"#####........",
-				"...........##",
-				".............",
-				"#####........");
-		GameMap moon = new GameMap(groundFactory, moonMap);
+		//moon
+		GameMap moon = new MoonMap().getMoon();
 		world.addMap(moon);
+
 
 		Item rocket = Item.newFurniture("rocket", '^');
 		moon.addItem(rocket, 3,3);
+
 
 
 
