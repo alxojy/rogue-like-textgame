@@ -12,6 +12,10 @@ import edu.monash.fit2099.engine.*;
  */
 public class GamePlayer extends Player {
 
+    public static ActionScheduler actionScheduler = new ActionScheduler();
+
+    public static boolean buttonPressed = false;
+
     /**
      * MaxCounter attribute used to store the maximum value that resets itself when the maximum value is reached.
      * Since the player should be stunned for 2 turns, its maximum value is 3.
@@ -66,6 +70,9 @@ public class GamePlayer extends Player {
         else if (!counter.canIncrement()) {
             setPlayerStunned(false);
             counter.increment();
+        }
+        else if (!actionScheduler.isEmpty()) {
+            actionScheduler.doActionScheduled(this, map);
         }
         return super.playTurn(actions, map, display);
     }
