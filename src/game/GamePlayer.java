@@ -14,8 +14,6 @@ public class GamePlayer extends Player {
 
     public static ActionScheduler actionScheduler = new ActionScheduler();
 
-    public static boolean buttonPressed = false;
-
     /**
      * MaxCounter attribute used to store the maximum value that resets itself when the maximum value is reached.
      * Since the player should be stunned for 2 turns, its maximum value is 3.
@@ -26,7 +24,6 @@ public class GamePlayer extends Player {
      * boolean attribute used to return the state of whether the player is stunned.
      */
     private boolean stunnedPlayer = false;
-    private GameMap map;
 
     /**
      * Constructor.
@@ -62,7 +59,6 @@ public class GamePlayer extends Player {
      */
     @Override
     public Action playTurn(Actions actions, GameMap map, Display display) {
-        this.map = map;
         if (getPlayerStunned() && counter.canIncrement()) {
             counter.increment();
             return super.playTurn(new Actions(new SkipTurnAction()), map, display);
