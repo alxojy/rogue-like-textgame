@@ -7,14 +7,16 @@ import edu.monash.fit2099.engine.GameMap;
 public class PressButtonAction extends Action {
 
     private Actor subject;
+    private MaxCounter counter;
 
-    PressButtonAction(Actor actor) {
+    PressButtonAction(Actor actor, MaxCounter counter) {
         this.subject = actor;
+        this.counter = counter;
     }
 
     @Override
     public String execute(Actor actor, GameMap map) {
-        OxygenDispenserScheduler.counter.increment();
+        counter.increment();
         return "Waiting for Oxygen tank to be dispensed";
     }
 

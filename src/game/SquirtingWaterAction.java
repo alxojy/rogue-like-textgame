@@ -9,9 +9,9 @@ import java.util.Random;
 
 public class SquirtingWaterAction extends Action {
 
-    YugoMaxx yugoMaxx;
-    Item waterPistol;
-    Random random = new Random();
+    private YugoMaxx yugoMaxx;
+    private Item waterPistol;
+    private Random random = new Random();
 
     SquirtingWaterAction(YugoMaxx subject, Item waterPistol) {
         yugoMaxx = subject;
@@ -20,8 +20,8 @@ public class SquirtingWaterAction extends Action {
 
     @Override
     public String execute(Actor actor, GameMap map) {
-        String returnStatement
-                ;
+        String returnStatement;
+
         if (random.nextDouble() <= 0.70) {
             yugoMaxx.removeExoskeleton();
             returnStatement = actor + " successfully squirted water " + yugoMaxx + "\n" +
@@ -31,8 +31,8 @@ public class SquirtingWaterAction extends Action {
             returnStatement = actor + " missed " + yugoMaxx;
         }
 
-        waterPistol.removeSkill(GameSkills.ISFULL);
-        waterPistol.addSkill(GameSkills.ISEMPTY);
+        waterPistol.removeSkill(GameSkills.PISTOLISFULL);
+        waterPistol.addSkill(GameSkills.PISTOLISEMPTY);
         return returnStatement;
     }
 

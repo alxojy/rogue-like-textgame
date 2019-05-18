@@ -13,9 +13,9 @@ public class FillEmptyPistolAction extends Action {
     @Override
     public String execute(Actor actor, GameMap map) {
         for (Item item : actor.getInventory()) {
-            if (item.hasSkill(GameSkills.ISEMPTY)) {
-                item.removeSkill(GameSkills.ISEMPTY);
-                item.addSkill(GameSkills.ISFULL);
+            if (item.hasSkill(GameSkills.PISTOLISEMPTY)) {
+                item.removeSkill(GameSkills.PISTOLISEMPTY);
+                item.addSkill(GameSkills.PISTOLISFULL);
 
                 return "The water pistol is refilled";
             }

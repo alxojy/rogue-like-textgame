@@ -44,7 +44,7 @@ public class YugoMaxx extends Actor {
     public Actions getAllowableActions(Actor otherActor, String direction, GameMap map) {
         Actions actions = new Actions();
         for (Item currentItem: otherActor.getInventory()) {
-            if (currentItem.hasSkill(GameSkills.ISFULL) && exoskeleton) {
+            if (currentItem.hasSkill(GameSkills.PISTOLISFULL) && exoskeleton) {
                 actions.add(new SquirtingWaterAction(this, currentItem));
             }
         }

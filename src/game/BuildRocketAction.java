@@ -79,6 +79,6 @@ public class BuildRocketAction extends Action {
      * @return A newly instantiated Item object that represents a rocket
      */
     private Item createRocket() {
-        return Item.newFurniture("rocket", '^');
+        return new RocketToTheMoon(subject);
     }
 }

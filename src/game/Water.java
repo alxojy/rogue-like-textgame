@@ -33,7 +33,7 @@ public class Water extends Ground {
 
     private boolean containsPistol(Actor actor) {
         for (Item currentItem : actor.getInventory()) {
-            if (currentItem.hasSkill(GameSkills.ISEMPTY)) {
+            if (currentItem.hasSkill(GameSkills.PISTOLISEMPTY)) {
                 return true;
             }
         }

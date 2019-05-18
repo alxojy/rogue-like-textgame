@@ -5,17 +5,15 @@ import edu.monash.fit2099.engine.*;
 public class DispenseOxygenTankAction extends Action {
 
     private Actor subject;
-    private Location location;
 
-    DispenseOxygenTankAction(Actor actor, Location location) {
+    DispenseOxygenTankAction(Actor actor) {
         this.subject = actor;
-        this.location = location;
     }
 
     @Override
     public String execute(Actor actor, GameMap map) {
-        OxygenDispenserScheduler.counter.increment();
-        actor.addItemToInventory(new OxygenTank());
+        map.locationOf(actor).addItem(new OxygenTank());
+        map.removeActor(actor);
         return "Oxygen tank has been dispensed";
     }
 

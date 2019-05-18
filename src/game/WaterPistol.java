@@ -10,7 +10,7 @@ public class WaterPistol extends Item{
 
     WaterPistol() {
         super("water pistol", '¬');
-        this.addSkill(GameSkills.ISEMPTY);
+        this.addSkill(GameSkills.PISTOLISEMPTY);
     }
 
     public void setPistolEmpty (boolean isEmpty){

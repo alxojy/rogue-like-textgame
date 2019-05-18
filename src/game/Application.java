@@ -1,8 +1,5 @@
 package game;
 
-import java.util.Arrays;
-import java.util.List;
-
 import edu.monash.fit2099.engine.*;
 
 public class Application {
@@ -10,18 +7,18 @@ public class Application {
 	public static void main(String[] args) {
 		World world = new World(new Display());
 
-		FancyGroundFactory groundFactory = new FancyGroundFactory(new Floor(), new Wall(), new LockedDoor(), new RocketPad(),
-				new OxygenDispenser(),new Water());
-
-		GameMap earth = new EarthMap().getEarth();
+		GameMap earth = EarthMap.getMap();
 		world.addMap(earth);
 
+		GameMap moon = MoonMap.getMap();
+		world.addMap(moon);
+
 		GamePlayer player = new GamePlayer("Player", '@', 1, 200);
-		world.addPlayer(player, earth, 2, 16);
+		world.addPlayer(player, moon, 2, 12);
 
 		//instantiate enemies
-		//Grunt mrGrunt = new Grunt("Mr Grunt", player);
-		//earth.addActor(mrGrunt, 2, 9);
+		Grunt mrGrunt = new Grunt("Mr Grunt", player);
+		earth.addActor(mrGrunt, 2, 9);
 		Grunt mrsGrunt = new Grunt("Mrs Grunt", player);
 		earth.addActor(mrsGrunt, 14, 7);
 		//Goon toughGoon = new Goon("Tough Goon", player);
@@ -36,30 +33,39 @@ public class Application {
 		DrMaybe drMaybe = new DrMaybe("Doctor Maybe", player);
 		earth.addActor(drMaybe, 6, 2);
 
-		YugoMaxx yugoMaxx = new YugoMaxx("Yugo Maxx", player);
-		earth.addActor(yugoMaxx, 16, 1);
-
 		Q q = new Q();
 		earth.addActor(q,13,5);
 
-		Item waterPistol = new Item("Water Pistol",'¬');
-		waterPistol.addSkill(GameSkills.ISEMPTY);
-		earth.addItem(waterPistol,16,2);
+		OxygenDispenserScheduler oxygenDispenserScheduler = new OxygenDispenserScheduler(player);
+		earth.addActor(oxygenDispenserScheduler, 18, 2);
 
 		Item rocketPlan = new Item("rocket plans", 'p');
 		rocketPlan.addSkill(GameSkills.GETROCKETBODY);
 		earth.addItem(rocketPlan, 15, 8);
 
-		//moon
-		GameMap moon = new MoonMap().getMoon();
-		world.addMap(moon);
+		Item spaceSuit = new Item("space suit", 's');
+		spaceSuit.addSkill(GameSkills.SPACETRAVELLER);
+		earth.addItem(spaceSuit, 22, 1);
 
+		//moon
+
+
+		Grunt moonGrunt = new Grunt("Grunt", player);
+		moon.addActor(moonGrunt, 2, 8);
+
+		Goon moonGoon = new Goon("Goon", player);
+		moon.addActor(moonGoon, 5, 7);
+
+		YugoMaxx yugoMaxx = new YugoMaxx("Yugo Maxx", player);
+		moon.addActor(yugoMaxx, 13, 1);
 
 		Item rocket = Item.newFurniture("rocket", '^');
-		moon.addItem(rocket, 3,3);
+		rocket.getAllowableActions().add(new MoveActorAction(earth.at(EarthMap.ROCKET_X, EarthMap.ROCKET_Y), "to Earth"));
+		moon.addItem(rocket, MoonMap.ROCKET_X, MoonMap.ROCKET_Y);
 
-
-
+		Item waterPistol = new Item("Water Pistol",'¬');
+		waterPistol.addSkill(GameSkills.PISTOLISEMPTY);
+		moon.addItem(waterPistol,8,2);
 
 		world.run();
 	}

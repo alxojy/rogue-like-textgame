@@ -39,7 +39,7 @@ public class TalkAction extends Action {
             }
         }
         if (qDialogue.equals("")){
-            qDialogue = "Q: I can give you something that will buttonPressed, but I’m going to need the plans.";
+            qDialogue = "Q: I can give you something that will help, but I’m going to need the plans.";
         }
         return description + "\n" + qDialogue;
     }

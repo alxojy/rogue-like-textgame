@@ -9,31 +9,26 @@ import java.util.List;
 
 public class EarthMap {
 
-    public final static int ROCKET_X = 3;
-    public final static int ROCKET_Y = 9;
+    final static int ROCKET_X = 2;
+    final static int ROCKET_Y = 8;
 
-    FancyGroundFactory groundFactory = new FancyGroundFactory(new Floor(), new Wall(), new LockedDoor(), new RocketPad(),
-            new OxygenDispenser(),new Water());
+    private static FancyGroundFactory groundFactory = new FancyGroundFactory(new Floor(), new Wall(), new LockedDoor(), new RocketPad(),
+            new OxygenDispenser(), new Water());
 
     //Earth
-    List<String> earthMap = Arrays.asList(
-            "...#######...........",
-            "...#.....+...........",
-            "...#.....#...........",
-            "...###########~~~....",
-            ".....................",
-            ".....................",
-            "..........###+####...",
-            "...X......#......#...",
-            "..........#......#...",
-            "..........########...");
-    GameMap earth = new GameMap(groundFactory, earthMap);
+    private static List<String> earthMap = Arrays.asList(
+            "...#######..........#####",
+            "...#.....+..........#...#",
+            "...#.....#........O.#.###",
+            "...#########.............",
+            "...~~~...................",
+            "..~~~~...................",
+            "..........###+####.......",
+            "..........#......#.......",
+            "..X.......#......#.......",
+            "..........########.......");
+    private static GameMap earth = new GameMap(groundFactory, earthMap);
 
-    public GameMap getEarth() {return earth;}
-
-
-
-
-
+    public static GameMap getMap() {return earth;}
 
 }
