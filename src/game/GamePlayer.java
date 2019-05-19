@@ -57,7 +57,10 @@ public class GamePlayer extends Player {
      */
     @Override
     public Action playTurn(Actions actions, GameMap map, Display display) {
-        if (getPlayerStunned() && counter.canIncrement()) {
+        if (map == MoonMap.getMap() && !checkOxygenTank()) {
+            return super.playTurn(new RocketToEarth(this).getAllowableActions(), map, display);
+        }
+        else if (getPlayerStunned() && counter.canIncrement()) {
             counter.increment();
             return super.playTurn(new Actions(new SkipTurnAction()), map, display);
         }
@@ -86,6 +89,20 @@ public class GamePlayer extends Player {
      */
     protected boolean getPlayerStunned() {
         return stunnedPlayer;
+    }
+
+    private boolean checkOxygenTank() {
+        for (Item currentItem : this.getInventory()) {
+            if (currentItem.hasSkill(GameSkills.OXYGENTANK)) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    @Override
+    protected IntrinsicWeapon getIntrinsicWeapon() {
+        return new IntrinsicWeapon(100, "punches");
     }
 
 }

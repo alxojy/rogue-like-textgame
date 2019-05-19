@@ -48,7 +48,6 @@ public class YugoMaxx extends Actor {
                 actions.add(new SquirtingWaterAction(this, currentItem));
             }
         }
-
         actions.add(new AttackYugoAction(player, this));
         return actions;
     }

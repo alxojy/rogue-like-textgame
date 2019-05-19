@@ -10,25 +10,22 @@ public class Application {
 		GameMap earth = EarthMap.getMap();
 		world.addMap(earth);
 
-		GameMap moon = MoonMap.getMap();
-		world.addMap(moon);
-
-		GamePlayer player = new GamePlayer("Player", '@', 1, 200);
-		world.addPlayer(player, moon, 2, 12);
+		GamePlayer player = new GamePlayer("Player", '@', 1, 1000);
+		world.addPlayer(player, earth, 2, 12);
 
 		//instantiate enemies
 		Grunt mrGrunt = new Grunt("Mr Grunt", player);
 		earth.addActor(mrGrunt, 2, 9);
 		Grunt mrsGrunt = new Grunt("Mrs Grunt", player);
 		earth.addActor(mrsGrunt, 14, 7);
-		//Goon toughGoon = new Goon("Tough Goon", player);
-		//earth.addActor(toughGoon, 19, 7);
-		Goon strongGoon = new Goon("Strong Goon", player);
-		earth.addActor(strongGoon, 2, 7);
+		Goon toughGoon = new Goon("Tough Goon", player);
+		earth.addActor(toughGoon, 19, 7);
+		//Goon strongGoon = new Goon("Strong Goon", player);
+		//earth.addActor(strongGoon, 2, 7);
 		//Ninja ninjaHatori = new Ninja("Ninja Hatori", player);
 		//earth.addActor(ninjaHatori, 18, 3);
-		Ninja ninjaJitsu = new Ninja("Ninja Jitsu", player);
-		earth.addActor(ninjaJitsu, 6, 8);
+		//Ninja ninjaJitsu = new Ninja("Ninja Jitsu", player);
+		//earth.addActor(ninjaJitsu, 6, 8);
 
 		DrMaybe drMaybe = new DrMaybe("Doctor Maybe", player);
 		earth.addActor(drMaybe, 6, 2);
@@ -48,7 +45,8 @@ public class Application {
 		earth.addItem(spaceSuit, 22, 1);
 
 		//moon
-
+		GameMap moon = MoonMap.getMap();
+		world.addMap(moon);
 
 		Grunt moonGrunt = new Grunt("Grunt", player);
 		moon.addActor(moonGrunt, 2, 8);
@@ -65,7 +63,7 @@ public class Application {
 
 		Item waterPistol = new Item("Water Pistol",'¬');
 		waterPistol.addSkill(GameSkills.PISTOLISEMPTY);
-		moon.addItem(waterPistol,8,2);
+		moon.addItem(waterPistol,8,3);
 
 		world.run();
 	}
