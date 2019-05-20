@@ -14,6 +14,7 @@ public class OxygenTank extends Item {
 
     @Override
     public Actions getAllowableActions() {
+        // need to do some checking. maybe a skill? gameskills.OXYGENMOON (name must be changed later) only decrement
         if (oxygenPoint.getValue() > -1) {
             oxygenPoint.decrement();
             System.out.println(oxygenPoint.getValue());
@@ -22,6 +23,7 @@ public class OxygenTank extends Item {
                 this.removeSkill(GameSkills.OXYGENTANK);
             }
         }
+
     return super.allowableActions;
     }
 

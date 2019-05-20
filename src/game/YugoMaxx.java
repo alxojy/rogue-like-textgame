@@ -36,7 +36,6 @@ public class YugoMaxx extends Actor {
                 return action;
             }
         }
-
         return new AttackAction(this, player);
     }
 
