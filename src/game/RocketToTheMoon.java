@@ -36,9 +36,6 @@ public class RocketToTheMoon extends Item {
     private boolean checkOxygenTank() {
         for (Item currentItem: subject.getInventory()) {
             if (currentItem.hasSkill(GameSkills.OXYGENTANK)) {
-                if (!currentItem.hasSkill(GameSkills.OXYGENMOON)) {
-                    currentItem.addSkill(GameSkills.OXYGENMOON);
-                }
                 return true;
             }
         }

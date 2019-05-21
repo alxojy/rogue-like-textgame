@@ -38,6 +38,8 @@ public class Counter {
         value++;
     }
 
+    public void increment(int value){this.value = this.value +value;}
+
     /**
      * Returns the current counter value
      *
@@ -47,7 +49,7 @@ public class Counter {
         return value;
     }
 
-    public void setValue(int value){
+    private void setValue(int value){
         this.value = value;
     }
 }

@@ -16,19 +16,18 @@ public class OxygenTank extends Item {
         System.out.println(this.hasSkill(GameSkills.OXYGENTANK));
     }
 
-    @Override
-    public Actions getAllowableActions() {
-        if (this.hasSkill(GameSkills.OXYGENMOON)) {
-            if (oxygenPoint.getValue() > -1) {
-                oxygenPoint.decrement();
-                System.out.println(oxygenPoint.getValue());
-
-                if (oxygenPoint.getValue() == emptyTank) {
-                    this.removeSkill(GameSkills.OXYGENTANK);
-                }
-            }
-        }
-    return super.allowableActions;
-    }
+//    @Override
+//    public Actions getAllowableActions() {
+//            if (oxygenPoint.getValue() > -1) {
+//                oxygenPoint.decrement();
+//                System.out.println(oxygenPoint.getValue());
+//
+//                if (oxygenPoint.getValue() == emptyTank) {
+//                    this.removeSkill(GameSkills.OXYGENTANK);
+//                }
+//            }
+//        }
+//    return super.allowableActions;
+//    }
 
 }

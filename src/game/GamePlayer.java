@@ -24,7 +24,8 @@ public class GamePlayer extends Player {
      * boolean attribute used to return the state of whether the player is stunned.
      */
     private boolean stunnedPlayer = false;
-    private int oxygenPoints = 0;
+    private Counter oxygenPoints = new Counter();
+    private final int zeroOxygen = 0;
 
     /**
      * Constructor.
@@ -62,8 +63,9 @@ public class GamePlayer extends Player {
     public Action playTurn(Actions actions, GameMap map, Display display) {
         checkOxygenTank();
         decrementOxygenPoints(map);
-        System.out.println("Oxygen points: " + oxygenPoints);
-        if (onTheMoon(map) && oxygenPoints == 0) {
+        System.out.println("Oxygen points: " + oxygenPoints.getValue());
+        if (onTheMoon(map) && oxygenPoints.getValue() == zeroOxygen) {
+            removeOxygenTank();
             return super.playTurn(new RocketToEarth(this).getAllowableActions(), map, display);
         }
         else if (getPlayerStunned() && counter.canIncrement()) {
@@ -99,9 +101,9 @@ public class GamePlayer extends Player {
 
     private boolean checkOxygenTank() {
         for (Item currentItem : this.getInventory()) {
-            if (currentItem.hasSkill(GameSkills.OXYGENTANK)) {
-                oxygenPoints += 10;
-                //this.getInventory().remove(currentItem);
+            if (currentItem.hasSkill(GameSkills.OXYGENTANK) && !currentItem.hasSkill(GameSkills.USEDOXYGENTANK)) {
+                oxygenPoints.increment(10);
+                currentItem.addSkill(GameSkills.USEDOXYGENTANK);
                 return true;
             }
         }
@@ -119,7 +121,15 @@ public class GamePlayer extends Player {
 
     private void decrementOxygenPoints(GameMap map) {
         if (onTheMoon(map)) {
-            oxygenPoints -= 1;
+            oxygenPoints.decrement();
+        }
+    }
+
+    private void removeOxygenTank(){
+        for (Item currentItem :this.getInventory()){
+            if (currentItem.hasSkill(GameSkills.OXYGENTANK)){
+                this.removeItemFromInventory(currentItem);
+            }
         }
     }
 
