@@ -40,9 +40,8 @@ public class DrMaybe extends Actor {
      */
     @Override
     public Action playTurn(Actions actions, GameMap map, Display display) {
-        Location playerLocation = map.locationOf(player);
         Location drMaybeLocation = map.locationOf(this);
-        if (Distance.isAdjacent(playerLocation, drMaybeLocation)) {
+        if (Distance.isAdjacent(drMaybeLocation, player)) {
             return new AttackAction(this, player);
         }
         return new SkipTurnAction();

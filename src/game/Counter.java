@@ -6,13 +6,12 @@ package game;
  */
 public class Counter {
 
-
-
     private int value = 0;
 
     public Counter(){
         setValue(0);
     }
+
     public Counter(int value){
         setValue(value);
 

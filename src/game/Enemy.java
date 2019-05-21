@@ -20,7 +20,7 @@ public abstract class Enemy extends Actor {
      * A List used to store behaviours of the enemy
      */
     private List<ActionFactory> actionFactories = new ArrayList<>();
-    private GamePlayer subject;
+    private Actor subject;
 
     /**
      * Constructor.
@@ -33,7 +33,7 @@ public abstract class Enemy extends Actor {
      * @param hitPoints The enemy's hit points.
      * @param player The player in the game which is its target.
      */
-    Enemy(String name, char displayChar, int priority, int hitPoints, GamePlayer player) {
+    Enemy(String name, char displayChar, int priority, int hitPoints, Actor player) {
         super(name, displayChar, priority, hitPoints);
         subject = player;
         addItemToInventory(createKey());
@@ -66,20 +66,16 @@ public abstract class Enemy extends Actor {
         this.map = map;
         for (ActionFactory factory : actionFactories) {
            Action action = factory.getAction(this, map);
-        if(action != null) {
-            return action;
+            if(action != null) {
+                return action;
+            }
         }
-    }
 
-    Location enemyLocation = map.locationOf(this);
-    Location subjectLocation = map.locationOf(subject);
-
-        if (Distance.isAdjacent(enemyLocation, subjectLocation)) {
-            return new AttackAction(this, subject);
-        }
-        else {
-            return new SkipTurnAction();
-        }
+        Location enemyLocation = map.locationOf(this);
+        if (Distance.isAdjacent(enemyLocation, subject)) {
+                return new AttackAction(this, subject);
+            }
+        return new SkipTurnAction();
     }
 
     /**

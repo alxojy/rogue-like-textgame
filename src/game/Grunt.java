@@ -26,7 +26,7 @@ public class Grunt extends Enemy {
 	 * @param name Name of the Grunt object
 	 * @param player Player in the game
 	 */
-	Grunt(String name, GamePlayer player) {
+	Grunt(String name, Actor player) {
 		super(name, 'g', 3, GRUNT_HITPOINTS, player);
 		addBehaviour(new FollowBehaviour(player));
 	}

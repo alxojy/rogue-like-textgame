@@ -31,8 +31,7 @@ public class YugoMaxx extends Actor {
         for (ActionFactory factory : actionFactories) {
             Action action = factory.getAction(this, map);
             Location yugoLocation = map.locationOf(this);
-            Location playerLocation = map.locationOf(player);
-            if (!Distance.isAdjacent(yugoLocation, playerLocation)) {
+            if (!Distance.isAdjacent(yugoLocation, player)) {
                 return action;
             }
         }

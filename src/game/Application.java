@@ -22,10 +22,8 @@ public class Application {
 		earth.addActor(toughGoon, 19, 7);
 		//Goon strongGoon = new Goon("Strong Goon", player);
 		//earth.addActor(strongGoon, 2, 7);
-		//Ninja ninjaHatori = new Ninja("Ninja Hatori", player);
-		//earth.addActor(ninjaHatori, 18, 3);
-		//Ninja ninjaJitsu = new Ninja("Ninja Jitsu", player);
-		//earth.addActor(ninjaJitsu, 6, 8);
+		Ninja ninjaHatori = new Ninja("Ninja Hatori", player);
+		earth.addActor(ninjaHatori, 18, 3);
 
 		DrMaybe drMaybe = new DrMaybe("Doctor Maybe", player);
 		earth.addActor(drMaybe, 6, 2);
@@ -54,6 +52,9 @@ public class Application {
 		Goon moonGoon = new Goon("Goon", player);
 		moon.addActor(moonGoon, 5, 7);
 
+		Ninja ninjaJitsu = new Ninja("Ninja Jitsu", player);
+		moon.addActor(ninjaJitsu, 6, 8);
+
 		YugoMaxx yugoMaxx = new YugoMaxx("Yugo Maxx", player);
 		moon.addActor(yugoMaxx, 13, 1);
 
@@ -61,7 +62,7 @@ public class Application {
 		rocket.getAllowableActions().add(new MoveActorAction(earth.at(EarthMap.ROCKET_X, EarthMap.ROCKET_Y), "to Earth"));
 		moon.addItem(rocket, MoonMap.ROCKET_X, MoonMap.ROCKET_Y);
 
-		Item waterPistol = new Item("Water Pistol",'¬');
+		Item waterPistol = new Item("water pistol",'¬');
 		waterPistol.addSkill(GameSkills.PISTOLISEMPTY);
 		moon.addItem(waterPistol,8,3);
 

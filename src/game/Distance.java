@@ -1,6 +1,6 @@
 package game;
 
-import edu.monash.fit2099.engine.Location;
+import edu.monash.fit2099.engine.*;
 
 /**
  * This class provides static methods to get the distance between two actors and to check if they are adjacent
@@ -29,14 +29,14 @@ public class Distance {
         return distance;
     }
 
-    /**
-     * Checks if the actors are adjacent to each other by calculating their distance.
-     *
-     * @param a Location of actor a
-     * @param b Location of actor b
-     * @return A boolean indicating if a and b are adjacent
-     */
-    public static boolean isAdjacent(Location a, Location b) {
-        return Distance.distance(a, b) == 1;
+    public static boolean isAdjacent(Location actor, Actor subject) {
+        for (Exit exit : actor.getExits()) {
+            Location destination = exit.getDestination();
+            if (destination.getActor() == subject) {
+                return true;
+            }
+        }
+        return false;
     }
+
 }
