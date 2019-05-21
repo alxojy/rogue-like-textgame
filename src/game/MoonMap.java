@@ -1,6 +1,6 @@
 package game;
 
-import edu.monash.fit2099.engine.ActorLocations;
+import edu.monash.fit2099.engine.Actor;
 import edu.monash.fit2099.engine.FancyGroundFactory;
 import edu.monash.fit2099.engine.GameMap;
 import edu.monash.fit2099.engine.Location;
@@ -28,6 +28,7 @@ public class MoonMap {
             "...............");
     private static GameMap moon = new GameMap(groundFactory, moonMap);
 
-    public static GameMap getMap() {return moon;}
-
+    public static GameMap getMap() {
+        return moon;
+    }
 }

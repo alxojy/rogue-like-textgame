@@ -16,7 +16,16 @@ public class RocketToEarth extends Item {
     @Override
     public Actions getAllowableActions() {
         Actions actions = new Actions();
+        removeOxygenMoonSkill();
         actions.add(new MoveActorAction(earth.at(EarthMap.ROCKET_X, EarthMap.ROCKET_Y), "to Earth"));
         return actions;
     }
+
+    private void removeOxygenMoonSkill(){
+        for (Item currentItem: subject.getInventory()) {
+            if (currentItem.hasSkill(GameSkills.OXYGENMOON)) {
+                currentItem.removeSkill(GameSkills.OXYGENMOON);
+            }
+    }
+}
 }

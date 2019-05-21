@@ -6,14 +6,17 @@ package game;
  */
 public class Counter {
 
+
+
     private int value = 0;
 
-    Counter() {}
-
-    Counter(int value) {
-        this.value = value;
+    public Counter(){
+        setValue(0);
     }
+    public Counter(int value){
+        setValue(value);
 
+    }
     /**
      * Resets the counter value to 0
      */
@@ -42,5 +45,9 @@ public class Counter {
      */
     public int getValue() {
         return value;
+    }
+
+    public void setValue(int value){
+        this.value = value;
     }
 }

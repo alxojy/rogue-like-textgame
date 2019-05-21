@@ -2,7 +2,6 @@ package game;
 
 import edu.monash.fit2099.engine.FancyGroundFactory;
 import edu.monash.fit2099.engine.GameMap;
-import edu.monash.fit2099.engine.Location;
 
 import java.util.Arrays;
 import java.util.List;
