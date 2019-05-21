@@ -2,6 +2,8 @@ package game;
 
 import edu.monash.fit2099.engine.*;
 
+import java.util.ArrayList;
+
 /**
  * Represents a player in the game.
  *
@@ -22,6 +24,7 @@ public class GamePlayer extends Player {
      * boolean attribute used to return the state of whether the player is stunned.
      */
     private boolean stunnedPlayer = false;
+    private int oxygenPoints = 0;
 
     /**
      * Constructor.
@@ -57,7 +60,10 @@ public class GamePlayer extends Player {
      */
     @Override
     public Action playTurn(Actions actions, GameMap map, Display display) {
-        if (map == MoonMap.getMap() && !checkOxygenTank()) {
+        checkOxygenTank();
+        decrementOxygenPoints(map);
+        System.out.println("Oxygen points: " + oxygenPoints);
+        if (onTheMoon(map) && oxygenPoints == 0) {
             return super.playTurn(new RocketToEarth(this).getAllowableActions(), map, display);
         }
         else if (getPlayerStunned() && counter.canIncrement()) {
@@ -94,6 +100,8 @@ public class GamePlayer extends Player {
     private boolean checkOxygenTank() {
         for (Item currentItem : this.getInventory()) {
             if (currentItem.hasSkill(GameSkills.OXYGENTANK)) {
+                oxygenPoints += 10;
+                //this.getInventory().remove(currentItem);
                 return true;
             }
         }
@@ -103,6 +111,16 @@ public class GamePlayer extends Player {
     @Override
     protected IntrinsicWeapon getIntrinsicWeapon() {
         return new IntrinsicWeapon(100, "punches");
+    }
+
+    private boolean onTheMoon(GameMap map) {
+        return map == MoonMap.getMap();
+    }
+
+    private void decrementOxygenPoints(GameMap map) {
+        if (onTheMoon(map)) {
+            oxygenPoints -= 1;
+        }
     }
 
 }

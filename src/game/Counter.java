@@ -8,6 +8,12 @@ public class Counter {
 
     private int value = 0;
 
+    Counter() {}
+
+    Counter(int value) {
+        this.value = value;
+    }
+
     /**
      * Resets the counter value to 0
      */
