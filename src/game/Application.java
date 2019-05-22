@@ -5,13 +5,19 @@ import edu.monash.fit2099.engine.*;
 public class Application {
 
 	public static void main(String[] args) {
-		World world = new World(new Display());
+		GameWorld world = new GameWorld(new Display());
 
 		GameMap earth = EarthMap.getMap();
 		world.addMap(earth);
 
-		GamePlayer player = new GamePlayer("Player", '@', 1, 1000);
+		GamePlayer player = new GamePlayer("Player", '@', 1, 1);
 		world.addPlayer(player, earth, 2, 12);
+        Item rocketEngine = Item.newInventoryItem("rocket engine", 'e');
+        rocketEngine.addSkill(GameSkills.BUILDROCKETBASE);
+        player.addItemToInventory(rocketEngine);
+        Item rocketBody = Item.newInventoryItem("rocket body", 'B');
+        rocketBody.addSkill(GameSkills.BUILDROCKETTOP);
+        player.addItemToInventory(rocketBody);
 
 		//instantiate enemies
 		Grunt mrGrunt = new Grunt("Mr Grunt", player);
@@ -38,9 +44,17 @@ public class Application {
 		rocketPlan.addSkill(GameSkills.GETROCKETBODY);
 		earth.addItem(rocketPlan, 15, 8);
 
-		Item spaceSuit = new Item("space suit", 's');
+		//Item spaceSuit = new Item("space suit", 's');
+		Item spaceSuit = Item.newInventoryItem("space suit",'s');
 		spaceSuit.addSkill(GameSkills.SPACETRAVELLER);
 		earth.addItem(spaceSuit, 22, 1);
+
+//		here
+		player.addItemToInventory(spaceSuit);
+
+
+
+
 
 		//moon
 		GameMap moon = MoonMap.getMap();
@@ -57,6 +71,10 @@ public class Application {
 
 		YugoMaxx yugoMaxx = new YugoMaxx("Yugo Maxx", player);
 		moon.addActor(yugoMaxx, 13, 1);
+
+		Item sleepingActor = new Item("Sleeping " + yugoMaxx, '%');
+		sleepingActor.addSkill(GameSkills.YUGOBODY);
+		earth.locationOf(player).addItem(sleepingActor);
 
 		Item rocket = Item.newFurniture("rocket", '^');
 		rocket.getAllowableActions().add(new MoveActorAction(earth.at(EarthMap.ROCKET_X, EarthMap.ROCKET_Y), "to Earth"));
