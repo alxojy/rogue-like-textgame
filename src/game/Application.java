@@ -12,12 +12,6 @@ public class Application {
 
 		GamePlayer player = new GamePlayer("Player", '@', 1, 1);
 		world.addPlayer(player, earth, 2, 12);
-        Item rocketEngine = Item.newInventoryItem("rocket engine", 'e');
-        rocketEngine.addSkill(GameSkills.BUILDROCKETBASE);
-        player.addItemToInventory(rocketEngine);
-        Item rocketBody = Item.newInventoryItem("rocket body", 'B');
-        rocketBody.addSkill(GameSkills.BUILDROCKETTOP);
-        player.addItemToInventory(rocketBody);
 
 		//instantiate enemies
 		Grunt mrGrunt = new Grunt("Mr Grunt", player);
@@ -48,13 +42,6 @@ public class Application {
 		Item spaceSuit = Item.newInventoryItem("space suit",'s');
 		spaceSuit.addSkill(GameSkills.SPACETRAVELLER);
 		earth.addItem(spaceSuit, 22, 1);
-
-//		here
-		player.addItemToInventory(spaceSuit);
-
-
-
-
 
 		//moon
 		GameMap moon = MoonMap.getMap();

@@ -14,8 +14,8 @@ public class Counter {
 
     public Counter(int value){
         setValue(value);
-
     }
+
     /**
      * Resets the counter value to 0
      */

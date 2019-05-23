@@ -5,13 +5,10 @@ import edu.monash.fit2099.engine.*;
 public class AttackYugoAction extends AttackAction {
 
     private YugoMaxx yugoMaxx;
-    private GamePlayer player;
-    private Item waterPistol;
 
     public AttackYugoAction(GamePlayer player, YugoMaxx yugoMaxx) {
         super(player, yugoMaxx);
         this.yugoMaxx = yugoMaxx;
-        this.player = player;
     }
 
     @Override

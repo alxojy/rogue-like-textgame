@@ -85,39 +85,47 @@ public class StunBehaviour extends Action implements ActionFactory {
      */
     @Override
     public Action getAction(Actor actor, GameMap map) {
-        Location here = map.locationOf(actor);
-        Location there = map.locationOf(subject);
+        try {
+            Location here = map.locationOf(actor);
+            Location there = map.locationOf(subject);
 
-        int currentDistance = Distance.distance(here, there);
-        if (sameMaps(here.map(), there.map())) {
-            for (Exit exit : here.getExits()) {
-                Location destination = exit.getDestination();
-                if (destination.canActorEnter(actor)) {
-                    int newDistance = Distance.distance(destination, there);
-                    if (currentDistance <= 5 && newDistance > currentDistance) {
-                        Range xs, ys;
+            int currentDistance = Distance.distance(here, there);
+            if (sameMaps(here.map(), there.map())) {
+                for (Exit exit : here.getExits()) {
+                    Location destination = exit.getDestination();
+                    if (destination.canActorEnter(actor)) {
+                        int newDistance = Distance.distance(destination, there);
+                        if (currentDistance <= 5 && newDistance > currentDistance) {
+                            Range xs, ys;
 
-                        xs = new Range(Math.min(here.x(), there.x()), Math.abs(here.x() - there.x()) + 1);
-                        ys = new Range(Math.min(here.y(), there.y()), Math.abs(here.y() - there.y()) + 1);
+                            xs = new Range(Math.min(here.x(), there.x()), Math.abs(here.x() - there.x()) + 1);
+                            ys = new Range(Math.min(here.y(), there.y()), Math.abs(here.y() - there.y()) + 1);
 
-                        for (int x : xs) {
-                            for (int y : ys) {
-                                if (map.at(x, y).getGround().blocksThrownObjects()) {
-                                    return new SkipTurnAction();
+                            for (int x : xs) {
+                                for (int y : ys) {
+                                    if (map.at(x, y).getGround().blocksThrownObjects()) {
+                                        return new SkipTurnAction();
+                                    }
                                 }
                             }
+                            System.out.println(execute(actor, map));
+                            return new MoveActorAction(destination, exit.getName());
                         }
-                        System.out.println(execute(actor, map));
-                        return new MoveActorAction(destination, exit.getName());
                     }
                 }
             }
+        }
+        catch (NullPointerException npe) {
+            return new SkipTurnAction();
         }
         return new SkipTurnAction();
     }
 
     private boolean sameMaps(GameMap a, GameMap b) {
-        return a == b;
+        if (a == null | b == null)
+            return false;
+        else
+            return a == b;
     }
 
 }
