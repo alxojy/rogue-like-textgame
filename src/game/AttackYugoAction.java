@@ -2,6 +2,10 @@ package game;
 
 import edu.monash.fit2099.engine.*;
 
+/**
+ * This class represents an action that attacks Yugo Maxx
+ * @author Team Kimchi
+ */
 public class AttackYugoAction extends AttackAction {
 
     private YugoMaxx yugoMaxx;

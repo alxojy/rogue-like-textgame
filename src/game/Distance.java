@@ -29,6 +29,12 @@ public class Distance {
         return distance;
     }
 
+    /**
+     * Checks if the subject is adjacent to the actor
+     * @param actor actor on the map
+     * @param subject subject to check if adjacent to the actor
+     * @return true if subject is adjacent to actor. false otherwise
+     */
     public static boolean isAdjacent(Location actor, Actor subject) {
         for (Exit exit : actor.getExits()) {
             Location destination = exit.getDestination();

@@ -1,13 +1,14 @@
 package game;
 
-import edu.monash.fit2099.engine.Actor;
 import edu.monash.fit2099.engine.FancyGroundFactory;
 import edu.monash.fit2099.engine.GameMap;
-import edu.monash.fit2099.engine.Location;
-
 import java.util.Arrays;
 import java.util.List;
 
+/**
+ * This class represents the Moon GameMap
+ * @author Team Kimchi
+ */
 public class MoonMap {
     final static int ROCKET_X = 3;
     final static int ROCKET_Y = 3;

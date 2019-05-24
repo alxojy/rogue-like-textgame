@@ -22,6 +22,10 @@ public class GamePlayer extends Player {
      * boolean attribute used to return the state of whether the player is stunned.
      */
     private boolean stunnedPlayer = false;
+
+    /**
+     * Counter attribute used to store the oxygen points that the player possesses.
+     */
     private Counter oxygenPoints = new Counter();
     private final int zeroOxygen = 0;
 
@@ -59,7 +63,7 @@ public class GamePlayer extends Player {
      */
     @Override
     public Action playTurn(Actions actions, GameMap map, Display display) {
-        checkOxygenTank();
+        getOxygenPoints();
         decrementOxygenPoints(map);
         System.out.println("Oxygen points: " + oxygenPoints.getValue());
         if (onTheMoon(map) && oxygenPoints.getValue() <= zeroOxygen) {
@@ -76,6 +80,11 @@ public class GamePlayer extends Player {
         }
         actions.add(new QuitGameAction());
         return super.playTurn(actions, map, display);
+    }
+
+    @Override
+    protected IntrinsicWeapon getIntrinsicWeapon() {
+        return new IntrinsicWeapon(100, "punches");
     }
 
     /**
@@ -97,20 +106,13 @@ public class GamePlayer extends Player {
         return stunnedPlayer;
     }
 
-    private boolean checkOxygenTank() {
+    private void getOxygenPoints() {
         for (Item currentItem : this.getInventory()) {
             if (currentItem.hasSkill(GameSkills.OXYGENTANK) && !currentItem.hasSkill(GameSkills.USEDOXYGENTANK)) {
                 oxygenPoints.increment(10);
                 currentItem.addSkill(GameSkills.USEDOXYGENTANK);
-                return true;
             }
         }
-        return false;
-    }
-
-    @Override
-    protected IntrinsicWeapon getIntrinsicWeapon() {
-        return new IntrinsicWeapon(100, "punches");
     }
 
     private boolean onTheMoon(GameMap map) {

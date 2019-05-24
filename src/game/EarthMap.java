@@ -2,10 +2,13 @@ package game;
 
 import edu.monash.fit2099.engine.FancyGroundFactory;
 import edu.monash.fit2099.engine.GameMap;
-
 import java.util.Arrays;
 import java.util.List;
 
+/**
+ * This class represents the Earth GameMap
+ * @author Team Kimchi
+ */
 public class EarthMap {
 
     final static int ROCKET_X = 2;

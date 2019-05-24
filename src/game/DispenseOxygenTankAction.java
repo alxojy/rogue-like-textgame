@@ -2,6 +2,10 @@ package game;
 
 import edu.monash.fit2099.engine.*;
 
+/**
+ * This class represents an action that dispenses an oxygen tank item on the map
+ * @author Team Kimchi
+ */
 public class DispenseOxygenTankAction extends Action {
 
     private Actor subject;
