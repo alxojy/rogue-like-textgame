@@ -10,7 +10,7 @@ public class Application {
 		GameMap earth = EarthMap.getMap();
 		world.addMap(earth);
 
-		GamePlayer player = new GamePlayer("Player", '@', 1, 1);
+		GamePlayer player = new GamePlayer("Player", '@', 1, 200);
 		world.addPlayer(player, earth, 2, 12);
 
 		//instantiate enemies
@@ -39,7 +39,7 @@ public class Application {
 		earth.addItem(rocketPlan, 15, 8);
 
 		//Item spaceSuit = new Item("space suit", 's');
-		Item spaceSuit = Item.newInventoryItem("space suit",'s');
+		Item spaceSuit = new Item("space suit",'s');
 		spaceSuit.addSkill(GameSkills.SPACETRAVELLER);
 		earth.addItem(spaceSuit, 22, 1);
 
@@ -58,10 +58,6 @@ public class Application {
 
 		YugoMaxx yugoMaxx = new YugoMaxx("Yugo Maxx", player);
 		moon.addActor(yugoMaxx, 13, 1);
-
-		Item sleepingActor = new Item("Sleeping " + yugoMaxx, '%');
-		sleepingActor.addSkill(GameSkills.YUGOBODY);
-		earth.locationOf(player).addItem(sleepingActor);
 
 		Item rocket = Item.newFurniture("rocket", '^');
 		rocket.getAllowableActions().add(new MoveActorAction(earth.at(EarthMap.ROCKET_X, EarthMap.ROCKET_Y), "to Earth"));

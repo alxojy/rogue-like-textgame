@@ -2,8 +2,6 @@ package game;
 
 import edu.monash.fit2099.engine.*;
 
-import java.util.ArrayList;
-
 /**
  * Represents a player in the game.
  *
@@ -64,7 +62,7 @@ public class GamePlayer extends Player {
         checkOxygenTank();
         decrementOxygenPoints(map);
         System.out.println("Oxygen points: " + oxygenPoints.getValue());
-        if (onTheMoon(map) && oxygenPoints.getValue() == zeroOxygen) {
+        if (onTheMoon(map) && oxygenPoints.getValue() <= zeroOxygen) {
             removeOxygenTank();
             return super.playTurn(new RocketToEarth(this).getAllowableActions(), map, display);
         }

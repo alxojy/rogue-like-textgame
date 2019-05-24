@@ -14,7 +14,7 @@ public class OxygenDispenserScheduler extends Actor {
     private MaxCounter counter = new MaxCounter(3);
 
     OxygenDispenserScheduler(Actor player) {
-        super("oxygen dispenser", 'O', 2, 50);
+        super("oxygen dispenser", 'O', 10, 50);
         this.player = player;
     }
 
@@ -22,12 +22,12 @@ public class OxygenDispenserScheduler extends Actor {
     public Action playTurn(Actions actions, GameMap map, Display display) {
         if (counter.getValue() == ROUND_ONE) {
             counter.increment();
-            return new SkipTurnAction();
+            return new EmptyString();
         }
         else if (counter.getValue() == ROUND_TWO) {
             return new DispenseOxygenTankAction(this);
         }
-        return new SkipTurnAction();
+        return new EmptyString();
     }
 
     @Override

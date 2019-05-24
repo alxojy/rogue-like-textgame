@@ -16,8 +16,6 @@ public class RocketToTheMoon extends Item {
     @Override
     public Actions getAllowableActions() {
         Actions actions = new Actions();
-        System.out.println(checkSpacesuit());
-        System.out.println(checkOxygenTank());
         if (checkSpacesuit() && checkOxygenTank()) {
             actions.add(new MoveActorAction(moon.at(MoonMap.ROCKET_X, MoonMap.ROCKET_Y), "to the Moon"));
         }

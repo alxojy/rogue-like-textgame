@@ -17,7 +17,7 @@ public class YugoMaxx extends Actor {
     private List<ActionFactory> actionFactories = new ArrayList<>();
 
     YugoMaxx(String name, GamePlayer player) {
-        super(name, 'y', 6, Grunt.GRUNT_HITPOINTS/2);
+        super(name, 'y', 6, Grunt.GRUNT_HITPOINTS);
         this.player = player;
         addBehaviour(new WanderBehaviour());
     }
