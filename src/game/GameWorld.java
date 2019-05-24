@@ -1,12 +1,12 @@
 package game;
 
 import edu.monash.fit2099.engine.Display;
+import edu.monash.fit2099.engine.GameMap;
 import edu.monash.fit2099.engine.World;
 import edu.monash.fit2099.engine.Item;
 
-
-
 public class GameWorld extends World {
+
     public GameWorld(Display display){
         super(display);
     }
@@ -22,7 +22,8 @@ public class GameWorld extends World {
     }
 
     protected boolean stillRunning() {
-        if(checkYugoMaxxBody()){
+        GameMap playersMap = actorLocations.locationOf(player).map();
+        if(checkYugoMaxxBody() && playersMap == EarthMap.getMap()){
             return false;
         }
         return actorLocations.contains(player);
