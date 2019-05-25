@@ -16,7 +16,7 @@ public class GameWorld extends World {
             return "Player loses";
         }
         else if (checkYugoMaxxBody()){
-            return "Player Wins";
+            return "Player brought Yugo Maxx's body to Earth. Player wins";
         }
         return "Game ended";
     }
