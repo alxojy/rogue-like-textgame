@@ -16,7 +16,7 @@ public class GameWorld extends World {
             return "Player loses";
         }
         else if (checkYugoMaxxBody()){
-            return "Player brought Yugo Maxx's body to Earth. Player wins";
+            return "Player Wins";
         }
         return "Game ended";
     }
@@ -24,14 +24,13 @@ public class GameWorld extends World {
     protected boolean stillRunning() {
         try {
             GameMap playersMap = actorLocations.locationOf(player).map();
-            if (checkYugoMaxxBody() && playersMap == EarthMap.getMap()) {
+            if(checkYugoMaxxBody() && playersMap == EarthMap.getMap()) {
                 return false;
             }
         }
         catch (NullPointerException npe) {
-
         }
-        return actorLocations.contains(player);
+            return actorLocations.contains(player);
     }
 
 
