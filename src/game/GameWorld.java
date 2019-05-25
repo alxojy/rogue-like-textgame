@@ -22,11 +22,15 @@ public class GameWorld extends World {
     }
 
     protected boolean stillRunning() {
-        GameMap playersMap = actorLocations.locationOf(player).map();
-        if(checkYugoMaxxBody() && playersMap == EarthMap.getMap()) {
-            return false;
+        try {
+            GameMap playersMap = actorLocations.locationOf(player).map();
+            if(checkYugoMaxxBody() && playersMap == EarthMap.getMap()) {
+                return false;
+            }
         }
-        return actorLocations.contains(player);
+        catch (NullPointerException npe) {
+        }
+            return actorLocations.contains(player);
     }
 
 
