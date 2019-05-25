@@ -32,5 +32,4 @@ public class EarthMap {
     private static GameMap earth = new GameMap(groundFactory, earthMap);
 
     public static GameMap getMap() {return earth;}
-
 }

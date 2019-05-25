@@ -12,7 +12,7 @@ public class QuitGameAction extends Action {
     @Override
     public String execute(Actor actor, GameMap map) {
         map.removeActor(actor);
-        return actor + " quits the game. Goodbye";
+        return actor + " quits the game";
     }
 
     @Override

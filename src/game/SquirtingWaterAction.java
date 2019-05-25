@@ -20,20 +20,17 @@ public class SquirtingWaterAction extends Action {
 
     @Override
     public String execute(Actor actor, GameMap map) {
-        String returnStatement;
+        waterPistol.removeSkill(GameSkills.PISTOLISFULL);
+        waterPistol.addSkill(GameSkills.PISTOLISEMPTY);
 
         if (random.nextDouble() <= 0.70) {
             yugoMaxx.removeExoskeleton();
-            returnStatement = actor + " successfully squirted water " + yugoMaxx + "\n" +
+            return actor + " successfully squirted water at" + yugoMaxx + "\n" +
                     yugoMaxx + "'s exoskeleton has been removed.";
         }
         else {
-            returnStatement = actor + " missed " + yugoMaxx;
+            return actor + " missed " + yugoMaxx;
         }
-
-        waterPistol.removeSkill(GameSkills.PISTOLISFULL);
-        waterPistol.addSkill(GameSkills.PISTOLISEMPTY);
-        return returnStatement;
     }
 
     @Override

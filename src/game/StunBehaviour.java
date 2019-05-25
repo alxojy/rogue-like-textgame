@@ -122,10 +122,7 @@ public class StunBehaviour extends Action implements ActionFactory {
     }
 
     private boolean sameMaps(GameMap a, GameMap b) {
-        if (a == null | b == null)
-            return false;
-        else
-            return a == b;
+        return a == b;
     }
 
 }

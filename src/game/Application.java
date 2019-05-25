@@ -10,6 +10,9 @@ public class Application {
 		GameMap earth = EarthMap.getMap();
 		world.addMap(earth);
 
+		GameMap moon = MoonMap.getMap();
+		world.addMap(moon);
+
 		GamePlayer player = new GamePlayer("Player", '@', 1, 200);
 		world.addPlayer(player, earth, 2, 12);
 
@@ -44,8 +47,6 @@ public class Application {
 		earth.addItem(spaceSuit, 22, 1);
 
 		//moon
-		GameMap moon = MoonMap.getMap();
-		world.addMap(moon);
 
 		Grunt moonGrunt = new Grunt("Grunt", player);
 		moon.addActor(moonGrunt, 2, 8);
