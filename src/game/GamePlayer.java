@@ -63,7 +63,7 @@ public class GamePlayer extends Player {
      */
     @Override
     public Action playTurn(Actions actions, GameMap map, Display display) {
-        getOxygenPoints();
+        addOxygenPoints();
         decrementOxygenPoints(map);
         System.out.println("Oxygen points: " + oxygenPoints.getValue());
         if (onTheMoon(map) && oxygenPoints.getValue() <= zeroOxygen) {
@@ -106,7 +106,12 @@ public class GamePlayer extends Player {
         return stunnedPlayer;
     }
 
-    private void getOxygenPoints() {
+    /**
+     * This method increases the oxygen point by 10 points whenever user picks up a new oxygen tank.
+     * It also adds skills GameSkills.USEDOXYGENTANK to the oxygen tank item , this is to prevent the program from
+     * incrementing the oxygen points with the same oxygen tank.
+     */
+    private void addOxygenPoints() {
         for (Item currentItem : this.getInventory()) {
             if (currentItem.hasSkill(GameSkills.OXYGENTANK) && !currentItem.hasSkill(GameSkills.USEDOXYGENTANK)) {
                 oxygenPoints.increment(10);
@@ -115,16 +120,30 @@ public class GamePlayer extends Player {
         }
     }
 
+    /**
+     * Returns a boolean which indicates if GamePlayer is on the Moon
+     * @param map tha current map that GamePlayer is on
+     * @return true if player is onTheMoon, false if otherwise
+     */
     private boolean onTheMoon(GameMap map) {
         return map == MoonMap.getMap();
     }
 
+    /**
+     * If player is on the moon , decrement the player's oxygen point by one
+     * @param map the currentmap that the player is on
+     */
     private void decrementOxygenPoints(GameMap map) {
         if (onTheMoon(map)) {
             oxygenPoints.decrement();
         }
     }
 
+    /**
+     * This method removes all the oxygen tank from the player's inventory.
+     * This happens immediately after the player is transported back to earth.
+     * This prevents gamePlayer from transporting to moon again.
+     */
     private void removeOxygenTank(){
         for (Item currentItem :this.getInventory()){
             if (currentItem.hasSkill(GameSkills.OXYGENTANK)){

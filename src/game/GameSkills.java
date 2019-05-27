@@ -11,7 +11,7 @@ package game;
  * PISTOLISFULL - filled water pistol
  * PISTOLISEMPTY - empty water pistol
  * SPACETRAVELLER - space suit
- * YUGOBODY - Yugo Maxx's unconcious body
+ * YUGOBODY - Yugo Maxx's unconscious body
  * @author Team Kimchi
  */
 public enum GameSkills {
