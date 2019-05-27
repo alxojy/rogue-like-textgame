@@ -30,7 +30,7 @@ public class GameWorld extends World {
         }
         catch (NullPointerException npe) {
         }
-            return actorLocations.contains(player);
+        return actorLocations.contains(player);
     }
 
 
