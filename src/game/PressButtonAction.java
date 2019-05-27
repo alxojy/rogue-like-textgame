@@ -4,6 +4,10 @@ import edu.monash.fit2099.engine.Action;
 import edu.monash.fit2099.engine.Actor;
 import edu.monash.fit2099.engine.GameMap;
 
+/**
+ * This class represents the Action that presses the button to dispense OxygenTank
+ * @author Team Kimchi
+ */
 public class PressButtonAction extends Action {
 
     private Actor subject;

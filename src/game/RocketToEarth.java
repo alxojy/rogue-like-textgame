@@ -7,6 +7,9 @@ public class RocketToEarth extends Item {
     private GameMap earth = EarthMap.getMap();
     private Actor subject;
 
+    /**
+     * Constructor
+     */
     RocketToEarth(Actor player) {
         super("rocket", '^');
         Item.newFurniture("rocket", '^');

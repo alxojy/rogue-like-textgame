@@ -4,6 +4,10 @@ import edu.monash.fit2099.engine.Action;
 import edu.monash.fit2099.engine.Actor;
 import edu.monash.fit2099.engine.GameMap;
 
+/**
+ * This class represents the Action to Quit the game
+ * @author Team Kimchi
+ */
 public class QuitGameAction extends Action {
 
     /**

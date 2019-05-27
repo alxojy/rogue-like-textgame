@@ -5,6 +5,12 @@ import edu.monash.fit2099.engine.GameMap;
 import edu.monash.fit2099.engine.World;
 import edu.monash.fit2099.engine.Item;
 
+
+/**
+ * This class extends from World and it represents GameWorld objects
+ * @author Team Kimchi
+ */
+
 public class GameWorld extends World {
     /**
      * Constructor.
