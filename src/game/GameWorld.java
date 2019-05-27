@@ -60,10 +60,10 @@ public class GameWorld extends World {
             return actorLocations.contains(player);
     }
 
-
     /**
-     * This method checks if yugoMaxx's unconscious body is in player's inventory
-     * @return returns true if found , false if otherwise.
+     * Checks if the player's inventory has yugoMaxx's unconscious body which has skill GameSkills.YUGOBODY
+     *
+     * @return true if the actor's inventory has the yugoMaxx's unconscious body with GameSkills.YUGOBODY. false otherwise
      */
     private boolean checkYugoMaxxBody(){
         for (Item item : this.player.getInventory()){

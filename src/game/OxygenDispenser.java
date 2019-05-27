@@ -18,6 +18,12 @@ public class OxygenDispenser extends Ground {
         return actions;
     }
 
+    /**
+     * Checks if OxygenTank item that has skill GameSkills.OXYGENTANK is on location of OxygenDispenser
+     *
+     * @param location the location of OxygenDispenser
+     * @return true if the actor's inventory has the OxygenTank with GameSkills.OXYGENTANK). false otherwise
+     */
     private boolean checkOxygenTank(Location location) {
         for (Item currentItem: location.getItems()) {
             if (currentItem.hasSkill(GameSkills.OXYGENTANK)) {
