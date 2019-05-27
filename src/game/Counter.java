@@ -37,6 +37,11 @@ public class Counter {
         value++;
     }
 
+    /**
+     * Increase the counter value by the value
+     * @param value - indicates the value to increment
+     */
+
     public void increment(int value){this.value = this.value +value;}
 
     /**
@@ -47,6 +52,11 @@ public class Counter {
     public int getValue() {
         return value;
     }
+
+    /**
+     * Sets the value of the counter to value
+     * @param value the value to set to
+     */
 
     private void setValue(int value){
         this.value = value;

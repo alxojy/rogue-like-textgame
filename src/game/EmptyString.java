@@ -9,6 +9,12 @@ import edu.monash.fit2099.engine.SkipTurnAction;
  */
 public class EmptyString extends SkipTurnAction {
 
+    /**
+     * This method overrides its super class menuDescription method to return an empty string
+     * @param actor
+     * @return
+     */
+
     @Override
     public String menuDescription(Actor actor) {
         return "";

@@ -60,8 +60,7 @@ public class Application {
 		YugoMaxx yugoMaxx = new YugoMaxx("Yugo Maxx", player);
 		moon.addActor(yugoMaxx, 13, 1);
 
-		Item rocket = Item.newFurniture("rocket", '^');
-		rocket.getAllowableActions().add(new MoveActorAction(earth.at(EarthMap.ROCKET_X, EarthMap.ROCKET_Y), "to Earth"));
+		Item rocket = new RocketToEarth(player);
 		moon.addItem(rocket, MoonMap.ROCKET_X, MoonMap.ROCKET_Y);
 
 		Item waterPistol = new Item("water pistol",'¬');
