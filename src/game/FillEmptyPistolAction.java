@@ -44,13 +44,18 @@ public class FillEmptyPistolAction extends Action {
      * Returns a String describing the Action suitable for displaying in the menu, which is fills empty water pistol
      *
      * @param actor The actor performing the action.
-     * @return A String describing the unlock door action
+     * @return A String describing the fill empty water pistol action
      */
     @Override
     public String menuDescription(Actor actor) {
         return actor + " fills their empty water pistol";
     }
 
+    /**
+     * Returns the empty String, as no hotKey is permanently assigned to FillEmptyPistolAction.
+     *
+     * @return The empty String
+     */
     @Override
     public String hotKey() {
         return "";
