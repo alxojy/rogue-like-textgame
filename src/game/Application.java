@@ -1,6 +1,7 @@
 package game;
 
 import edu.monash.fit2099.engine.*;
+import game.bonusGame.BonusGameSkills;
 
 public class Application {
 
@@ -42,6 +43,10 @@ public class Application {
 		Item spaceSuit = new Item("space suit",'s');
 		spaceSuit.addSkill(GameSkills.SPACETRAVELLER);
 		earth.addItem(spaceSuit, 22, 1);
+
+		Item waterBucket = new Item("water bucket",'⊔');
+		waterBucket.addSkill(BonusGameSkills.BUCKETISEMPTY);
+		earth.addItem(waterBucket,6,5);
 
 		//moon
 
