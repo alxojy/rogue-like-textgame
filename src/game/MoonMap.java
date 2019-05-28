@@ -29,6 +29,11 @@ public class MoonMap {
             "...............");
     private static GameMap moon = new GameMap(groundFactory, moonMap);
 
+    /**
+     * A public static accessor to get the current instance of the Moon map
+     *
+     * @return The Moon GameMap
+     */
     public static GameMap getMap() {
         return moon;
     }

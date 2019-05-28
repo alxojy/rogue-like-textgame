@@ -31,5 +31,10 @@ public class EarthMap {
             "..........########.......");
     private static GameMap earth = new GameMap(groundFactory, earthMap);
 
+    /**
+     * A public static accessor to get the current instance of the Earth map
+     *
+     * @return The Earth GameMap
+     */
     public static GameMap getMap() {return earth;}
 }

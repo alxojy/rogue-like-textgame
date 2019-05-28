@@ -34,9 +34,6 @@ public class Application {
 		Q q = new Q();
 		earth.addActor(q,13,5);
 
-		OxygenDispenserScheduler oxygenDispenserScheduler = new OxygenDispenserScheduler(player);
-		earth.addActor(oxygenDispenserScheduler, 18, 2);
-
 		Item rocketPlan = new Item("rocket plans", 'p');
 		rocketPlan.addSkill(GameSkills.GETROCKETBODY);
 		earth.addItem(rocketPlan, 15, 8);

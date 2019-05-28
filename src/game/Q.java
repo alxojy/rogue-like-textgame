@@ -56,10 +56,7 @@ public class Q extends Actor {
     }
 
     /**
-     * Returns a collection of the Actions containing an AttackAction that the otherActor can do to the current Actor.
-     * Overridden method of Actor's getAllowableAction
-     *
-     * If otherActor's inventory contains rocketPans which has GameSkills.GETROCKETBODY, otherActor is
+     * If otherActor's inventory contains rocket plans which has GameSkills.GETROCKETBODY, otherActor is
      * allowed to do GivePlansAction to the current Actor (Q)
      *
      * The otherActor is always allowed to do TalkAction when it is adjacent to the currentActor
@@ -78,8 +75,7 @@ public class Q extends Actor {
             }
         }
         actions.add(new TalkAction(this, otherActor));
-
-    return actions;
+        return actions;
     }
 
 }

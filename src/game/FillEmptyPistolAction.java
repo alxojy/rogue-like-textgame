@@ -12,15 +12,9 @@ import edu.monash.fit2099.engine.Item;
 public class FillEmptyPistolAction extends Action {
 
     /**
-     * Constructor
-     */
-    FillEmptyPistolAction() {}
-
-    /**
      * Performs the Action of filling the actor's empty water pistol.
      *
-     * Performs the following tasks:
-     * 1. Replaces the skill GameSkills.PISTOLISEMPTY to GameSkills.PISTOLISFULL to indicate that the water pistol has
+     * Replaces the skill GameSkills.PISTOLISEMPTY to GameSkills.PISTOLISFULL to indicate that the water pistol has
      * been filled with water.
      *
      * @param actor The actor performing the action.
@@ -41,10 +35,10 @@ public class FillEmptyPistolAction extends Action {
     }
 
     /**
-     * Returns a String describing the Action suitable for displaying in the menu, which is fills empty water pistol
+     * Returns a String description for displaying in the menu, which is fills empty water pistol
      *
      * @param actor The actor performing the action.
-     * @return A String describing the fill empty water pistol action
+     * @return A String describing the fill empty water pistol Action
      */
     @Override
     public String menuDescription(Actor actor) {

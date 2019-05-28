@@ -7,26 +7,28 @@ import edu.monash.fit2099.engine.Item;
 
 
 /**
- * This class extends from World and it represents GameWorld objects
+ * This class represents the world in the game.
  * @author Team Kimchi
  */
 
 public class GameWorld extends World {
+
     /**
      * Constructor.
      *
      * @param display a Display object
      */
-
     public GameWorld(Display display){
         super(display);
     }
 
     /**
-     * returns a suitable EndGameMessage based on the scenario
-     * if player is not conscious, returns "player loses"
-     * else if player carried yugoMaxx's unconscious body back to earth, returns "player wins"
-     * else, returns Game Ended
+     * Returns a suitable end game message based on the scenario
+     *
+     * If the player is knocked out, returns the String "Player loses"
+     * Else if when the player defeats Yugo Maxx and carries his unconscious body back to Earth, returns the String
+     * “Player wins”
+     * Else, returns the String, "Game ended"
      * @return
      */
     protected String endGameMessage(){
@@ -40,12 +42,13 @@ public class GameWorld extends World {
     }
 
     /**
-     * This method checks if the game is still running
-     * Returns false when :
-     * 1. player is no longer in the game.
-     * 2. player successfully defeats yugoMaxx and carries his unconscious body back to earth
+     * Checks if the game is still running
      *
-     * Returns true , if player is still in the game.
+     * Returns false when :
+     * 1. The player is no longer in the game AND
+     * 2. The player successfully defeats Yugo Maxx and carries his unconscious body back to Earth
+     *
+     * Returns true if the player is still in the game.
      * @return a boolean that indicates if the game is still running
      */
     protected boolean stillRunning() {
@@ -61,9 +64,10 @@ public class GameWorld extends World {
     }
 
     /**
-     * Checks if the player's inventory has yugoMaxx's unconscious body which has skill GameSkills.YUGOBODY
+     * Checks if the player's inventory has Yugo Maxx's unconscious body which has skill GameSkills.YUGOBODY
      *
-     * @return true if the actor's inventory has the yugoMaxx's unconscious body with GameSkills.YUGOBODY. false otherwise
+     * @return true if the actor's inventory has the Yugo Maxx's unconscious body with GameSkills.YUGOBODY.
+     * false otherwise
      */
     private boolean checkYugoMaxxBody(){
         for (Item item : this.player.getInventory()){
