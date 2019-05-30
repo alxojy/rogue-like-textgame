@@ -23,6 +23,7 @@ public class StoneTree extends Actor {
         Actions actions = new Actions();
         for (Item currentItem: otherActor.getInventory()) {
             if (currentItem.hasSkill(BonusGameSkills.BUCKETISFULL)) {
+
                 actions.add(new WaterTreeAction(player, currentItem));
             }
         }
