@@ -52,14 +52,12 @@ public class Application {
 
 		Item waterBucket = new Item("water bucket",'⊔');
 		waterBucket.addSkill(BonusGameSkills.BUCKETISEMPTY);
-		earth.addItem(waterBucket,6,5);
+		earth.addItem(waterBucket,7,5);
 
         Item teleportationPad = new TeleportationPad(player);
         earth.addItem(teleportationPad,6,1);
 
-
         //moon
-
 		Grunt moonGrunt = new Grunt("Grunt", player);
 		moon.addActor(moonGrunt, 2, 8);
 

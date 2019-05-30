@@ -63,6 +63,7 @@ public class GamePlayer extends Player {
         addOxygenPoints();
         decrementOxygenPoints(map);
         System.out.println("Oxygen points: " + oxygenPoints.getValue());
+        System.out.println("Number of stones: " + stoneCounter.getValue());
         if (onTheMoon(map) && oxygenPoints.getValue() <= zeroOxygen) {
             removeOxygenTank();
             return super.playTurn(new RocketToEarth(this).getAllowableActions(), map, display);
