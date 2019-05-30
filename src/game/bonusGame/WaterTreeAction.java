@@ -28,7 +28,7 @@ public class WaterTreeAction extends Action {
             return "Better luck next time. No stones has been added to " + actor + "'s inventory";
         }
         else {
-            if (stoneTree.hasFertiliser()) {
+            if (!stoneTree.hasFertiliser()) {
                 player.getStoneCounter().increment();
                 return "One stone has been added to " + actor + "'s inventory";
             }

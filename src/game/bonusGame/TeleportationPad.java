@@ -21,7 +21,7 @@ public class TeleportationPad extends Item {
         subject = player;
     }
 
-    public void addTeleporationPadToMap(GameMap map,int x ,int y){
+    public void addTeleportationPadToMap(GameMap map, int x , int y){
         map.addItem(this ,x,y);
         location = map.at(x,y);
     }
@@ -29,9 +29,15 @@ public class TeleportationPad extends Item {
     @Override
     public Actions getAllowableActions() {
         Actions actions = new Actions();
-        for (TeleportationPad currentPad: teleportationPads ){
-            if ( this != currentPad ){
-                actions.add(new TeleportAction(currentPad.location,direction));
+        if (subject.hasSkill(BonusGameSkills.TICKET))
+        for (Item currentItem: subject.getInventory()) {
+            if (currentItem.hasSkill(BonusGameSkills.TICKET)) {
+                for (TeleportationPad currentPad: teleportationPads ){
+                    if (this != currentPad ){
+                        actions.add(new TeleportAction(currentPad.location, direction, subject, currentItem));
+                        return actions;
+                    }
+                }
             }
         }
         return actions;

@@ -4,7 +4,6 @@ import edu.monash.fit2099.engine.*;
 import game.bonusGame.BonusGameSkills;
 import game.bonusGame.TeleportationPad;
 import game.bonusGame.StoneTree;
-import game.bonusGame.TeleportationPad;
 
 public class Application {
 
@@ -55,10 +54,10 @@ public class Application {
 		earth.addItem(waterBucket,7,5);
 
         TeleportationPad teleportationPad = new TeleportationPad(player,"out of locked room");
-		teleportationPad.addTeleporationPadToMap(earth,12,8);
+		teleportationPad.addTeleportationPadToMap(earth,12,8);
 
 		TeleportationPad teleportationPad2 = new TeleportationPad(player,"into locked room");
-		teleportationPad2.addTeleporationPadToMap(earth,12,2);
+		teleportationPad2.addTeleportationPadToMap(earth,12,2);
 
         //moon
 		Grunt moonGrunt = new Grunt("Grunt", player);

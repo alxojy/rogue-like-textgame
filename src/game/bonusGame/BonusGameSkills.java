@@ -1,5 +1,5 @@
 package game.bonusGame;
 
 public enum BonusGameSkills {
-    BUCKETISFULL,BUCKETISEMPTY,TICKET
+    BUCKETISFULL,BUCKETISEMPTY,TICKET, FERTILISER, SWORD
 }

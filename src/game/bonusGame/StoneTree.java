@@ -6,7 +6,6 @@ import game.GamePlayer;
 public class StoneTree extends Actor {
 
     private GamePlayer player;
-    private boolean fertiliser = false;
 
     public StoneTree(GamePlayer player) {
         super("Stone Tree", 'T', 6, 50);
@@ -26,15 +25,17 @@ public class StoneTree extends Actor {
                 actions.add(new WaterTreeAction(player, this, currentItem));
             }
         }
+        actions.add(new RedeemTicketAction(player));
+        actions.add(new RedeemFertiliserAction(this, player));
+        actions.add(new RedeemSwordAction(player));
         return actions;
     }
 
     public boolean hasFertiliser() {
-        return fertiliser;
+        return this.hasSkill(BonusGameSkills.FERTILISER);
     }
 
     public void addFertiliser() {
-        fertiliser = true;
+        addSkill(BonusGameSkills.FERTILISER);
     }
 }
-
