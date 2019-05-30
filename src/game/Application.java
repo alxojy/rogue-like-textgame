@@ -49,8 +49,11 @@ public class Application {
 		waterBucket.addSkill(BonusGameSkills.BUCKETISEMPTY);
 		earth.addItem(waterBucket,6,5);
 
-        Item teleportationPad = new TeleportationPad(player);
-        earth.addItem(teleportationPad,6,1);
+        TeleportationPad teleportationPad = new TeleportationPad(player,"out of locked room");
+		teleportationPad.addTeleporationPadToMap(earth,12,8);
+
+		TeleportationPad teleportationPad2 = new TeleportationPad(player,"into locked room");
+		teleportationPad2.addTeleporationPadToMap(earth,12,2);
 
 
         //moon
