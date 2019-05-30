@@ -12,21 +12,18 @@ import edu.monash.fit2099.engine.*;
  */
 public class GamePlayer extends Player {
 
-    /**
-     * MaxCounter attribute used to store the maximum value that resets itself when the maximum value is reached.
-     * Since the player should be stunned for 2 turns, its maximum value is 3.
-     */
-    private MaxCounter counter = new MaxCounter(3);
+    //MaxCounter attribute used to store the maximum value that resets itself when the maximum value is reached.
+    //Since the player should be stunned for 2 turns, its maximum value is 3.
+    private MaxCounter stunnedCounter = new MaxCounter(3);
 
-    /**
-     * boolean attribute used to return the state of whether the player is stunned.
-     */
+    //boolean attribute used to return the state of whether the player is stunned.
     private boolean stunnedPlayer = false;
 
-    /**
-     * Counter attribute used to store the oxygen points that the player possesses.
-     */
+    //Counter attribute used to store the oxygen points that the player possesses.
     private Counter oxygenPoints = new Counter();
+
+    //Counter attribute used to store the number of stones in the player's inventory.
+    private Counter stoneCounter = new Counter();
     private final int zeroOxygen = 0;
 
     /**
@@ -45,12 +42,12 @@ public class GamePlayer extends Player {
      * Plays a turn and display the actions that can be performed by the player.
      *
      * If the player is stunned. This overridden method;
-     * 1. Increments the counter if the player is stunned and the counter can be incremented. If the counter can be
+     * 1. Increments the stunnedCounter if the player is stunned and the stunnedCounter can be incremented. If the stunnedCounter can be
      * incremented, it indicates that the player has not been stunned for two turns. Hence,it adds a newly instantiated
      * SkipTurnAction into the newly instantiated Actions as the player is not allowed to perform any other actions.
      *
-     * 2. Once the counter reaches its maximum value, it cannot be incremented anymore and
-     * the counter will reset in the MaxCounter class. It sets the boolean stunnedPlayer to false
+     * 2. Once the stunnedCounter reaches its maximum value, it cannot be incremented anymore and
+     * the stunnedCounter will reset in the MaxCounter class. It sets the boolean stunnedPlayer to false
      * to return the state that the player is no longer stunned.
      *
      * If the player is not stunned, calls its superclass's playTurn method to play a turn and display
@@ -70,13 +67,13 @@ public class GamePlayer extends Player {
             removeOxygenTank();
             return super.playTurn(new RocketToEarth(this).getAllowableActions(), map, display);
         }
-        else if (getPlayerStunned() && counter.canIncrement()) {
-            counter.increment();
+        else if (getPlayerStunned() && stunnedCounter.canIncrement()) {
+            stunnedCounter.increment();
             return super.playTurn(new Actions(new SkipTurnAction()), map, display);
         }
-        else if (!counter.canIncrement()) {
+        else if (!stunnedCounter.canIncrement()) {
             setPlayerStunned(false);
-            counter.increment();
+            stunnedCounter.increment();
         }
         actions.add(new QuitGameAction());
         return super.playTurn(actions, map, display);
@@ -150,6 +147,10 @@ public class GamePlayer extends Player {
                 this.removeItemFromInventory(currentItem);
             }
         }
+    }
+
+    public Counter getStoneCounter() {
+        return stoneCounter;
     }
 
 }

@@ -3,6 +3,8 @@ package game;
 import edu.monash.fit2099.engine.*;
 import game.bonusGame.BonusGameSkills;
 import game.bonusGame.TeleportationPad;
+import game.bonusGame.StoneTree;
+import game.bonusGame.TeleportationPad;
 
 public class Application {
 
@@ -35,6 +37,9 @@ public class Application {
 
 		Q q = new Q();
 		earth.addActor(q,13,5);
+
+		StoneTree stoneTree = new StoneTree(player);
+		earth.addActor(stoneTree, 1, 5);
 
 		Item rocketPlan = new Item("rocket plans", 'p');
 		rocketPlan.addSkill(GameSkills.GETROCKETBODY);
