@@ -42,7 +42,14 @@ public class Counter {
      * @param value - indicates the value to increment
      */
 
-    public void increment(int value){this.value = this.value +value;}
+    public void increment(int value){this.value = this.value + value;}
+
+    /**
+     * Decrease the counter value by 1
+     */
+    public void decrement(int value) {
+        this.value = this.value - value;
+    }
 
     /**
      * Returns the current counter value

@@ -12,9 +12,11 @@ public class WaterTreeAction extends Action {
 
     private GamePlayer player;
     private Item bucket;
+    private StoneTree stoneTree;
 
-    WaterTreeAction(GamePlayer player, Item bucket) {
+    WaterTreeAction(GamePlayer player, StoneTree stoneTree, Item bucket) {
         this.player = player;
+        this.stoneTree = stoneTree;
         this.bucket = bucket;
     }
 
@@ -26,8 +28,14 @@ public class WaterTreeAction extends Action {
             return "Better luck next time. No stones has been added to " + actor + "'s inventory";
         }
         else {
-            player.getStoneCounter().increment();
-            return "One stone has been added to " + actor + "'s inventory";
+            if (stoneTree.hasFertiliser()) {
+                player.getStoneCounter().increment();
+                return "One stone has been added to " + actor + "'s inventory";
+            }
+            else {
+                player.getStoneCounter().increment(2);
+                return "Two stones has been added to " + actor + "'s inventory";
+            }
         }
     }
 
