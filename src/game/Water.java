@@ -1,6 +1,8 @@
 package game;
 
 import edu.monash.fit2099.engine.*;
+import game.bonusGame.BonusGameSkills;
+import game.bonusGame.FillBucketAction;
 
 /**
  * This class represents water which is a terrain type
@@ -42,6 +44,9 @@ public class Water extends Ground {
         if (containsPistol(actor)) {
             actions.add(new FillEmptyPistolAction());
         }
+        if(containsBucket(actor)) {
+            actions.add(new FillBucketAction());
+        }
         return actions;
     }
 
@@ -54,6 +59,15 @@ public class Water extends Ground {
     private boolean containsPistol(Actor actor) {
         for (Item currentItem : actor.getInventory()) {
             if (currentItem.hasSkill(GameSkills.PISTOLISEMPTY)) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    private boolean containsBucket(Actor actor) {
+        for (Item currentItem : actor.getInventory()) {
+            if (currentItem.hasSkill(BonusGameSkills.BUCKETISEMPTY)) {
                 return true;
             }
         }

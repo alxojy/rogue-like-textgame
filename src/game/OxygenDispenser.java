@@ -14,7 +14,7 @@ public class OxygenDispenser extends Ground {
      * Initialises the char to display for the oxygen dispenser as 'O'.
      */
     public OxygenDispenser() {
-        super('O');
+        super('⌼');
     }
 
     /**

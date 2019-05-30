@@ -3,6 +3,7 @@ package game;
 import edu.monash.fit2099.engine.*;
 import game.bonusGame.BonusGameSkills;
 import game.bonusGame.StoneTree;
+import game.bonusGame.TeleportationPad;
 
 public class Application {
 
@@ -48,7 +49,15 @@ public class Application {
 		spaceSuit.addSkill(GameSkills.SPACETRAVELLER);
 		earth.addItem(spaceSuit, 22, 1);
 
-		//moon
+		Item waterBucket = new Item("water bucket",'⊔');
+		waterBucket.addSkill(BonusGameSkills.BUCKETISEMPTY);
+		earth.addItem(waterBucket,6,5);
+
+        Item teleportationPad = new TeleportationPad(player);
+        earth.addItem(teleportationPad,6,1);
+
+
+        //moon
 
 		Grunt moonGrunt = new Grunt("Grunt", player);
 		moon.addActor(moonGrunt, 2, 8);
