@@ -1,4 +1,4 @@
 package game.bonusGame;
 
-public class RedeemWeaponAction {
+public class RedeemWeaponAction extends RedeemAction {
 }
