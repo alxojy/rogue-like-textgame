@@ -2,6 +2,7 @@ package game;
 
 import edu.monash.fit2099.engine.*;
 import game.bonusGame.BonusGameSkills;
+import game.bonusGame.TeleportationPad;
 import game.bonusGame.StoneTree;
 import game.bonusGame.TeleportationPad;
 
