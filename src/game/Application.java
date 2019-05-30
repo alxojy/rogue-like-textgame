@@ -2,6 +2,7 @@ package game;
 
 import edu.monash.fit2099.engine.*;
 import game.bonusGame.BonusGameSkills;
+import game.bonusGame.TeleportationPad;
 
 public class Application {
 
@@ -48,7 +49,11 @@ public class Application {
 		waterBucket.addSkill(BonusGameSkills.BUCKETISEMPTY);
 		earth.addItem(waterBucket,6,5);
 
-		//moon
+        Item teleportationPad = new TeleportationPad(player);
+        earth.addItem(teleportationPad,6,1);
+
+
+        //moon
 
 		Grunt moonGrunt = new Grunt("Grunt", player);
 		moon.addActor(moonGrunt, 2, 8);
