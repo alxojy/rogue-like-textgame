@@ -11,7 +11,7 @@ public class TreeTalkAction extends TalkAction {
     private Actor subject;
 
     /**
-     * An array of insults
+     * An array of dialogues
      */
     private static String[] dialogues = {"Water me. I'm thirsty", "Oh, look! I'm growing a new leaf",
             "Did you know you can redeem items with stones?", "I wish I had more tree friends"};
