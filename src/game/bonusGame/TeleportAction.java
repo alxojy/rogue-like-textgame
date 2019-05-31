@@ -3,8 +3,8 @@ package game.bonusGame;
 import edu.monash.fit2099.engine.*;
 
 /**
- * This class represents an Action that teleports the actor,
- * it extends MoveActorAction
+ * This class represents an Action that teleports the actor
+ *
  * @author Team Kimchi
  */
 public class TeleportAction extends MoveActorAction {
@@ -14,9 +14,9 @@ public class TeleportAction extends MoveActorAction {
     private Item ticket;
 
     /**
-     * Constructor to create a TeleportAction that will teleport the Actor to a Location
+     * Constructor.
      *
-     * @param moveToLocation the destination of the move
+     * @param moveToLocation the destination of the location to move to
      * @param direction the direction of the move (to be displayed in menu)
      * @param subject the actor that will be teleported
      * @param ticket the ticket item that is required for teleportation
@@ -29,13 +29,12 @@ public class TeleportAction extends MoveActorAction {
     }
 
     /**
-     *This method calls it's super class execute() method to
-     * teleport the subject actor to the given location, and removes a ticket
-     * from the subject's inventory
+     * This method calls it's super class execute() method to teleport the subject actor to the given location,
+     * and removes a ticket from the subject's inventory
      *
      * @param actor The actor performing the action.
      * @param map The map the actor is on.
-     * @return a description of the Action which was return from its super class
+     * @return a description of the Action which is returned in its super class
      */
     @Override
     public String execute(Actor actor, GameMap map) {
@@ -45,7 +44,7 @@ public class TeleportAction extends MoveActorAction {
 
 
     /**
-     * Returns a description of this action suitable to display in the menu.
+     * Returns a description of this action suitable to display in the menu which is teleports
      *
      * @param actor The actor performing the action.
      * @return a String, e.g. "Player teleports into locked room."

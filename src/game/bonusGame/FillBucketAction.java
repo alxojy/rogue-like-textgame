@@ -28,7 +28,6 @@ public class FillBucketAction extends Action {
             if (item.hasSkill(BonusGameSkills.BUCKETISEMPTY)) {
                 item.removeSkill(BonusGameSkills.BUCKETISEMPTY);
                 item.addSkill(BonusGameSkills.BUCKETISFULL);
-
                 return "The water bucket is filled";
             }
         }
@@ -39,7 +38,7 @@ public class FillBucketAction extends Action {
      * Returns a String description for displaying in the menu, which is fills empty bucket
      *
      * @param actor The actor performing the action.
-     * @return A String describing the fill empty water pistol Action
+     * @return A String describing the fill empty bucket Action
      */
     @Override
     public String menuDescription(Actor actor) {
@@ -47,7 +46,7 @@ public class FillBucketAction extends Action {
     }
 
     /**
-     * Returns the empty String, as no hotKey is permanently assigned to FillEmptyPistolAction.
+     * Returns the empty String, as no hotKey is permanently assigned to FillBucketAction.
      *
      * @return The empty String
      */

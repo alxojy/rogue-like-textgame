@@ -12,7 +12,7 @@ import java.util.Random;
  * It is not meant to be instantiated as it does not represent any specific enemy in the game.
  * @author Team Kimchi
  */
-public abstract class Enemy extends Actor {
+public class Enemy extends Actor {
 
     private GameMap map;
 

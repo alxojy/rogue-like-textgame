@@ -4,7 +4,7 @@ import edu.monash.fit2099.engine.*;
 import game.GamePlayer;
 
 /**
- * This class represents Stone Tree which is an actor that drops stone /
+ * This class represents Stone Tree which is an Actor that drops stones and allows the player to redeem items
  * @author Team Kimchi
  */
 public class StoneTree extends Actor {
@@ -21,14 +21,23 @@ public class StoneTree extends Actor {
         this.player = player;
     }
 
-
-
     @Override
     public Action playTurn(Actions actions, GameMap map, Display display) {
         return new SkipTurnAction();
     }
 
-
+    /**
+     * Returns a List of Actions that can be performed by the actor adjacent to the stone tree.
+     *
+     * Adds a newly instantiated WaterTreeAction into a List of Actions that otherActor can perform if the otherActor has
+     * a filled bucket. If the tree has not been fertilised, adds a newly instantiated RedeemFertiliserAction into the
+     * List of Actions. Newly instantiated RedeemTicketAction and RedeemSwordAction are always added into the List of Actions.
+     *
+     * @param otherActor the Actor that might be performing attack
+     * @param direction  String representing the direction of the other Actor
+     * @param map        current GameMap
+     * @return
+     */
     @Override
     public Actions getAllowableActions(Actor otherActor, String direction, GameMap map) {
         Actions actions = new Actions();
@@ -47,7 +56,7 @@ public class StoneTree extends Actor {
 
     /**
      * This method checks if Stone Tree is fertilised
-     * @return true if fertilised , false  if otherwise
+     * @return true if fertilised, false if otherwise
      */
     public boolean hasFertiliser() {
         return this.hasSkill(BonusGameSkills.FERTILISER);

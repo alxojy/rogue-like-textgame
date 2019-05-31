@@ -64,6 +64,18 @@ public class YugoMaxx extends Actor {
         return new AttackAction(this, player);
     }
 
+    /**
+     * Returns a List of Actions that can be performed by the actor adjacent to Yugo Maxx.
+     *
+     * Adds a newly instantiated SquirtingWaterAction into a List of Actions that the otherActor can be performed if they
+     * have a filled water pistol and Yugo Maxx's exoskeleton is present.
+     * A newly instantiated AttackYugoAction is always added into a List of Actions.
+     *
+     * @param otherActor the Actor that might be performing attack
+     * @param direction  String representing the direction of the other Actor
+     * @param map        current GameMap
+     * @return
+     */
     @Override
     public Actions getAllowableActions(Actor otherActor, String direction, GameMap map) {
         Actions actions = new Actions();
