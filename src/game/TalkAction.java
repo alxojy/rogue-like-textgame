@@ -16,7 +16,7 @@ public class TalkAction extends Action {
      * @param actor Actor player performing the talk action
      * @param subject Actor Q
      */
-    TalkAction (Actor actor,Actor subject) {
+    protected TalkAction (Actor actor,Actor subject) {
         this.actor = actor;
         this.subject = subject;
     }

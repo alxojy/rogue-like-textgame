@@ -7,8 +7,9 @@ package game.bonusGame;
  * TICKET - intra-world teleportation ticket
  * FERTILISER -fertiliser for stone tree
  * SWORD - sword, a WeaponItem redeemed from stone tree
+ * RIFLE - rifle, a WeaponItem redeemed from stone tree
  * @author Team Kimchi
  */
 public enum BonusGameSkills {
-    BUCKETISFULL,BUCKETISEMPTY,TICKET, FERTILISER, SWORD
+    BUCKETISFULL,BUCKETISEMPTY,TICKET, FERTILISER, SWORD, RIFLE
 }

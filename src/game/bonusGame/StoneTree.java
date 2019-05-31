@@ -17,13 +17,13 @@ public class StoneTree extends Actor {
      * @param player The player in the game.
      */
     public StoneTree(GamePlayer player) {
-        super("Stone Tree", 'T', 6, 50);
+        super("Stone Tree", 'T', 5, 50);
         this.player = player;
     }
 
     @Override
     public Action playTurn(Actions actions, GameMap map, Display display) {
-        return new SkipTurnAction();
+        return new TreeTalkAction(player, this);
     }
 
     /**
