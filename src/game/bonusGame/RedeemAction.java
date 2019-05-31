@@ -9,7 +9,11 @@ import game.Counter;
 import java.util.HashMap;
 import java.util.Map;
 
+/**
+ * Abstract class used to store its subclasses' redeemable items and their stone values
+ */
 public abstract class RedeemAction extends Action {
+
 
     private Map<BonusGameSkills, Integer> itemToStoneMap = new HashMap<BonusGameSkills, Integer>();
 

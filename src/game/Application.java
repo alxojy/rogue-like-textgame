@@ -23,41 +23,41 @@ public class Application {
 		Grunt mrGrunt = new Grunt("Mr Grunt", player);
 		earth.addActor(mrGrunt, 2, 9);
 		Grunt mrsGrunt = new Grunt("Mrs Grunt", player);
-		earth.addActor(mrsGrunt, 14, 7);
+		earth.addActor(mrsGrunt, 19, 7);
 		Goon toughGoon = new Goon("Tough Goon", player);
-		earth.addActor(toughGoon, 19, 7);
-		//Goon strongGoon = new Goon("Strong Goon", player);
-		//earth.addActor(strongGoon, 2, 7);
+		earth.addActor(toughGoon, 14, 7);
+		Goon strongGoon = new Goon("Strong Goon", player);
+		earth.addActor(strongGoon, 2, 1);
 		Ninja ninjaHatori = new Ninja("Ninja Hatori", player);
-		earth.addActor(ninjaHatori, 18, 3);
+		earth.addActor(ninjaHatori, 18, 4);
 
 		DrMaybe drMaybe = new DrMaybe("Doctor Maybe", player);
-		earth.addActor(drMaybe, 6, 2);
+		earth.addActor(drMaybe, 21, 1);
 
 		Q q = new Q();
 		earth.addActor(q,13,5);
 
 		StoneTree stoneTree = new StoneTree(player);
-		earth.addActor(stoneTree, 1, 5);
+		earth.addActor(stoneTree, 5, 5);
 
 		Item rocketPlan = new Item("rocket plans", 'p');
 		rocketPlan.addSkill(GameSkills.GETROCKETBODY);
-		earth.addItem(rocketPlan, 15, 8);
+		earth.addItem(rocketPlan, 22, 8);
 
 		//Item spaceSuit = new Item("space suit", 's');
 		Item spaceSuit = new Item("space suit",'s');
 		spaceSuit.addSkill(GameSkills.SPACETRAVELLER);
-		earth.addItem(spaceSuit, 22, 1);
+		earth.addItem(spaceSuit, 6, 1);
 
 		Item waterBucket = new Item("water bucket",'⊔');
 		waterBucket.addSkill(BonusGameSkills.BUCKETISEMPTY);
-		earth.addItem(waterBucket,7,5);
+		earth.addItem(waterBucket,8,5);
 
         TeleportationPad teleportationPad = new TeleportationPad(player,"out of locked room");
-		teleportationPad.addTeleportationPadToMap(earth,12,8);
+		teleportationPad.addTeleportationPadToMap(earth,18,8);
 
 		TeleportationPad teleportationPad2 = new TeleportationPad(player,"into locked room");
-		teleportationPad2.addTeleportationPadToMap(earth,12,2);
+		teleportationPad2.addTeleportationPadToMap(earth,19,5);
 
         //moon
 		Grunt moonGrunt = new Grunt("Grunt", player);
@@ -72,7 +72,7 @@ public class Application {
 		YugoMaxx yugoMaxx = new YugoMaxx("Yugo Maxx", player);
 		moon.addActor(yugoMaxx, 13, 1);
 
-		Item rocket = new RocketToEarth(player);
+		Item rocket = new RocketToEarth();
 		moon.addItem(rocket, MoonMap.ROCKET_X, MoonMap.ROCKET_Y);
 
 		Item waterPistol = new Item("water pistol",'¬');
