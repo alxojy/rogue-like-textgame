@@ -8,20 +8,19 @@ import edu.monash.fit2099.engine.*;
 public class RocketToEarth extends Item {
 
     private GameMap earth = EarthMap.getMap();
-    private Actor subject;
 
     /**
      * Constructor
-     *
-     * @param player the player to be moved to Earth
      */
-    RocketToEarth(Actor player) {
+    RocketToEarth() {
         super("rocket", '^');
         Item.newFurniture("rocket", '^');
-        subject = player;
     }
 
-
+    /**
+     * When the actor is standing on the RocketToEarth item furniture, the actor can choose the option to fly to Earth.
+     * @return
+     */
     @Override
     public Actions getAllowableActions() {
         Actions actions = new Actions();

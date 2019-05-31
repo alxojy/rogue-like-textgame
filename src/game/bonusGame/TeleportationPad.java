@@ -14,8 +14,8 @@ public class TeleportationPad extends Item {
      * @param player the player to be moved to Earth
      */
     public TeleportationPad(Actor player, String direction) {
-        super("teleportation pad", '⎔');
-        Item.newFurniture("teleportation pad", '⎔');
+        super("teleportation pad", '◌');
+        Item.newFurniture("teleportation pad", '◌');
         teleportationPads.add(this);
         this.direction = direction;
         subject = player;

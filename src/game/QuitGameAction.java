@@ -5,17 +5,10 @@ import edu.monash.fit2099.engine.Actor;
 import edu.monash.fit2099.engine.GameMap;
 
 /**
- * This class represents the Action to Quit the game
+ * This class represents the Action to quit the game
  * @author Team Kimchi
  */
 public class QuitGameAction extends Action {
-
-    /**
-     * Constructor
-     */
-    QuitGameAction () {
-    }
-
 
     /**
      * This overridden method performs the quit game action by removing the player from the current map.

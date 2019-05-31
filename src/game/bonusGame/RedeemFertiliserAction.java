@@ -30,7 +30,7 @@ public class RedeemFertiliserAction extends RedeemAction {
 
     @Override
     public String menuDescription(Actor actor) {
-        return actor + " adds fertiliser to the stone tree (3 stones)";
+        return actor + " adds fertiliser to the stone tree to produce 2 stones (3 stones)";
     }
 
     @Override

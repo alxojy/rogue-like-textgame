@@ -24,6 +24,7 @@ public class GamePlayer extends Player {
 
     //Counter attribute used to store the number of stones in the player's inventory.
     private Counter stoneCounter = new Counter();
+
     private final int zeroOxygen = 0;
 
     /**
@@ -41,17 +42,9 @@ public class GamePlayer extends Player {
     /**
      * Plays a turn and display the actions that can be performed by the player.
      *
-     * If the player is stunned. This overridden method;
-     * 1. Increments the stunnedCounter if the player is stunned and the stunnedCounter can be incremented. If the stunnedCounter can be
-     * incremented, it indicates that the player has not been stunned for two turns. Hence,it adds a newly instantiated
-     * SkipTurnAction into the newly instantiated Actions as the player is not allowed to perform any other actions.
-     *
-     * 2. Once the stunnedCounter reaches its maximum value, it cannot be incremented anymore and
-     * the stunnedCounter will reset in the MaxCounter class. It sets the boolean stunnedPlayer to false
-     * to return the state that the player is no longer stunned.
-     *
-     * If the player is not stunned, calls its superclass's playTurn method to play a turn and display
-     * the actions that can be performed by the player.
+     * If the player is stunned, it adds a newly instantiated SkipTurnAction into the newly instantiated Actions as the
+     * player is not allowed to perform any other actions. If the player is on the Moon with insufficient oxygen points,
+     * the player will be transported back to Earth.
      *
      * @param actions the actions to display
      * @param map the map to display
@@ -64,10 +57,12 @@ public class GamePlayer extends Player {
         decrementOxygenPoints(map);
         System.out.println("Oxygen points: " + oxygenPoints.getValue());
         System.out.println("Number of stones: " + stoneCounter.getValue());
+        // safety feature- transports player back to Earth if insufficient oxygen points
         if (onTheMoon(map) && oxygenPoints.getValue() <= zeroOxygen) {
             removeOxygenTank();
-            return super.playTurn(new RocketToEarth(this).getAllowableActions(), map, display);
+            return super.playTurn(new RocketToEarth().getAllowableActions(), map, display);
         }
+        // player does nothing during the turn when the player is stunned
         else if (getPlayerStunned() && stunnedCounter.canIncrement()) {
             stunnedCounter.increment();
             return super.playTurn(new Actions(new SkipTurnAction()), map, display);
@@ -82,7 +77,7 @@ public class GamePlayer extends Player {
 
     @Override
     protected IntrinsicWeapon getIntrinsicWeapon() {
-        return new IntrinsicWeapon(100, "punches");
+        return new IntrinsicWeapon(1000, "punches");
     }
 
     /**
@@ -105,7 +100,17 @@ public class GamePlayer extends Player {
     }
 
     /**
-     * This method increases the oxygen point by 10 points whenever user picks up a new oxygen tank.
+     * Returns a boolean which indicates if the player is on the Moon
+     *
+     * @param map tha current map that GamePlayer is on
+     * @return true if player is on the MoonMap, false if otherwise
+     */
+    private boolean onTheMoon(GameMap map) {
+        return map == MoonMap.getMap();
+    }
+
+    /**
+     * This method increases the oxygen point by 10 points whenever the player picks up a new oxygen tank.
      * It also adds skills GameSkills.USEDOXYGENTANK to the oxygen tank item , this is to prevent the program from
      * incrementing the oxygen points with the same oxygen tank.
      */
@@ -119,16 +124,8 @@ public class GamePlayer extends Player {
     }
 
     /**
-     * Returns a boolean which indicates if GamePlayer is on the Moon
-     * @param map tha current map that GamePlayer is on
-     * @return true if player is onTheMoon, false if otherwise
-     */
-    private boolean onTheMoon(GameMap map) {
-        return map == MoonMap.getMap();
-    }
-
-    /**
-     * If player is on the moon , decrement the player's oxygen point by one
+     * Decrement the player's oxygen point by one, if the player is on the Moon
+     *
      * @param map the currentmap that the player is on
      */
     private void decrementOxygenPoints(GameMap map) {
@@ -139,8 +136,8 @@ public class GamePlayer extends Player {
 
     /**
      * This method removes all the oxygen tank from the player's inventory.
-     * This happens immediately after the player is transported back to earth.
-     * This prevents gamePlayer from transporting to moon again.
+     * This happens immediately after the player is transported back to Earth.
+     * This prevents gamePlayer from transporting to Moon again with insufficient oxygen points.
      */
     private void removeOxygenTank(){
         for (Item currentItem :this.getInventory()){
@@ -150,6 +147,13 @@ public class GamePlayer extends Player {
         }
     }
 
+    /**
+     * **This method is for the bonus mark feature**
+     *
+     * Returns the Counter of stones that the player possesses
+     *
+     * @return Counter of stones that the player possesses
+     */
     public Counter getStoneCounter() {
         return stoneCounter;
     }

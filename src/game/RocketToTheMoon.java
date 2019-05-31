@@ -37,12 +37,7 @@ public class RocketToTheMoon extends Item {
      * @return true if the player's inventory has a Spacesuit with GameSkills.SPACETRAVELLER. false otherwise
      */
     private boolean checkSpacesuit() {
-        for (Item currentItem: subject.getInventory()) {
-            if (currentItem.hasSkill(GameSkills.SPACETRAVELLER)) {
-                return true;
-            }
-        }
-        return false;
+        return subject.hasSkill(GameSkills.SPACETRAVELLER);
     }
 
     /**
@@ -51,11 +46,6 @@ public class RocketToTheMoon extends Item {
      * @return True if found, False if otherwise
      */
     private boolean checkOxygenTank() {
-        for (Item currentItem: subject.getInventory()) {
-            if (currentItem.hasSkill(GameSkills.OXYGENTANK)) {
-                return true;
-            }
-        }
-        return false;
+        return subject.hasSkill(GameSkills.OXYGENTANK);
     }
 }

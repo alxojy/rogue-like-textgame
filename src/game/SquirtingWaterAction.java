@@ -46,7 +46,7 @@ public class SquirtingWaterAction extends Action {
 
         if (random.nextDouble() <= 0.70) {
             yugoMaxx.removeExoskeleton();
-            return actor + " successfully squirted water at" + yugoMaxx + "\n" +
+            return actor + " successfully squirted water at " + yugoMaxx + "\n" +
                     yugoMaxx + "'s exoskeleton has been removed.";
         }
         else {

@@ -70,11 +70,6 @@ public class GameWorld extends World {
      * false otherwise
      */
     private boolean checkYugoMaxxBody(){
-        for (Item item : this.player.getInventory()){
-            if (item.hasSkill(GameSkills.YUGOBODY)){
-                return true;
-            }
-        }
-        return false;
+        return this.player.hasSkill(GameSkills.YUGOBODY);
     }
 }
