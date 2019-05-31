@@ -74,7 +74,7 @@ public class YugoMaxx extends Actor {
      * @param otherActor the Actor that might be performing attack
      * @param direction  String representing the direction of the other Actor
      * @param map        current GameMap
-     * @return
+     * @return A List of Actions that can be performed by the actor adjacent to Yugo Maxx.
      */
     @Override
     public Actions getAllowableActions(Actor otherActor, String direction, GameMap map) {
