@@ -68,7 +68,7 @@ public class Application {
 		teleportationPad.addTeleportationPadToMap(earth,18,8);
 
 		TeleportationPad teleportationPad2 = new TeleportationPad(player,"into locked room");
-		teleportationPad2.addTeleportationPadToMap(earth,19,5);
+		teleportationPad2.addTeleportationPadToMap(earth,12,5);
 
         //Enemies on the Moon
 		Grunt moonGrunt = new Grunt("Grunt", player);
