@@ -45,7 +45,8 @@ public class Counter {
     public void increment(int value){this.value = this.value + value;}
 
     /**
-     * Decrease the counter value by 1
+     * Decrement the counter value by the value
+     * @param value value to decrement
      */
     public void decrement(int value) {
         this.value = this.value - value;

@@ -36,7 +36,7 @@ public class StoneTree extends Actor {
      * @param otherActor the Actor that might be performing attack
      * @param direction  String representing the direction of the other Actor
      * @param map        current GameMap
-     * @return
+     * @return a List of Actions that can be performed by the actor adjacent to the stone tree
      */
     @Override
     public Actions getAllowableActions(Actor otherActor, String direction, GameMap map) {

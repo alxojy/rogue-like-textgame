@@ -48,7 +48,7 @@ public abstract class RedeemAction extends Action {
      *
      * @param bonusGameSkills the skill that the item has
      * @param counter player's stone counter
-     * @return
+     * @return returns true if the player has sufficient stones. false otherwise
      */
     public boolean checkSufficientStones(BonusGameSkills bonusGameSkills, Counter counter) {
         return itemToStoneMap.get(bonusGameSkills) <= counter.getValue();
