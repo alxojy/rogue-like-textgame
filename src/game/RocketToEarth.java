@@ -10,7 +10,7 @@ public class RocketToEarth extends Item {
     private GameMap earth = EarthMap.getMap();
 
     /**
-     * Constructor
+     * Constructor. Initialises a new furniture which represents the rocket
      */
     RocketToEarth() {
         super("rocket", '^');
@@ -19,7 +19,7 @@ public class RocketToEarth extends Item {
 
     /**
      * When the actor is standing on the RocketToEarth item furniture, the actor can choose the option to fly to Earth.
-     * @return
+     * @return actions that can be performed when the actor is standing on it
      */
     @Override
     public Actions getAllowableActions() {

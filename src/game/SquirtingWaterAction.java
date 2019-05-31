@@ -21,7 +21,7 @@ public class SquirtingWaterAction extends Action {
      * Constructor
      *
      * @param subject yugoMaxx
-     * @param waterPistol the water pistol item that will perform this action
+     * @param waterPistol the water pistol item used to perform this action
      */
     SquirtingWaterAction(YugoMaxx subject, Item waterPistol) {
         yugoMaxx = subject;
@@ -31,9 +31,8 @@ public class SquirtingWaterAction extends Action {
     /**
      * Performs the action to squirt water at yugoMaxx
      *
-     * Overrides its superclass's execute method and performs either of the following tasks:
      * 1. Replaces GameSkills.PISTOLISFULL with GameSkills.PISTOLISEMPTY to indicate that the waterPistol is now empty
-     * 2. Squirs Water at yugoMaxx and there is a 70% chance that exoskeleton will be destroyed
+     * 2. Squirts Water at yugoMaxx with a 70% chance that exoskeleton will be destroyed
      *
      * @param actor The actor performing the action.
      * @param map The map the actor is on.
@@ -55,7 +54,7 @@ public class SquirtingWaterAction extends Action {
     }
 
     /**
-     * Returns a description of the SquirtingWaterAction to display on the menu.
+     * Returns a String describing the Action suitable for displaying in the menu, which is squirts water at
      *
      * @param actor The actor performing the action.
      * @return A String describing the SquirtingWaterAction

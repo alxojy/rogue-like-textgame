@@ -19,8 +19,8 @@ public class YugoMaxx extends Actor {
     /**
      * Constructor.
 
-     * YugoMaxx has the same hitPoint as Grunt and are always represented with a 'y'.
-     * Constructor calls addBehaviour to add WanderBehaviour which allows yugoMaxx to wonder around the map.
+     * Yugo Maxx has 50 hitPoints and is always represented with a 'y'.
+     * Constructor calls addBehaviour to add WanderBehaviour which allows Yugo Maxx to wonder around the map.
      *
      * @param name Name of the yugoMaxx object
      * @param player Player in the game
@@ -33,7 +33,7 @@ public class YugoMaxx extends Actor {
 
 
     /**
-     * Adds the behaviour of yugoMaxx into a List of behaviours.
+     * Adds the behaviour of Yugo Maxx into a List of behaviours.
      *
      * @param behaviour The behaviour to be added.
      */
@@ -42,10 +42,10 @@ public class YugoMaxx extends Actor {
     }
 
     /**
-     * Returns a suitable Action for yugoMaxx to perform.
+     * Returns a suitable Action for Yugo Maxx to perform.
      *
-     * The playTurn method iterates through the List of behaviours  and checks if yugoMaxx is adjacent to the player.
-     * If it is not adjacent to the player, it will return an action. Else, it will return an AttackAction
+     * The playTurn method iterates through the List of behaviours and checks if Yugo Maxx is adjacent to the player.
+     * If it is not adjacent to the player, it will return its behaviour's Action. Else, it will return an AttackAction
      *
      * @param actions collection of possible Actions for this Actor
      * @param map     the map containing the Actor
@@ -100,13 +100,13 @@ public class YugoMaxx extends Actor {
     }
 
     /**
-     * Makes exoskeleton false to give the impression that exoskeleton is removed.
+     * Remove Yugo Maxx's exoskeleton
      */
     public void removeExoskeleton() {exoskeleton = false;}
 
     /**
-     *Returns the state of exoskeleton.
-     * @return True, if exoskeleton is still effective. False otherwise.
+     * Returns the state of exoskeleton.
+     * @return true, if exoskeleton is present. false otherwise.
      */
     public boolean hasExoskeleton() {return exoskeleton;}
 }

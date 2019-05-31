@@ -77,7 +77,7 @@ public class GamePlayer extends Player {
 
     @Override
     protected IntrinsicWeapon getIntrinsicWeapon() {
-        return new IntrinsicWeapon(1000, "punches");
+        return new IntrinsicWeapon(5, "punches");
     }
 
     /**

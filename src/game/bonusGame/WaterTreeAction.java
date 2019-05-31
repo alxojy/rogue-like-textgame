@@ -10,7 +10,7 @@ import java.util.Random;
 
 
 /**
- * This class represents the Action that waters the stoneTree
+ * This class represents the Action that waters the stone tree
  * @author Team Kimchi
  */
 public class WaterTreeAction extends Action {
@@ -18,7 +18,6 @@ public class WaterTreeAction extends Action {
     private GamePlayer player;
     private Item bucket;
     private StoneTree stoneTree;
-
 
     /**
      * Constructor.
@@ -34,20 +33,20 @@ public class WaterTreeAction extends Action {
     }
 
     /**
-     * Performs the Action of watering the stoneTree
+     * Performs the Action of watering the stone tree
      *
      * Replaces the skill BonusGameSkills.BUCKETISFULL to BonusGameSkills.BUCKETISEMPTY to indicate
-     * that the bucket is emptied.
+     * that the bucket is emptied
      *
      * There is a 50% chance of dropping stones,
      * -If the stone tree is not fertilised, player's stone counter increments by 1 , returns a message that one stone is added
-     * -ELse , player's stone counter increments by 2 , returns a message that two stones are added
+     * -Else, player's stone counter increments by 2, returns a message that two stones are added
      *
-     * If no stones is dropped, returns a message that no stones has been added.
+     * If no stones is dropped, returns a message that no stones has been added
      *
      * @param actor The actor performing the action.
      * @param map the map that actor is currently on.
-     * @return A String describing that the bucket has been filled.
+     * @return A String describing that n number of stones has been added to the actor's inventory
      */
     @Override
     public String execute(Actor actor, GameMap map) {

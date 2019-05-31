@@ -12,6 +12,7 @@ public class Water extends Ground {
 
     /**
      * Constructor.
+     *
      * Initialises the char to display for water as '~'.
      */
     public Water() {
@@ -35,8 +36,8 @@ public class Water extends Ground {
      * @param actor the Actor adjacent to water
      * @param location the current Location
      * @param direction the direction of the Ground from the Actor
-     * @return FillEmptyPistolAction if the player has the waterPistol.
-     *         An empty Action list if the player does not have the waterPistol
+     * @return FillEmptyPistolAction if the player has the water pistol.
+     *         An empty Action list if the player does not have the water pistol
      */
     @Override
     public Actions allowableActions(Actor actor, Location location, String direction){
@@ -51,27 +52,23 @@ public class Water extends Ground {
     }
 
     /**
-     * Checks if the actor's inventory has a waterPistol item that has skill GameSkills.PISTOLISEMPTY
+     * Checks if the actor's inventory has an empty water pistol item that has skill GameSkills.PISTOLISEMPTY
      *
      * @param actor adjacent to water
-     * @return true if the actor's inventory has the waterPistol with GameSkills.PISTOLISEMPTY. false otherwise
+     * @return true if the actor's inventory has the water pistol with GameSkills.PISTOLISEMPTY. false otherwise
      */
     private boolean containsPistol(Actor actor) {
-        for (Item currentItem : actor.getInventory()) {
-            if (currentItem.hasSkill(GameSkills.PISTOLISEMPTY)) {
-                return true;
-            }
-        }
-        return false;
+        return actor.hasSkill(GameSkills.PISTOLISEMPTY);
     }
 
+    /**
+     * Checks if the actor's inventory has an empty bucket item that has skill BonusGameSkills.BUCKETISEMPTY
+     *
+     * @param actor adjacent to water
+     * @return true if the actor's inventory has the bucket with GameSkills.PISTOLISEMPTY. false otherwise
+     */
     private boolean containsBucket(Actor actor) {
-        for (Item currentItem : actor.getInventory()) {
-            if (currentItem.hasSkill(BonusGameSkills.BUCKETISEMPTY)) {
-                return true;
-            }
-        }
-        return false;
+        return actor.hasSkill(BonusGameSkills.BUCKETISEMPTY);
     }
 }
 

@@ -12,7 +12,7 @@ public class RocketToTheMoon extends Item {
     private Actor subject;
 
     /**
-     * Constructor
+     * Constructor. Initialises a new furniture which represents the rocket
      *
      * @param player the player to be moved to Moon
      */
@@ -22,6 +22,11 @@ public class RocketToTheMoon extends Item {
         subject = player;
     }
 
+    /**
+     * When the actor is standing on the RocketToTheMoon item furniture, if the actor has the spacesuit and oxygen tank
+     * item, the actor can choose the option to fly to the Moon.
+     * @return actions that can be performed when the actor is standing on it
+     */
     @Override
     public Actions getAllowableActions() {
         Actions actions = new Actions();
@@ -32,9 +37,9 @@ public class RocketToTheMoon extends Item {
     }
 
     /**
-     * Checks if the player's inventory has a Spacesuit item that has skill GameSkills.SPACETRAVELLER
+     * Checks if the player's inventory has a spacesuit item that has skill GameSkills.SPACETRAVELLER
      *
-     * @return true if the player's inventory has a Spacesuit with GameSkills.SPACETRAVELLER. false otherwise
+     * @return true if the player's inventory has a spacesuit with GameSkills.SPACETRAVELLER. false otherwise
      */
     private boolean checkSpacesuit() {
         return subject.hasSkill(GameSkills.SPACETRAVELLER);
