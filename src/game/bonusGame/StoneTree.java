@@ -26,7 +26,9 @@ public class StoneTree extends Actor {
             }
         }
         actions.add(new RedeemTicketAction(player));
-        actions.add(new RedeemFertiliserAction(this, player));
+        if (!hasFertiliser()) {
+            actions.add(new RedeemFertiliserAction(this, player));
+        }
         actions.add(new RedeemSwordAction(player));
         return actions;
     }
