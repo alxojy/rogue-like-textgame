@@ -29,7 +29,7 @@ public class GameWorld extends World {
      * Else if when the player defeats Yugo Maxx and carries his unconscious body back to Earth, returns the String
      * “Player wins”
      * Else, returns the String, "Game ended"
-     * @return
+     * @return a suitable end game message based on the scenario
      */
     protected String endGameMessage(){
         if (!this.player.isConscious()){
