@@ -25,7 +25,7 @@ Smart and cunning, he works in a locked room and has the rocket engine for the p
 #### Ultimate boss
 - YugoMaxx ```y```
 
-Located on the Moon, his thick exoskeleton makes him invincible from the player's attacks. There's only one thing that can stop him. H20 (yup, water) on Earth. Store it in your pistol and pew pew him to death. Once he's defeated, carry his dead carcass back to Earth to show everyone how much of a hero you are! 
+Located on the Moon, his thick exoskeleton makes him invincible to the player's attacks. There's only one thing that can stop him. H20 (yup, water) on Earth. Store it in your pistol and pew pew him to death. Once he's defeated, carry his dead carcass back to Earth to show everyone how much of a hero you are! 
 
 #### Sidekick
 - Q ```Q```
@@ -38,7 +38,7 @@ He's there to help but in order for him to help you, you need to give him the ro
 Unlock doors.
 - Spacesuit 👨‍🚀  ```s```
 
-Needed for the player to transport to the Moon. It has an emergency sensor that transports the player back on Earth if they run out of O2. 
+Needed for the player to transport to the Moon. It has an emergency sensor that transports the player back to Earth if they run out of O2. 
 - Oxygen Tank ```o```
 
 Collect O2 from the Oxygen dispenser so that you can breathe on the Moon.
@@ -55,11 +55,11 @@ Bring justice and shoot YugoMaxx to death.
 Place your rocket engine and rocket body to build a rocket and fly to the Moon! (Oh, but you need a spacesuit and O2 to fly)
 - Oxygen Dispenser ```O```
 
-Fill your Oxygen tanks with sum good fresh air. (O2)
+Fill your Oxygen tanks with some good fresh air. (O2)
 
 ## Bonus Game
 Wait, there's more!
-We've added a special entity, called the StoneTree ```T``` ;)
+We've added a special entity, called the StoneTree ```T```.
 It talks and dispenses stones when the player waters it with a bucket ```⊔```. It's not generous though, there's only a 50% chance it'll give you a stone. But what can you do with stones? 
 
 🎉 Redeem items to help you win in the game 🎉
