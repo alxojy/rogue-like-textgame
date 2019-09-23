@@ -9,7 +9,7 @@ The purpose of this assignment was to create a James Bond inspired rogue-like ga
 ## Gameplay
 ### Entities
 #### Enemies
-- Grunt
+- Grunt -
 The lowest in the hierarchy of enemies. It follows and slaps but is almost harmless.
 - Goon
 Grunt but angrier. It follows and shouts insults at the player. Its punches are x2 of Grunt's.
