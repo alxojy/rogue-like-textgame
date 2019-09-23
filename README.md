@@ -14,7 +14,7 @@ The purpose of this assignment was to create a James Bond inspired rogue-like ga
 The lowest in the hierarchy of enemies. It follows and slaps but is almost harmless.
 - Goon ```G```
 
-Grunt but angrier. It follows and shouts insults at the player. Its punches are x2 of Grunt's.
+Grunt but angrier. It follows and shouts insults at the player. Its punches are x2 damage of Grunt's.
 - Ninja ```n```
 
 Sly and mysterious. It stays in one spot until it eyes the player from 5 boxes away. Then, with its stun powder, it stuns the player for a round. The player has nothing to do but wait for the powder to wear off. 
