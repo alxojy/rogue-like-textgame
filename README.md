@@ -61,6 +61,7 @@ Fill your Oxygen tanks with sum good fresh air. (O2)
 Wait, there's more!
 We've added a special entity, called the StoneTree ```T``` ;)
 It talks and dispenses stones when the player waters it with a bucket ```⊔```. It's not generous though, there's only a 50% chance it'll give you a stone. But what can you do with stones? 
+
 🎉 Redeem items to help you win in the game 🎉
 - 2 stones = Redeem a key for intra-world teleportation. Lazy to kill enemies for the key? Stand on the teleportation pad ```◌``` for a 2-way travel. 
 - 3 stones = Fertilizer to level up the StoneTree to spawn x2 stones
