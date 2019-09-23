@@ -6,9 +6,56 @@ The purpose of this assignment was to create a James Bond inspired rogue-like ga
 - Megan Ooi
 - Hew Ye Zea
 
-# Gameplay
-# Entities
+## Gameplay
+### Entities
+#### Enemies
+- Grunt
+The lowest in the hierarchy of enemies. It follows and slaps but is almost harmless.
+- Goon
+Grunt but angrier. It follows and shouts insults at the player. Its punches are x2 of Grunt's.
+- Ninja
+Sly and mysterious. It stays in one spot until it eyes the player from 5 boxes away. Then, with its stun powder, it stuns the player for a round. The player has nothing to do but wait for the powder to wear off. 
+- Dr Maybe
+Smart and cunning, he works in a locked room and has the rocket engine for the player to fly to the Moon. In order to retrieve the rocket engine, he needs to be defeated. In order to do that, the player has to kill one of the enemies to obtain the key and fight him. Fortunately, Dr Maybe is all brains but no strength. 1/2 of Grunt's damage == EZ KO.
 
-# Plagiarism Notice
+#### Ultimate boss
+- YugoMaxx
+Located on the Moon, his thick exoskeleton makes him invincible from the player's attacks. There's only one thing that can stop him. H20 (yup, water) on Earth. Store it in your pistol and pew pew him to death. Once he's defeated, carry his dead carcass back to Earth to show everyone how much of a hero you are! 
 
-The code in this repository is not endorsed by Monash University. Please note that copying the code for unit assessments without referencing will result in a breach in Academic Integrity Policy and that we will not be held responsible for these breaches. For more information please visit https://www.monash.edu/students/academic/policies/academic-integrity
+#### Sidekick
+- Q
+He's there to help but in order for him to help you, you need to give him the rocket plans in exchange for the rocket body. He has the ability to talk and wander around the map. 
+
+### Objects
+- Key 🔑
+Unlock doors.
+- Spacesuit 👨‍🚀
+Needed for the player to transport to the Moon. It has an emergency sensor that transports the player back on Earth if they run out of O2. 
+- Oxygen Tank
+Collect O2 from the Oxygen dispenser so that you can breathe on the Moon.
+- Rocket plans 
+Needed for Q to help you.
+- Water pistol
+Bring justice and shoot YugoMaxx to death.
+
+### Locations
+- Rocket Pad
+Place your rocket engine and rocket body to build a rocket and fly to the Moon! (Oh, but you need a spacesuit and O2 to fly)
+- Oxygen Dispenser
+Fill your Oxygen tanks with sum good fresh air. (O2)
+
+## Bonus Game
+Wait, there's more!
+We've added a special entity, called the ```StoneTree``` ;)
+It talks and dispenses stones when the player waters it with a bucket. It's not generous though, there's only a 50% chance it'll give you a stone. But what can you do with stones? 
+🎉 Redeem items to help you win in the game 🎉
+2 stones = Redeem a key for intra-world teleportation. Lazy to kill enemies for the key? Stand on the teleportation pad for a 2-way travel. 
+3 stones = Fertilizer to level up the StoneTree to spawn x2 stones
+4 stones = A weapon with higher damage to fight all your enemies 
+
+## Plagiarism Notice
+
+Copying or plagiarising code is a serious offence and will result in a breach in the Academic Integrity Policy
+https://www.monash.edu/students/academic/policies/academic-integrity. We will not be held responsible for any of these breaches. You have been warned.
+
+PS. We scored 59/60 for this assignment.
