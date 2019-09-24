@@ -20,7 +20,7 @@ Grunt but angrier. It follows and shouts insults at the player. Its punches are 
 Sly and mysterious. It stays in one spot until it eyes the player from 5 boxes away. Then, with its stun powder, it stuns the player for a round. The player has nothing to do but wait for the powder to wear off. 
 - Dr Maybe ```m```
 
-Smart and cunning, he works in a locked room and has the rocket engine for the player to fly to the Moon. In order to retrieve the rocket engine, he needs to be defeated. In order to do that, the player has to kill one of the enemies to obtain the key and fight him. Fortunately, Dr Maybe is all brains but no strength. 1/2 of Grunt's damage == EZ KO.
+Smart and cunning, he works in a locked room and has the rocket engine for the player to fly to the Moon. In order to retrieve the rocket engine, he needs to be defeated. The player has to kill one of the enemies to obtain the key and fight him. Fortunately, Dr Maybe is all brains but no strength. 1/2 of Grunt's damage == EZ KO.
 
 #### Ultimate boss
 - YugoMaxx ```y```
