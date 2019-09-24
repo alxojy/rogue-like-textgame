@@ -8,6 +8,11 @@ The purpose of this assignment was to create a James Bond inspired rogue-like ga
 
 ## Gameplay
 ### Entities
+#### Player
+```@```
+
+Well, that's you. 
+
 #### Enemies
 - Grunt ```g```
 
