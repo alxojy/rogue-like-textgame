@@ -77,4 +77,6 @@ It talks and dispenses stones when the player waters it with a bucket ```⊔```.
 Copying or plagiarising code is a serious offence and will result in a breach in the Academic Integrity Policy
 https://www.monash.edu/students/academic/policies/academic-integrity. We will not be held responsible for any of these breaches. You have been warned.
 
+Game engine by Dr. David Squire.
+
 🙌 We scored 59/60 for this assignment.
