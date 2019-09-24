@@ -71,6 +71,7 @@ It talks and dispenses stones when the player waters it with a bucket ```⊔```.
 - 3 stones = Fertilizer to level up the StoneTree to spawn x2 stones.
 - 4 stones = A weapon with higher damage to fight all your enemies.
 
+![](oop.gif)
 ## Plagiarism Notice
 
 Copying or plagiarising code is a serious offence and will result in a breach in the Academic Integrity Policy
