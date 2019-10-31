@@ -72,6 +72,11 @@ It talks and dispenses stones when the player waters it with a bucket ```⊔```.
 - 4 stones = A weapon with higher damage to fight all your enemies.
 
 ![](oop.gif)
+
+## Note
+
+This repo has been created to share our project and for future students taking this unit to get an idea on what the assignment is about. However, we do not condone the act of plagiarism so please do not copy.  
+
 ## Plagiarism Notice
 
 Copying or plagiarising code is a serious offence and will result in a breach in the Academic Integrity Policy
