@@ -75,7 +75,7 @@ It talks and dispenses stones when the player waters it with a bucket ```⊔```.
 
 ## Note
 
-This repo has been created to share our project and for future students taking this unit to get an idea on what the assignment is about. However, we do not condone the act of plagiarism so please do not copy.  
+This repo has been created to share our project and for future students taking this unit to get an idea on what the assignment is about. However, we do not condone the act of plagiarism so only use our code as reference, if you wish.
 
 ## Plagiarism Notice
 
