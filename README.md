@@ -1,4 +1,4 @@
-# FIT 2099 assignment
+# FIT 2099 assignment 
 
 The purpose of this assignment was to create a James Bond inspired rogue-like game that applies standard OOP principles. We worked in pairs and were required to collaborate using git. The code written in our game adheres to the UML diagrams created for this project. 
 
@@ -84,4 +84,4 @@ https://www.monash.edu/students/academic/policies/academic-integrity. We will no
 
 Game engine by Dr. David Squire.
 
-🙌 We scored 59/60 for this assignment.
+We scored 59/60 for this assignment.
